@@ -4,13 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BigHammer Databricks Masterclass</title>
-<meta name="description" content="Free 45-minute live masterclass with Srinath Reddy, Founder and CEO of BigHammer.ai. See the six patterns inflating your Databricks bill and how one healthcare firm avoided $3M+ a year. Thursday, October 15, 2026, 12:00 PM ET.">
+<meta name="description" content="Free 45-minute live masterclass with Srinath Reddy and Richard Lawrence of BigHammer.ai. See the six patterns inflating your Databricks bill and how one healthcare firm avoided $3M+ a year. Thursday, October 15, 2026, 12:00 PM ET.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Cut your Databricks bill by up to 75%. Free live masterclass.">
 <meta property="og:description" content="45 minutes with Srinath Reddy. Six waste patterns, a $3M+ healthcare teardown, and a free cost assessment for every registrant. Thu, Oct 15, 12:00 PM ET.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#5600EF">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%235600EF'/%3E%3Crect x='7' y='7' width='18' height='6' fill='%2300FF89'/%3E%3Crect x='13' y='13' width='6' height='13' fill='%23fff'/%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Event","name":"Cut your Databricks bill by up to 75%: Live Masterclass","description":"A free 45-minute live masterclass with Srinath Reddy and Richard Lawrence of BigHammer.ai. See where Databricks spend leaks and what to fix first.","startDate":"2026-10-15T12:00:00-04:00","endDate":"2026-10-15T12:45:00-04:00","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OnlineEventAttendanceMode","location":{"@type":"VirtualLocation","url":"https://amal200496.github.io/bighammer-masterclass/"},"organizer":{"@type":"Organization","name":"BigHammer.ai"},"performer":[{"@type":"Person","name":"Srinath Reddy","jobTitle":"Founder & CEO, BigHammer.ai"},{"@type":"Person","name":"Richard Lawrence","jobTitle":"Enterprise Growth Lead, BigHammer.ai"}],"isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/LimitedAvailability","url":"https://amal200496.github.io/bighammer-masterclass/#register"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,500;0,600;0,700;0,800;1,700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
@@ -738,6 +739,30 @@ select.input{padding-right:44px; cursor:pointer}
 @media (prefers-reduced-motion:reduce){
   .hdr-progress{display:none}
 }
+
+/* ==========================================================
+   V8: polish pass (impeccable + taste + landing-page-guide)
+   ========================================================== */
+p{text-wrap:pretty}
+.hero h1{font-size:clamp(40px,5vw,64px)}
+.cd-title{text-transform:none; letter-spacing:0; font-size:15px; font-weight:600}
+.host-mini figcaption small{text-transform:none; letter-spacing:0; font-size:13px; font-weight:500}
+.guest-tag{text-transform:none; letter-spacing:0; font-size:15px; font-weight:500; color:var(--grey-600)}
+.fw-hint{display:none !important}
+.btn-primary:active{transform:translate(0,1px) scale(.985); box-shadow:0 0 0 0 var(--ink-900)}
+
+/* team ledger: number left, evidence right */
+.proofs{grid-template-columns:1fr; border-top:0}
+.proof{display:grid; grid-template-columns:minmax(150px,.38fr) minmax(0,1fr); gap:6px 32px; align-items:baseline; padding:26px 0; border-top:1px solid var(--w-20)}
+.proof b{font-size:clamp(48px,6vw,84px)}
+.proof span{margin-top:0; max-width:26em; font-size:clamp(17px,1.6vw,20px); line-height:1.45; color:var(--white)}
+@media (max-width:767px){
+  .proof{grid-template-columns:1fr; gap:4px; padding:22px 0}
+}
+
+/* focus visibility on every interactive control */
+.input:focus-visible,select.input:focus-visible,.consent input:focus-visible{outline:3px solid var(--purple); outline-offset:2px}
+a:focus-visible,button:focus-visible{outline-offset:3px}
 </style>
 
 <a class="skip" href="#main">Skip to content</a>
@@ -932,7 +957,6 @@ select.input{padding-right:44px; cursor:pointer}
 <section class="section case on-dark" id="case" aria-labelledby="case-title">
   <div class="container case-grid">
     <div class="reveal">
-      <p class="kicker">Customer spotlight</p>
       <h2 class="h2" id="case-title">A healthcare firm avoided $3M+ a year.</h2>
       <div class="outcomes one"><div class="outcome"><b data-count-to="50" data-prefix="~" data-suffix="%">~50%</b><span>lower Databricks TCO</span></div></div>
     </div>
@@ -961,7 +985,7 @@ select.input{padding-right:44px; cursor:pointer}
   <div class="fw-track">
     <div class="fw-stage">
       <div class="container">
-        <div class="fw-head"><h2 class="h2" id="framework-title">Assess. Migrate. Monitor.</h2><p class="fw-hint" aria-hidden="true">Scroll to step through</p></div>
+        <div class="fw-head"><h2 class="h2" id="framework-title">Assess. Migrate. Monitor.</h2></div>
         <ol class="fw-rail" aria-hidden="true">
           <li class="fw-node"><span>1</span>Assess</li>
           <li class="fw-node"><span>2</span>Migrate</li>
