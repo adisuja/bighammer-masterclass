@@ -510,6 +510,234 @@ select.input{padding-right:44px; cursor:pointer}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none !important; transition:none !important; scroll-behavior:auto !important}
 }
+
+/* ==========================================================
+   V7: motion system, patterns graphics, framework upgrades, team, hosts, marquee
+   ========================================================== */
+:root{--ease-in-out:cubic-bezier(.65,0,.35,1)}
+.hdr-progress{position:absolute; left:0; right:0; bottom:-1px; height:2px; background:var(--green); transform-origin:left; transform:scaleX(0)}
+#evchip-t{display:inline-block; transition:opacity .18s ease}
+.fact b,.outcome b,.leak-val,.cd-num,.proof b{font-variant-numeric:tabular-nums}
+
+/* countdown digit roll */
+.cd-num{position:relative; height:1em; overflow:hidden}
+.rl-o,.rl-n{position:absolute; left:0; right:0; top:0; text-align:center}
+
+/* hero */
+.hosts{grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr); align-items:end; max-width:560px}
+.host-main .ph{max-width:250px}
+.host-co .ph{max-width:150px}
+.host-mini figcaption small{font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--green)}
+.ph,.portrait{position:relative; overflow:hidden; isolation:isolate}
+.ph{transition:box-shadow .24s var(--ease-out)}
+.ph::after,.portrait::after{content:""; position:absolute; inset:0; background:var(--purple); mix-blend-mode:multiply; opacity:0; transition:opacity .24s ease; pointer-events:none}
+@media (hover:hover){
+  .ph:hover::after,.portrait:hover::after{opacity:.85}
+  .ph:hover{box-shadow:10px 10px 0 var(--green)}
+}
+.when{border:0; position:relative}
+.when::before,.when::after{content:""; position:absolute; left:0; right:0; height:1px; background:var(--w-20)}
+.when::before{top:0}
+.when::after{bottom:0}
+.reg{--sh:12px}
+
+/* countdown / chip / quote */
+.voice .ch{display:block; transition:opacity .55s var(--ease-out), transform .55s var(--ease-out)}
+.voice .ch + .ch{margin-top:.15em; transition-delay:.14s}
+.voice.pend .ch{opacity:0; transform:translateY(14px)}
+.hi{background:linear-gradient(var(--lime),var(--lime)) no-repeat 0 92%/100% 38%; transition:background-size .6s var(--ease-out) .5s}
+.voice.pend .hi{background-size:0% 38%}
+
+/* patterns: itemized-bill graphics */
+.pattern .num{transition:transform .6s var(--ease-out), opacity .5s ease}
+.pattern.pend .num{transform:translateY(40%); opacity:0}
+.pg{display:flex; align-items:center; gap:8px; width:136px; min-height:44px; font-size:12px; font-weight:600; color:var(--ink-700)}
+@media (min-width:600px){
+  .pattern{grid-template-columns:72px 1fr 136px; align-items:start}
+  .pg{grid-column:3; grid-row:1 / span 2; align-self:center}
+}
+@media (max-width:599px){
+  .pg{grid-column:2; margin-top:12px; width:100%; max-width:240px}
+}
+.g-track{flex:1; height:12px; background:var(--field-bg-2); overflow:hidden}
+.g-fill{display:block; height:100%; background:var(--pink); transform-origin:left; transform:scaleX(var(--w)); transition:transform 1s var(--ease-out) .2s}
+.pattern.pend .g-fill{transform:scaleX(0)}
+.pg-v{min-width:3.2em; text-align:right}
+.g-chip{padding:6px 9px; background:var(--field-bg-2); font-family:var(--font-display); font-weight:800; font-size:15px}
+.g-chip.c2{background:var(--pink); color:var(--white); transition:transform .4s var(--ease-out) .55s, opacity .3s ease .55s}
+.pattern.pend .g-chip.c2{transform:scale(.7); opacity:0}
+.arr{width:30px; height:10px; fill:none; stroke:var(--ink-700); stroke-width:2; stroke-dasharray:60; stroke-dashoffset:0; transition:stroke-dashoffset .5s var(--ease-out) .2s}
+.pattern.pend .arr{stroke-dashoffset:60}
+.g-split{flex:1; display:grid; grid-template-columns:70% 30%; height:14px}
+.g-split i{display:block; transform-origin:left; transition:transform .7s var(--ease-out)}
+.g-split .s1{background:repeating-linear-gradient(135deg,#8c8c99 0 4px,#c9c9d2 4px 8px)}
+.g-split .s2{background:var(--purple); transition-delay:.7s}
+.pattern.pend .g-split i{transform:scaleX(0)}
+.g-sq{position:relative; width:120px; height:38px; flex:none}
+.g-sq i:not(.g-blk){position:absolute; width:9px; height:9px; background:var(--ink-700); transform:translate(var(--tx),var(--ty)) scale(.3); opacity:0; transition:transform .7s var(--ease-in-out) calc(var(--k) * 14ms), opacity .4s ease calc(.4s + var(--k) * 14ms)}
+.pattern.pend .g-sq i:not(.g-blk){transform:none; opacity:1}
+.g-blk{position:absolute; left:45px; top:11px; width:30px; height:16px; background:var(--purple); transition:transform .5s var(--ease-out) .65s, opacity .3s ease .65s}
+.pattern.pend .g-blk{opacity:0; transform:scale(.3)}
+.g-cb{display:flex; flex-direction:column; gap:3px; font-size:11.5px}
+.cb{display:flex; align-items:center; gap:6px; transition:opacity .4s ease calc(var(--k) * 140ms), transform .4s var(--ease-out) calc(var(--k) * 140ms)}
+.cb i{display:block; width:11px; height:11px; border:2px solid var(--ink-700)}
+.pattern.pend .cb{opacity:0; transform:translateY(6px)}
+.p1 .g-track{--pc:rgba(254,0,121,.3)}
+
+/* case */
+.case::after{transform:translateY(var(--gy,0px))}
+.axis{display:flex; justify-content:space-between; margin-top:16px; padding-top:8px; border-top:1px solid var(--w-20); font-size:12px; color:var(--w-75)}
+
+/* framework */
+.fw-step{position:relative}
+.fw-ghost{position:absolute; left:-1vw; top:50%; transform:translateY(-50%); z-index:0; font-family:var(--font-display); font-weight:800; font-size:clamp(180px,26vw,400px); line-height:.8; letter-spacing:-.06em; color:transparent; -webkit-text-stroke:2px var(--w-12); pointer-events:none; user-select:none}
+.fw-copy,.vis{position:relative; z-index:1}
+.vis-head span b{font:inherit; color:var(--white)}
+.scanbox{overflow-x:clip}
+.scan{left:0; width:100%; transform:translateX(calc(var(--sp) * 100%)); background:none; box-shadow:none}
+.scan::before{content:""; position:absolute; left:0; top:0; bottom:0; width:2px; background:var(--white); box-shadow:0 0 18px 2px rgba(255,255,255,.6)}
+.lane i{background:repeating-linear-gradient(90deg,var(--yellow) 0 10px,rgba(252,255,0,.45) 10px 14px)}
+.lane::after{content:""; position:absolute; top:0; width:5px; height:100%; background:var(--white); left:calc(clamp(0, (var(--sp) - var(--a, 0)) / .28, 1) * 100%); transform:translateX(-100%)}
+.check{position:relative}
+.check::after{content:""; position:absolute; left:15px; top:50%; width:9px; height:5px; border-left:2px solid var(--ink-900); border-bottom:2px solid var(--ink-900); transform:translateY(-75%) rotate(-45deg) scale(0); transition:transform .25s var(--ease-out)}
+.check.on::after,.fw:not(.is-pinned) .fw-step:not(.anim) .check::after{transform:translateY(-75%) rotate(-45deg) scale(1)}
+.fw .check::before{box-shadow:none !important}
+.vis-mon{display:grid; grid-template-columns:minmax(0,1fr) 190px; gap:18px; align-items:center}
+.ring{width:100%; height:auto}
+.ring-track{fill:none; stroke:var(--w-12); stroke-width:3}
+.ring-arc{fill:none; stroke:var(--green); stroke-width:3; stroke-dasharray:1; stroke-dashoffset:calc(1 - clamp(0, (var(--sp) - .1) / .8, 1)); transform:rotate(-90deg); transform-origin:120px 88px}
+.rn{fill:var(--w-20); stroke:var(--ink-900); stroke-width:3; transition:fill .3s ease}
+.rl{fill:var(--w-75); font:600 12px var(--font-body); transition:fill .3s ease}
+.rc{fill:var(--w-75); font:600 11px var(--font-body); text-anchor:middle}
+.rn.on{fill:var(--yellow)}
+.rl.on{fill:var(--white)}
+.fw:not(.is-pinned) .fw-step:not(.anim) .rn{fill:var(--yellow)}
+.fw:not(.is-pinned) .fw-step:not(.anim) .rl{fill:var(--white)}
+.fw.is-pinned .fw-ghost{transform:translateY(calc(-50% + (.5 - var(--sp)) * 70px))}
+.fw.is-pinned .fw-step .vis{clip-path:inset(-20px 100% -20px -20px); transition:clip-path .55s var(--ease-in-out)}
+.fw.is-pinned .fw-step.active .vis{clip-path:inset(-20px)}
+.fw-dots{display:none}
+@media (max-width:899px){
+  .fw-ghost{display:none}
+  .fw-steps{display:grid; grid-auto-flow:column; grid-auto-columns:88%; overflow-x:auto; scroll-snap-type:x mandatory; gap:16px; padding-bottom:18px; margin-top:28px; scrollbar-width:none; overscroll-behavior-x:contain}
+  .fw-steps::-webkit-scrollbar{display:none}
+  .fw-step{scroll-snap-align:center; align-content:start; align-items:start}
+  .fw-dots{display:flex; justify-content:center; gap:8px; margin-top:6px}
+  .fw-dots i{display:block; width:10px; height:10px; background:var(--w-20); transition:background-color .2s ease}
+  .fw-dots i.on{background:var(--green)}
+}
+@media (max-width:599px){
+  .vis-mon{grid-template-columns:1fr}
+  .ring{max-width:260px; margin-inline:auto}
+}
+
+/* team expertise */
+.team{background:var(--ink-900); color:var(--white); position:relative; overflow:hidden}
+.team .h2{color:var(--white); max-width:16em}
+.team .lead{color:var(--w-90); margin-top:20px; max-width:36em}
+.proofs{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); margin-top:clamp(36px,5vw,56px); border-top:1px solid var(--w-20)}
+.proof{padding:28px 28px 0 0}
+.proof b{display:block; font-family:var(--font-display); font-weight:800; font-size:clamp(52px,6.4vw,92px); line-height:.95; letter-spacing:-.04em; color:var(--green)}
+.proof span{display:block; margin-top:14px; max-width:19em; color:var(--w-90)}
+.engines{display:flex; flex-wrap:wrap; gap:8px; margin-top:clamp(28px,4vw,40px)}
+.engines li{padding:8px 12px; background:var(--w-08); border:1px solid var(--w-12); font-size:13.5px; font-weight:600}
+.team-close{margin-top:clamp(28px,4vw,44px); max-width:30em; font-family:var(--font-display); font-weight:700; font-size:clamp(20px,2.2vw,28px); line-height:1.25; letter-spacing:-.015em}
+.team-close span{color:var(--green)}
+@media (max-width:767px){
+  .proofs{grid-template-columns:1fr}
+  .proof{padding:24px 0 0}
+}
+
+/* agenda timeline + assessment squares */
+.tl{margin-bottom:24px; padding-bottom:26px; border-bottom:1px solid var(--hair)}
+.tl-bar{display:grid; grid-template-columns:2fr 1fr; gap:3px; height:14px}
+.tl-bar i{display:block; transform-origin:left; transition:transform .7s var(--ease-out)}
+.tl-bar .a{background:var(--purple)}
+.tl-bar .b{background:var(--ink-900); transition-duration:.4s; transition-delay:.7s}
+.tl.pend .tl-bar i{transform:scaleX(0)}
+.tl-ticks{position:relative; height:18px; margin-top:8px; font-size:12px; font-weight:600; color:var(--grey-600)}
+.tl-ticks span{position:absolute; top:0}
+.tl-ticks span:nth-child(1){left:0}
+.tl-ticks span:nth-child(2){left:66.66%; transform:translateX(-50%)}
+.tl-ticks span:nth-child(3){right:0}
+.tl + .ag-row{border-top:0; padding-top:0}
+.qs{display:flex; flex-wrap:wrap; gap:6px; margin:0 0 20px}
+.qs i{display:flex; align-items:center; justify-content:center; width:34px; height:34px; font-style:normal; font-size:12px; font-weight:600; background:var(--green); color:var(--ink-900); transition:background-color .35s ease calc(var(--k) * 90ms), color .35s ease calc(var(--k) * 90ms)}
+.opt-a.pend .qs i{background:var(--w-12); color:var(--w-75)}
+
+/* hosts */
+.hostcard .portrait{clip-path:inset(-20px); transition:clip-path .9s var(--ease-out)}
+.hostcard.pend .portrait{clip-path:inset(100% -20px -20px -20px)}
+.hostcard .host-name,.hostcard .host-role{transition:transform .7s var(--ease-out) .25s, opacity .6s ease .25s}
+.hostcard.pend .host-name,.hostcard.pend .host-role{transform:translateY(24px); opacity:0}
+.guest-tag{font-weight:600; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--purple); margin-bottom:14px}
+@media (min-width:900px){
+  .hosts-grid{grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr); align-items:start}
+  .host-lead .portrait{max-width:540px}
+  .host-guest .portrait{max-width:260px}
+  .host-lead .host-name{font-size:clamp(36px,4.4vw,60px)}
+  .host-guest .host-name{font-size:clamp(24px,2.4vw,32px); margin-top:26px}
+}
+
+/* marquee + final + footer */
+.marquee{background:var(--ink-900); color:var(--white); overflow:hidden; white-space:nowrap; padding-block:18px; border-top:1px solid var(--w-12)}
+.mq-track{display:inline-flex; width:max-content}
+.mq-set{display:inline-flex; flex:none}
+.mq-set span{font-family:var(--font-display); font-weight:700; font-size:20px; letter-spacing:.04em; text-transform:uppercase; padding-right:28px}
+.mq-set span::before{content:"▸"; color:var(--green); margin-right:28px}
+.final .ln{display:block; overflow:hidden; padding-bottom:.1em; margin-bottom:-.1em}
+.final .ln > span{display:block; transition:transform .8s var(--ease-out)}
+.final .ln:nth-child(2) > span{transition-delay:.09s}
+.final.pend .ln > span{transform:translateY(105%)}
+.bottom-bar{display:grid; grid-template-columns:repeat(4,1fr); background:none}
+.bottom-bar i{display:block; transform-origin:left; transition:transform .6s var(--ease-out) calc(var(--k) * 80ms)}
+.site-footer.pend .bottom-bar i{transform:scaleX(0)}
+
+/* form micro-interactions */
+.btn .ld{display:none; gap:6px; align-items:center}
+.btn.loading .bt{display:none}
+.btn.loading .ld{display:inline-flex}
+.ld i{display:block; width:9px; height:9px; background:var(--ink-900); animation:ldp .9s ease-in-out infinite; animation-delay:calc(var(--k) * .14s)}
+.btn:disabled{cursor:progress}
+.seat-flag.saved{background:var(--green); color:var(--ink-900)}
+.tick polyline{stroke-dasharray:1; stroke-dashoffset:0}
+@media (max-width:767px){ .reg{--sh:8px} }
+
+@keyframes ldp{0%,100%{transform:scale(.6); opacity:.4}50%{transform:scale(1.15); opacity:1}}
+@keyframes flip{0%{transform:rotateX(0)}50%{transform:rotateX(90deg)}100%{transform:rotateX(0)}}
+@keyframes drawT{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+
+/* motion-only choreography */
+@media (prefers-reduced-motion:no-preference){
+  .rl-o{animation:rollOut .28s var(--ease-out) both}
+  .rl-n{animation:rollIn .28s var(--ease-out) both}
+  @keyframes rollOut{to{transform:translateY(-100%); opacity:0}}
+  @keyframes rollIn{from{transform:translateY(100%)}to{transform:none}}
+  .hero-kicker{animation:clipIn .45s var(--ease-out) .05s both}
+  @keyframes clipIn{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0)}}
+  .host-main .ph{animation:photoIn .75s var(--ease-out) .6s both}
+  .host-co .ph{animation:photoIn .75s var(--ease-out) .68s both}
+  @keyframes photoIn{from{clip-path:inset(100% -14px -14px -14px)}to{clip-path:inset(-14px)}}
+  .when::before,.when::after{transform-origin:left; animation:drawX .8s var(--ease-out) .4s both}
+  @keyframes drawX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+  .reg{animation:slideR .7s var(--ease-out) .45s both, shadowGrow .5s var(--ease-out) .95s both}
+  @keyframes slideR{from{opacity:0; transform:translateX(26px)}to{opacity:1; transform:none}}
+  @keyframes shadowGrow{from{box-shadow:0 0 0 var(--green)}to{box-shadow:var(--sh) var(--sh) 0 var(--green)}}
+  .p1:not(.pend) .g-track{animation:padPulse 1s ease .9s 1}
+  @keyframes padPulse{50%{background:var(--pc)}}
+  .fw-node.active span{animation:nodePulse .5s var(--ease-out)}
+  @keyframes nodePulse{0%{transform:scale(1)}50%{transform:scale(1.25)}100%{transform:scale(1.12)}}
+  .loop.is-in .btn{animation:nudge .7s var(--ease-out) .6s 1}
+  @keyframes nudge{0%,100%{transform:none}40%{transform:translateX(6px)}}
+  .seat-flag.flip{animation:flip .4s var(--ease-in-out)}
+  .success:not([hidden]) .tick polyline{animation:drawT .4s ease-out .15s both}
+  .mq-track{animation:mq 34s linear infinite}
+  .marquee:hover .mq-track{animation-play-state:paused}
+  @keyframes mq{to{transform:translateX(-50%)}}
+}
+@media (prefers-reduced-motion:reduce){
+  .hdr-progress{display:none}
+}
 </style>
 
 <a class="skip" href="#main">Skip to content</a>
@@ -518,9 +746,10 @@ select.input{padding-right:44px; cursor:pointer}
 <header class="site-header on-dark">
   <div class="container header-inner">
     <a href="#top" aria-label="BigHammer.ai home"><img class="logo" src="data:image/png;base64,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" alt="BigHammer.ai" width="190" height="44"></a>
-    <p class="event-chip"><strong>Free live masterclass</strong> &nbsp;Thu, Oct 15, 12:00 PM ET</p>
+    <p class="event-chip" id="evchip"><span id="evchip-t"><strong>Free live masterclass</strong> &nbsp;Thu, Oct 15, 12:00 PM ET</span></p>
     <a class="btn btn-primary btn-mini" href="#register">Save my seat</a>
   </div>
+  <span class="hdr-progress" id="hdr-progress"></span>
 </header>
 
 <main id="main">
@@ -531,8 +760,8 @@ select.input{padding-right:44px; cursor:pointer}
 
     <div class="hero-copy">
       <p class="kicker hero-kicker rise rise-1">Free live masterclass for data leaders</p>
-      <h1 id="hero-title" class="rise rise-2">Cut your Databricks bill by <span class="hl">up&nbsp;to&nbsp;75%.</span></h1>
-      <p class="lead rise rise-3">See where Databricks spend leaks and what to fix first. One healthcare team avoided <strong>$3M+ a year</strong>.</p>
+      <h1 id="hero-title" class="rise rise-2">Cut your Databricks bill by <span class="hl">up&nbsp;to&nbsp;<span data-count-to="75" data-suffix="%" data-delay="350">75%</span>.</span></h1>
+      <p class="lead rise rise-3">Srinath Reddy has cut Databricks and Snowflake spend 70% a year. In 45 minutes he shows where yours leaks and what to fix first.</p>
 
       <div class="when rise rise-4">
         <p class="when-date">Thursday, October 15, 2026<small>12:00 PM ET &nbsp;/&nbsp; 45 min + live Q&amp;A</small></p>
@@ -540,8 +769,8 @@ select.input{padding-right:44px; cursor:pointer}
       </div>
 
       <div class="hosts rise rise-4" aria-label="Hosts">
-        <figure class="host-mini"><span class="ph ph-s" role="img" aria-label="Srinath Reddy"></span><figcaption><b>Srinath Reddy</b><span>Founder &amp; CEO, BigHammer.ai</span></figcaption></figure>
-        <figure class="host-mini"><span class="ph ph-r" role="img" aria-label="Richard Lawrence"></span><figcaption><b>Richard Lawrence</b><span>Enterprise Growth Lead, BigHammer.ai</span></figcaption></figure>
+        <figure class="host-mini host-main"><span class="ph ph-s" role="img" aria-label="Srinath Reddy"></span><figcaption><small>Your host</small><b>Srinath Reddy</b><span>Founder &amp; CEO, BigHammer.ai</span></figcaption></figure>
+        <figure class="host-mini host-co"><span class="ph ph-r" role="img" aria-label="Richard Lawrence"></span><figcaption><small>With</small><b>Richard Lawrence</b><span>Enterprise Growth Lead, BigHammer.ai</span></figcaption></figure>
       </div>
     </div>
 
@@ -608,7 +837,7 @@ select.input{padding-right:44px; cursor:pointer}
             <p class="err" id="consent-err" hidden></p>
           </div>
 
-          <button type="submit" class="btn btn-primary btn-block">Save my seat <span class="arrow" aria-hidden="true">&rarr;</span></button>
+          <button type="submit" class="btn btn-primary btn-block"><span class="bt">Save my seat <span class="arrow" aria-hidden="true">&rarr;</span></span><span class="ld" aria-hidden="true"><i style="--k:0"></i><i style="--k:1"></i><i style="--k:2"></i></span></button>
           <p class="after-btn">Can't attend live? You still get the recording.</p>
           <p class="bonus"><b>+1</b><span><strong>Free bonus:</strong> Databricks Cost Assessment. 7 read-only queries.</span></p>
         </form>
@@ -616,7 +845,7 @@ select.input{padding-right:44px; cursor:pointer}
 
       <!-- Success state (client-side only) -->
       <div class="success" id="success" tabindex="-1" hidden>
-        <span class="tick" aria-hidden="true">&#10003;</span>
+        <span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30"><polyline points="4,13 10,19 20,6" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="square" pathLength="1"/></svg></span>
         <h2 id="success-title">You're in.</h2>
         <p>Your invite and join link are on the way to:</p>
         <span class="email" id="success-email"></span>
@@ -641,9 +870,9 @@ select.input{padding-right:44px; cursor:pointer}
       <p class="cd-live" id="cd-live" role="status" hidden>We're live. Join now.</p>
     </div>
     <ul class="facts">
-      <li class="fact"><b>$3M+</b><span>annual cost avoided</span></li>
-      <li class="fact"><b>&gt;400%</b><span>ROI</span></li>
-      <li class="fact"><b>60%</b><span>of blocked backlog unblocked</span></li>
+      <li class="fact"><b data-count-to="3" data-prefix="$" data-suffix="M+">$3M+</b><span>annual cost avoided</span></li>
+      <li class="fact"><b data-count-to="400" data-prefix="&gt;" data-suffix="%">&gt;400%</b><span>ROI</span></li>
+      <li class="fact"><b data-count-to="60" data-suffix="%">60%</b><span>of blocked backlog unblocked</span></li>
     </ul>
   </div>
 </section>
@@ -652,7 +881,7 @@ select.input{padding-right:44px; cursor:pointer}
 <section class="voice" aria-label="Customer quote">
   <div class="container">
     <figure class="voice-fig">
-      <blockquote><p>BigHammer transformed a multi-year data engineering challenge into a production-ready platform in months, without requiring a technical team.</p></blockquote>
+      <blockquote><p><span class="ch">BigHammer transformed a multi-year data engineering challenge into a production-ready platform <span class="hi">in months</span>,</span><span class="ch">without requiring a technical team.</span></p></blockquote>
       <figcaption><b>Anushka</b>, Founder &amp; CEO, SBC Labs</figcaption>
     </figure>
   </div>
@@ -685,12 +914,12 @@ select.input{padding-right:44px; cursor:pointer}
   <div class="container">
     <div class="section-head"><h2 class="h2" id="patterns-title">Six patterns inflate your bill.</h2></div>
     <ol class="patterns stagger">
-      <li class="pattern" style="--i:0"><span class="num" aria-hidden="true">01</span><h3>Always-on clusters</h3><p>Run 24/7 at <strong>1-2% peak CPU</strong> with no auto-shutdown.</p></li>
-      <li class="pattern" style="--i:1"><span class="num" aria-hidden="true">02</span><h3>Photon on everything</h3><p><strong>2x DBU premium</strong> on simple ETL that gains nothing.</p></li>
-      <li class="pattern" style="--i:2"><span class="num" aria-hidden="true">03</span><h3>Failed-run leakage</h3><p>No timeouts. Failed jobs burn <strong>57-63% of spend</strong> in some workspaces.</p></li>
-      <li class="pattern" style="--i:3"><span class="num" aria-hidden="true">04</span><h3>Spin-up overhead</h3><p>Micro-batch jobs spend <strong>65-75% of runtime</strong> starting clusters.</p></li>
-      <li class="pattern" style="--i:4"><span class="num" aria-hidden="true">05</span><h3>Small-file drag</h3><p>Tiny Delta files slow reads and inflate compute time.</p></li>
-      <li class="pattern" style="--i:5"><span class="num" aria-hidden="true">06</span><h3>No guardrails</h3><p>No tags, alerts or policies. Drift goes unnoticed.</p></li>
+      <li class="pattern p1" style="--i:0"><span class="num" aria-hidden="true">01</span><h3>Always-on clusters</h3><p>Run 24/7 at <strong>1-2% peak CPU</strong> with no auto-shutdown.</p><div class="pg" aria-hidden="true"><span>CPU</span><span class="g-track"><i class="g-fill" style="--w:.02"></i></span><b class="pg-v">2%</b></div></li>
+      <li class="pattern p2" style="--i:1"><span class="num" aria-hidden="true">02</span><h3>Photon on everything</h3><p><strong>2x DBU premium</strong> on simple ETL that gains nothing.</p><div class="pg" aria-hidden="true"><span class="g-chip">1x</span><svg class="arr" viewBox="0 0 40 10"><path d="M0 5H34M29 1l5 4-5 4"/></svg><span class="g-chip c2">2x</span></div></li>
+      <li class="pattern p3" style="--i:2"><span class="num" aria-hidden="true">03</span><h3>Failed-run leakage</h3><p>No timeouts. Failed jobs burn <strong>57-63% of spend</strong> in some workspaces.</p><div class="pg" aria-hidden="true"><span class="g-track"><i class="g-fill" style="--w:.6"></i></span><b class="pg-v">57-63%</b></div></li>
+      <li class="pattern p4" style="--i:3"><span class="num" aria-hidden="true">04</span><h3>Spin-up overhead</h3><p>Micro-batch jobs spend <strong>65-75% of runtime</strong> starting clusters.</p><div class="pg" aria-hidden="true"><span class="g-split"><i class="s1"></i><i class="s2"></i></span><b class="pg-v">65-75%</b></div></li>
+      <li class="pattern p5" style="--i:4"><span class="num" aria-hidden="true">05</span><h3>Small-file drag</h3><p>Tiny Delta files slow reads and inflate compute time.</p><div class="pg" aria-hidden="true"><span class="g-sq"><i style="--k:0;left:0px;top:0px;--tx:55px;--ty:14px"></i><i style="--k:1;left:15px;top:0px;--tx:40px;--ty:14px"></i><i style="--k:2;left:30px;top:0px;--tx:25px;--ty:14px"></i><i style="--k:3;left:45px;top:0px;--tx:10px;--ty:14px"></i><i style="--k:4;left:60px;top:0px;--tx:-4px;--ty:14px"></i><i style="--k:5;left:75px;top:0px;--tx:-19px;--ty:14px"></i><i style="--k:6;left:90px;top:0px;--tx:-34px;--ty:14px"></i><i style="--k:7;left:105px;top:0px;--tx:-49px;--ty:14px"></i><i style="--k:8;left:0px;top:13px;--tx:55px;--ty:1px"></i><i style="--k:9;left:15px;top:13px;--tx:40px;--ty:1px"></i><i style="--k:10;left:30px;top:13px;--tx:25px;--ty:1px"></i><i style="--k:11;left:45px;top:13px;--tx:10px;--ty:1px"></i><i style="--k:12;left:60px;top:13px;--tx:-4px;--ty:1px"></i><i style="--k:13;left:75px;top:13px;--tx:-19px;--ty:1px"></i><i style="--k:14;left:90px;top:13px;--tx:-34px;--ty:1px"></i><i style="--k:15;left:105px;top:13px;--tx:-49px;--ty:1px"></i><i style="--k:16;left:0px;top:26px;--tx:55px;--ty:-11px"></i><i style="--k:17;left:15px;top:26px;--tx:40px;--ty:-11px"></i><i style="--k:18;left:30px;top:26px;--tx:25px;--ty:-11px"></i><i style="--k:19;left:45px;top:26px;--tx:10px;--ty:-11px"></i><i style="--k:20;left:60px;top:26px;--tx:-4px;--ty:-11px"></i><i style="--k:21;left:75px;top:26px;--tx:-19px;--ty:-11px"></i><i style="--k:22;left:90px;top:26px;--tx:-34px;--ty:-11px"></i><i style="--k:23;left:105px;top:26px;--tx:-49px;--ty:-11px"></i><i class="g-blk"></i></span></div></li>
+      <li class="pattern p6" style="--i:5"><span class="num" aria-hidden="true">06</span><h3>No guardrails</h3><p>No tags, alerts or policies. Drift goes unnoticed.</p><div class="pg" aria-hidden="true"><span class="g-cb"><span class="cb" style="--k:0"><i></i>tags</span><span class="cb" style="--k:1"><i></i>alerts</span><span class="cb" style="--k:2"><i></i>policies</span></span></div></li>
     </ol>
     <div class="loop reveal">
       <p>Up to 70% of enterprise workloads run on premium compute they don't need. Spot yours, live.</p>
@@ -705,23 +934,24 @@ select.input{padding-right:44px; cursor:pointer}
     <div class="reveal">
       <p class="kicker">Customer spotlight</p>
       <h2 class="h2" id="case-title">A healthcare firm avoided $3M+ a year.</h2>
-      <div class="outcomes one"><div class="outcome"><b>~50%</b><span>lower Databricks TCO</span></div></div>
+      <div class="outcomes one"><div class="outcome"><b data-count-to="50" data-prefix="~" data-suffix="%">~50%</b><span>lower Databricks TCO</span></div></div>
     </div>
 
     <figure class="chart reveal" aria-labelledby="chart-title">
       <h3 id="chart-title">Where the money went</h3>
       <div class="leak">
-        <div class="leak-top"><p class="leak-name">Photon misalignment<small>Exposed risk from unvalidated markup</small></p><p class="leak-val">$2.74M</p></div>
+        <div class="leak-top"><p class="leak-name">Photon misalignment<small>Exposed risk from unvalidated markup</small></p><p class="leak-val" data-count-to="2.74" data-decimals="2" data-prefix="$" data-suffix="M">$2.74M</p></div>
         <div class="bar" aria-hidden="true"><i style="--w:1"></i></div>
       </div>
       <div class="leak">
-        <div class="leak-top"><p class="leak-name">Failed pipelines<small>Burned annually on failed runs</small></p><p class="leak-val">$315K</p></div>
+        <div class="leak-top"><p class="leak-name">Failed pipelines<small>Burned annually on failed runs</small></p><p class="leak-val" data-count-to="315" data-prefix="$" data-suffix="K">$315K</p></div>
         <div class="bar" aria-hidden="true"><i style="--w:.115"></i></div>
       </div>
       <div class="leak">
-        <div class="leak-top"><p class="leak-name">Always-on compute<small>Annual waste from missing automation</small></p><p class="leak-val">$308K</p></div>
+        <div class="leak-top"><p class="leak-name">Always-on compute<small>Annual waste from missing automation</small></p><p class="leak-val" data-count-to="308" data-prefix="$" data-suffix="K">$308K</p></div>
         <div class="bar" aria-hidden="true"><i style="--w:.112"></i></div>
       </div>
+      <div class="axis" aria-hidden="true"><span>$0</span><span>$2.74M</span></div>
     </figure>
   </div>
 </section>
@@ -737,9 +967,10 @@ select.input{padding-right:44px; cursor:pointer}
           <li class="fw-node"><span>2</span>Migrate</li>
           <li class="fw-node"><span>3</span>Monitor</li>
         </ol>
-        <div class="fw-steps">
+        <div class="fw-steps" id="fw-steps">
 
           <article class="fw-step">
+            <span class="fw-ghost" aria-hidden="true">01</span>
             <div class="fw-copy">
               <p class="fw-num" aria-hidden="true">1</p>
               <h3>Assess</h3>
@@ -748,7 +979,7 @@ select.input{padding-right:44px; cursor:pointer}
               <p class="fw-out"><b>Output:</b> each workload gets a decision.</p>
             </div>
             <div class="vis">
-              <div class="vis-head"><b>Workload scan</b><span>Illustrative</span></div>
+              <div class="vis-head"><b>Workload scan</b><span><b class="cls">16</b> / 16 classified, illustrative</span></div>
               <div class="scanbox"><div class="wgrid"><span data-at="0.15" data-k="keep">Nightly ETL</span><span data-at="0.35" data-k="move">Dev notebooks</span><span data-at="0.55" data-k="refactor">Streaming ingest</span><span data-at="0.75" data-k="move">Ad-hoc SQL</span><span data-at="0.15" data-k="keep">Finance reports</span><span data-at="0.35" data-k="retire">Legacy jobs</span><span data-at="0.55" data-k="refactor">ML training</span><span data-at="0.75" data-k="move">Batch exports</span><span data-at="0.15" data-k="keep">Dashboard feeds</span><span data-at="0.35" data-k="retire">Test clusters</span><span data-at="0.55" data-k="keep">Data quality</span><span data-at="0.75" data-k="move">Backfills</span><span data-at="0.15" data-k="keep">Audit logs</span><span data-at="0.35" data-k="retire">Sandbox jobs</span><span data-at="0.55" data-k="refactor">Feature store</span><span data-at="0.75" data-k="move">Archive loads</span></div><span class="scan" aria-hidden="true"></span></div>
               <ul class="legend">
                 <li style="--c:var(--green)">Keep: business critical</li>
@@ -760,6 +991,7 @@ select.input{padding-right:44px; cursor:pointer}
           </article>
 
           <article class="fw-step">
+            <span class="fw-ghost" aria-hidden="true">02</span>
             <div class="fw-copy">
               <p class="fw-num" aria-hidden="true">2</p>
               <h3>Migrate</h3>
@@ -789,6 +1021,7 @@ select.input{padding-right:44px; cursor:pointer}
           </article>
 
           <article class="fw-step">
+            <span class="fw-ghost" aria-hidden="true">03</span>
             <div class="fw-copy">
               <p class="fw-num" aria-hidden="true">3</p>
               <h3>Monitor</h3>
@@ -798,20 +1031,67 @@ select.input{padding-right:44px; cursor:pointer}
             </div>
             <div class="vis">
               <div class="vis-head"><b>Control tower</b><span>Illustrative</span></div>
-              <div class="tiles">
+              <div class="vis-mon"><div class="tiles">
                 <div class="tile"><b>Cost</b><span>Better than baseline?</span><svg viewBox="0 0 100 34" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="14" x2="100" y2="14"/><polyline pathLength="1" style="--a:0" points="0,6 25,10 50,18 75,24 100,29"/></svg></div>
                 <div class="tile"><b>Performance</b><span>Are SLAs holding?</span><svg viewBox="0 0 100 34" preserveAspectRatio="none" aria-hidden="true"><polyline pathLength="1" style="--a:0.1" points="0,18 25,14 50,17 75,13 100,15"/></svg></div>
                 <div class="tile"><b>Data correctness</b><span>Is output still trusted?</span><svg viewBox="0 0 100 34" preserveAspectRatio="none" aria-hidden="true"><polyline pathLength="1" style="--a:0.2" points="0,8 25,8 50,9 75,8 100,8"/></svg></div>
                 <div class="tile"><b>Governance</b><span>Is the platform healthy?</span><svg viewBox="0 0 100 34" preserveAspectRatio="none" aria-hidden="true"><polyline pathLength="1" style="--a:0.3" points="0,28 25,22 50,16 75,10 100,5"/></svg></div>
               </div>
-              <div class="loopchips">
-                <span data-at=".15">Detect</span><span data-at=".4">Act</span><span data-at=".65">Improve</span><span data-at=".9">Re-assess</span>
-              </div>
+              <svg class="ring" viewBox="0 0 240 176" role="img" aria-label="Monthly loop: detect, act, improve, re-assess">
+                <circle class="ring-track" cx="120" cy="88" r="52"/>
+                <circle class="ring-arc" cx="120" cy="88" r="52" pathLength="1"/>
+                <circle class="rn" data-at=".1" cx="120" cy="36" r="7"/><text class="rl" data-at=".1" x="120" y="22" text-anchor="middle">Detect</text>
+                <circle class="rn" data-at=".3" cx="172" cy="88" r="7"/><text class="rl" data-at=".3" x="184" y="92">Act</text>
+                <circle class="rn" data-at=".5" cx="120" cy="140" r="7"/><text class="rl" data-at=".5" x="120" y="164" text-anchor="middle">Improve</text>
+                <circle class="rn" data-at=".7" cx="68" cy="88" r="7"/><text class="rl" data-at=".7" x="56" y="92" text-anchor="end">Re-assess</text>
+                <text class="rc" x="120" y="86">Monthly</text><text class="rc" x="120" y="100">loop</text>
+              </svg></div>
             </div>
           </article>
 
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TEAM EXPERTISE ==================== -->
+<section class="section team on-dark" id="team" aria-labelledby="team-title">
+  <div class="container">
+    <h2 class="h2" id="team-title">Tools show the bill. Experience explains it.</h2>
+    <p class="lead">Dashboards tell you where the money went. Knowing why, and what is safe to change, takes engineers who have fixed it at enterprise scale. BigHammer is built by data engineers, for data engineers.</p>
+    <div class="proofs stagger">
+      <div class="proof" style="--i:0"><b data-count-to="70" data-suffix="%">70%</b><span>annual cut in Databricks and Snowflake spend, led by Srinath</span></div>
+      <div class="proof" style="--i:1"><b>$B+</b><span>revenue enterprises whose data platforms and teams he ran</span></div>
+      <div class="proof" style="--i:2"><b data-count-to="7">7</b><span>engines your workloads can run on. Each one lands where it costs least.</span></div>
+    </div>
+    <ul class="engines" aria-label="Supported engines"><li>AWS EMR</li><li>GCP Dataproc</li><li>BigQuery</li><li>Snowflake</li><li>Databricks</li><li>DuckDB</li><li>Private Spark</li></ul>
+    <p class="team-close">BigHammer's agents run on a context engine built around that domain knowledge, so they <span>assess, migrate and monitor</span> the way an expert would.</p>
+  </div>
+</section>
+
+<!-- ==================== HOSTS ==================== -->
+<section class="section host" id="host" aria-labelledby="host-title">
+  <div class="container">
+    <h2 class="h2" id="host-title">Your host</h2>
+    <div class="hosts-grid">
+      <article class="hostcard host-lead">
+        <div class="portrait p-s" role="img" aria-label="Portrait of Srinath Reddy" data-par="0.04"></div>
+        <h3 class="host-name">Srinath Reddy</h3>
+        <p class="host-role">Founder &amp; CEO, BigHammer.ai</p>
+        <ul class="ticks">
+          <li>Led data platforms at $B+ revenue enterprises</li>
+          <li>Cut Databricks and Snowflake spend 70% a year</li>
+          <li>Built BigHammer.ai for data engineers</li>
+        </ul>
+      </article>
+      <article class="hostcard host-guest">
+        <p class="guest-tag">Joined by</p>
+        <div class="portrait p-r" role="img" aria-label="Portrait of Richard Lawrence" data-par="-0.05"></div>
+        <h3 class="host-name">Richard Lawrence</h3>
+        <p class="host-role">Enterprise Growth Lead, BigHammer.ai</p>
+        <p class="quote">In the agentic era, intelligence becomes abundant. Domain expertise and orchestration remain scarce, and scarcity determines value.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -822,6 +1102,7 @@ select.input{padding-right:44px; cursor:pointer}
     <div class="section-head"><h2 class="h2" id="walk-title">What you get</h2></div>
     <div class="agenda stagger">
       <article class="ag-block" style="--i:0">
+        <div class="tl" aria-hidden="true"><div class="tl-bar"><i class="a"></i><i class="b"></i></div><div class="tl-ticks"><span>0</span><span>30</span><span>45 min</span></div></div>
         <div class="ag-row">
           <p class="ag-time">0-30<small>min</small></p>
           <div><h3>Masterclass</h3>
@@ -835,6 +1116,7 @@ select.input{padding-right:44px; cursor:pointer}
       </article>
       <article class="opt opt-a on-dark" style="--i:1">
         <p class="opt-big" aria-hidden="true">7</p>
+        <div class="qs" aria-hidden="true"><i style="--k:0">Q1</i><i style="--k:1">Q2</i><i style="--k:2">Q3</i><i style="--k:3">Q4</i><i style="--k:4">Q5</i><i style="--k:5">Q6</i><i style="--k:6">Q7</i></div>
         <h3>Free Cost Assessment</h3>
         <p>Seven read-only queries to run in your SQL warehouse over 90 days. Or have our team walk through the results with you.</p>
         <div class="chips"><span class="chip">Read-only</span><span class="chip">Nothing to install</span><span class="chip">No credentials shared</span></div>
@@ -847,38 +1129,14 @@ select.input{padding-right:44px; cursor:pointer}
   </div>
 </section>
 
-<!-- ==================== HOSTS ==================== -->
-<section class="section host" id="host" aria-labelledby="host-title">
-  <div class="container">
-    <h2 class="h2" id="host-title">Your hosts</h2>
-    <div class="hosts-grid">
-      <article class="hostcard reveal">
-        <div class="portrait p-s" role="img" aria-label="Portrait of Srinath Reddy"></div>
-        <h3 class="host-name">Srinath Reddy</h3>
-        <p class="host-role">Founder &amp; CEO, BigHammer.ai</p>
-        <ul class="ticks">
-          <li>Led data platforms at $B+ revenue enterprises</li>
-          <li>Cut Databricks and Snowflake spend 70% a year</li>
-          <li>Built BigHammer.ai for data engineers</li>
-        </ul>
-      </article>
-      <article class="hostcard reveal">
-        <div class="portrait p-r" role="img" aria-label="Portrait of Richard Lawrence"></div>
-        <h3 class="host-name">Richard Lawrence</h3>
-        <p class="host-role">Enterprise Growth Lead, BigHammer.ai</p>
-        <p class="quote">In the agentic era, intelligence becomes abundant. Domain expertise and orchestration remain scarce, and scarcity determines value.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
 <!-- ==================== FINAL CTA ==================== -->
+<div class="marquee" aria-hidden="true"><div class="mq-track"><div class="mq-set"><span>Thu Oct 15</span><span>12:00 PM ET</span><span>Free</span><span>Live</span><span>45 min</span><span>Seats are limited</span></div><div class="mq-set"><span>Thu Oct 15</span><span>12:00 PM ET</span><span>Free</span><span>Live</span><span>45 min</span><span>Seats are limited</span></div></div></div>
 <section class="final" id="final-cta" aria-labelledby="final-title">
   <div class="container final-inner">
     <div>
       <p class="when-line">Thursday, October 15, 12:00 PM ET</p>
-      <h2 id="final-title">Find out how much of your Databricks bill is waste.</h2>
-      <p class="lead">Free seat. Free assessment. Recording included.</p>
+      <h2 id="final-title"><span class="ln"><span>Find out how much of your</span></span><span class="ln"><span>Databricks bill is waste.</span></span></h2>
+      <p class="lead">Free seat. Free assessment. Recording included. Seats are limited.</p>
     </div>
     <a class="btn btn-primary" href="#register">Save my seat <span class="arrow" aria-hidden="true">&rarr;</span></a>
   </div>
@@ -892,12 +1150,12 @@ select.input{padding-right:44px; cursor:pointer}
     <p>&copy; 2026 BigHammer.ai Inc., Austin, TX. The autonomous data engineering platform.</p>
     <p class="legal-links"><a href="https://bighammer.ai/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a><a href="https://bighammer.ai/terms-and-conditions/" target="_blank" rel="noopener">Terms and Conditions</a></p>
   </div>
-  <div class="bottom-bar" aria-hidden="true"></div>
+  <div class="bottom-bar" aria-hidden="true"><i style="--k:0;background:var(--pink-bar)"></i><i style="--k:1;background:var(--yellow)"></i><i style="--k:2;background:var(--green)"></i><i style="--k:3;background:var(--purple)"></i></div>
 </footer>
 
 <!-- ==================== STICKY MOBILE CTA ==================== -->
 <div class="sticky-cta on-dark" id="sticky-cta">
-  <a class="btn btn-primary btn-block" href="#register">Save my seat. Oct 15, free.</a>
+  <a class="btn btn-primary btn-block" href="#register" id="sticky-label">Save my seat. Oct 15, free.</a>
 </div>
 
 <script>
@@ -908,12 +1166,86 @@ select.input{padding-right:44px; cursor:pointer}
   function $(id) { return document.getElementById(id); }
   function pad(n) { return n < 10 ? '0' + n : String(n); }
 
+  function motionOK() { return !reduceMotion.matches; }
+
+  /* one scroll loop for every scroll-linked effect */
+  var tasks = [], ticking = false;
+  function frame() { ticking = false; for (var i = 0; i < tasks.length; i++) { tasks[i](); } }
+  function kick() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+  window.addEventListener('scroll', kick, { passive: true });
+  window.addEventListener('resize', kick);
+  function onFrame(f) { tasks.push(f); }
+
+  /* assess counter: cells classified so far */
+  function setCls(s, sp) {
+    var c = s.querySelector('.cls');
+    if (!c) { return; }
+    var n = 0;
+    Array.prototype.forEach.call(s.querySelectorAll('.wgrid span'), function (x) { if (sp >= parseFloat(x.getAttribute('data-at'))) { n++; } });
+    c.textContent = n;
+  }
+
+  /* countdown digit roll */
+  function roll(el, val) {
+    if (el.getAttribute('data-v') === val) { return; }
+    var old = el.getAttribute('data-v');
+    el.setAttribute('data-v', val);
+    if (old === null || !motionOK()) { el.textContent = val; return; }
+    el.innerHTML = '<span class="rl-o">' + old + '</span><span class="rl-n">' + val + '</span>';
+    clearTimeout(el._t);
+    el._t = setTimeout(function () { el.textContent = val; }, 300);
+  }
+
+  /* count-up: the HTML already holds the final text, so no JS means the right numbers */
+  function countUp(el) {
+    var to = parseFloat(el.getAttribute('data-count-to'));
+    if (isNaN(to) || !motionOK()) { return; }
+    var dec = parseInt(el.getAttribute('data-decimals') || '0', 10);
+    var pre = el.getAttribute('data-prefix') || '', suf = el.getAttribute('data-suffix') || '';
+    var delay = parseInt(el.getAttribute('data-delay') || '0', 10);
+    var full = el.textContent, start = null;
+    el.textContent = pre + (0).toFixed(dec) + suf;
+    function f(ts) {
+      if (start === null) { start = ts + delay; }
+      if (ts < start) { requestAnimationFrame(f); return; }
+      var p = Math.min(1, (ts - start) / 1100), e = 1 - Math.pow(1 - p, 3);
+      el.textContent = pre + (to * e).toFixed(dec) + suf;
+      if (p < 1) { requestAnimationFrame(f); } else { el.textContent = full; }
+    }
+    requestAnimationFrame(f);
+  }
+
+  /* shared enter observer. pend() hides only what starts below the fold, then plays it on arrival */
+  var enterIO = ('IntersectionObserver' in window) ? new IntersectionObserver(function (es) {
+    es.forEach(function (en) {
+      if (en.isIntersecting) { enterIO.unobserve(en.target); if (en.target._enter) { en.target._enter(en.target); } }
+    });
+  }, { threshold: 0, rootMargin: '0px 0px -10% 0px' }) : null;
+  function onEnter(el, fn) { if (!enterIO || !motionOK()) { return; } el._enter = fn; enterIO.observe(el); }
+  function pend(el) {
+    if (!enterIO || !motionOK()) { return; }
+    if (el.getBoundingClientRect().top < window.innerHeight * 0.85) { return; }
+    el.classList.add('pend');
+    onEnter(el, function (e) { e.classList.remove('pend'); e.classList.add('in'); });
+  }
+
+
   /* ---------- Countdown ---------- */
   var TARGET = new Date('2026-10-15T12:00:00-04:00').getTime();
   var cdBox = $('countdown'), cdLive = $('cd-live'), cdTitle = $('cd-title');
   var cdD = $('cd-d'), cdH = $('cd-h'), cdM = $('cd-m'), cdS = $('cd-s');
   var cdTimer = null;
 
+  var chipEl = $('evchip-t'), chipOrig = chipEl.innerHTML, chipStr = '', chipLive = false, chipMode = 'o';
+  var stickyLabel = $('sticky-label');
+  function setChip() {
+    var mode = chipLive ? 'c' : 'o', txt = chipLive ? chipStr : chipOrig;
+    if (mode !== chipMode) {
+      chipMode = mode;
+      if (motionOK()) { chipEl.style.opacity = 0; setTimeout(function () { chipEl.innerHTML = txt; chipEl.style.opacity = 1; }, 180); }
+      else { chipEl.innerHTML = txt; }
+    } else if (mode === 'c') { chipEl.innerHTML = txt; }
+  }
   function tick() {
     var diff = TARGET - Date.now();
     if (diff <= 0) {
@@ -924,12 +1256,19 @@ select.input{padding-right:44px; cursor:pointer}
       return;
     }
     var s = Math.floor(diff / 1000);
-    cdD.textContent = pad(Math.floor(s / 86400));
-    cdH.textContent = pad(Math.floor((s % 86400) / 3600));
-    cdM.textContent = pad(Math.floor((s % 3600) / 60));
-    cdS.textContent = pad(s % 60);
+    var dd = Math.floor(s / 86400), hh = Math.floor((s % 86400) / 3600), mm = Math.floor((s % 3600) / 60);
+    roll(cdD, pad(dd)); roll(cdH, pad(hh)); roll(cdM, pad(mm)); roll(cdS, pad(s % 60));
+    chipStr = 'Starts in ' + dd + 'd ' + pad(hh) + 'h ' + pad(mm) + 'm';
+    if (chipLive) { setChip(); }
+    if (stickyLabel) { stickyLabel.textContent = 'Save my seat ' + "·" + ' ' + dd + (dd === 1 ? ' day' : ' days') + ' left'; }
   }
   tick();
+  var stripEl = document.querySelector('.strip');
+  if (stripEl && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) {
+      es.forEach(function (en) { chipLive = !en.isIntersecting && en.boundingClientRect.top < 0; setChip(); });
+    }).observe(stripEl);
+  }
   if (TARGET > Date.now()) { cdTimer = setInterval(tick, 1000); }
 
   /* ---------- Scroll reveal: content rests visible; sections below the fold replay a short entrance as they arrive ---------- */
@@ -969,6 +1308,7 @@ select.input{padding-right:44px; cursor:pointer}
         s.classList.toggle('active', i === act);
         nodes[i].classList.toggle('active', i === act);
         nodes[i].classList.toggle('done', i < act);
+        setCls(s, sp);
         marks[i].forEach(function (m) { m.classList.toggle('on', sp >= parseFloat(m.getAttribute('data-at'))); });
       });
     }
@@ -976,11 +1316,11 @@ select.input{padding-right:44px; cursor:pointer}
     function setup() {
       fw.classList.toggle('is-pinned', mq.matches);
       if (!mq.matches) {
-        steps.forEach(function (s) { s.style.removeProperty('--sp'); s.classList.remove('active'); });
+        steps.forEach(function (s) { s.style.removeProperty('--sp'); s.classList.remove('active'); setCls(s, 1); });
       }
       queue();
     }
-    window.addEventListener('scroll', queue, { passive: true });
+    onFrame(update);
     window.addEventListener('resize', setup);
     if (mq.addEventListener) { mq.addEventListener('change', setup); }
     setup();
@@ -993,6 +1333,7 @@ select.input{padding-right:44px; cursor:pointer}
     var steps = Array.prototype.slice.call(fw.querySelectorAll('.fw-step'));
     function paint(s, sp) {
       s.style.setProperty('--sp', sp.toFixed(3));
+      setCls(s, sp);
       Array.prototype.forEach.call(s.querySelectorAll('[data-at]'), function (m) { m.classList.toggle('on', sp >= parseFloat(m.getAttribute('data-at'))); });
     }
     function play(s) {
@@ -1012,9 +1353,66 @@ select.input{padding-right:44px; cursor:pointer}
       });
     }, { threshold: 0.35 });
     steps.forEach(function (s) {
-      if (fw.classList.contains('is-pinned') || s.getBoundingClientRect().top < window.innerHeight * 0.6) { return; }
+      var rr = s.getBoundingClientRect();
+      if (fw.classList.contains('is-pinned') || (rr.top < window.innerHeight * 0.6 && rr.left < window.innerWidth * 0.5)) { return; }
       s.classList.add('anim'); paint(s, 0); io.observe(s);
     });
+  })();
+
+  /* ---------- Count-ups and below-the-fold entrances ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-count-to]'), function (el) { onEnter(el, countUp); });
+  Array.prototype.forEach.call(document.querySelectorAll('.pattern, .voice, .tl, .opt-a, .hostcard, .final, .site-footer'), pend);
+
+  /* ---------- Header reading-progress line ---------- */
+  var prog = $('hdr-progress');
+  onFrame(function () {
+    if (!prog || !motionOK()) { return; }
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    prog.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, window.scrollY / h) : 0).toFixed(4) + ')';
+  });
+
+  /* ---------- Desktop parallax: host portraits drift at slightly different speeds, case glow trails ---------- */
+  var parEls = Array.prototype.slice.call(document.querySelectorAll('[data-par]'));
+  var caseEl = document.querySelector('.case');
+  onFrame(function () {
+    var on = motionOK() && window.innerWidth >= 900;
+    parEls.forEach(function (e) {
+      if (!on) { e.style.transform = ''; return; }
+      var r = e.parentNode.getBoundingClientRect();
+      if (r.bottom < -120 || r.top > window.innerHeight + 120) { return; }
+      var off = r.top + r.height / 2 - window.innerHeight / 2;
+      var v = Math.max(-28, Math.min(28, -off * parseFloat(e.getAttribute('data-par'))));
+      e.style.transform = 'translate3d(0,' + v.toFixed(1) + 'px,0)';
+    });
+    if (caseEl) {
+      if (!on) { caseEl.style.removeProperty('--gy'); return; }
+      var cr = caseEl.getBoundingClientRect();
+      if (cr.bottom < 0 || cr.top > window.innerHeight) { return; }
+      caseEl.style.setProperty('--gy', ((cr.top + cr.height / 2 - window.innerHeight / 2) * -0.2).toFixed(1) + 'px');
+    }
+  });
+  kick();
+
+  /* ---------- Framework carousel dots (phones) ---------- */
+  (function () {
+    var wrap = $('fw-steps');
+    if (!wrap) { return; }
+    var steps = Array.prototype.slice.call(wrap.querySelectorAll('.fw-step'));
+    var dots = document.createElement('div');
+    dots.className = 'fw-dots';
+    dots.setAttribute('aria-hidden', 'true');
+    dots.innerHTML = steps.map(function (s, i) { return '<i' + (i === 0 ? ' class="on"' : '') + '></i>'; }).join('');
+    wrap.parentNode.insertBefore(dots, wrap.nextSibling);
+    if (!('IntersectionObserver' in window)) { return; }
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        if (en.isIntersecting && en.intersectionRatio >= 0.6) {
+          var i = steps.indexOf(en.target);
+          Array.prototype.forEach.call(dots.children, function (d, k) { d.classList.toggle('on', k === i); });
+        }
+      });
+    }, { root: wrap, threshold: [0.6] });
+    steps.forEach(function (s) { io.observe(s); });
   })();
 
   /* ---------- CTAs: every "#register" link scrolls to the form and focuses its first field ---------- */
@@ -1113,12 +1511,19 @@ select.input{padding-right:44px; cursor:pointer}
       return;
     }
     summary.hidden = true;
-    $('success-email').textContent = $('email').value.trim();
-    $('form-card').hidden = true;
-    $('register').querySelector('.seat-flag').hidden = true;
-    var ok = $('success');
-    ok.hidden = false;
-    ok.focus();
+    var btn = form.querySelector('button[type=submit]');
+    var email = $('email').value.trim();
+    function finish() {
+      $('success-email').textContent = email;
+      $('form-card').hidden = true;
+      var flag = $('register').querySelector('.seat-flag');
+      function setFlag() { flag.textContent = 'Seat saved'; flag.classList.add('saved'); }
+      if (motionOK()) { flag.classList.add('flip'); setTimeout(setFlag, 200); } else { setFlag(); }
+      var ok = $('success');
+      ok.hidden = false;
+      ok.focus();
+    }
+    if (motionOK()) { btn.classList.add('loading'); btn.disabled = true; setTimeout(finish, 650); } else { finish(); }
   });
 })();
 </script>
