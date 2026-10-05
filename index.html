@@ -846,6 +846,45 @@ a:focus-visible,button:focus-visible{outline-offset:3px}
 .fw-node:nth-child(2){--i:1}
 .fw-node:nth-child(3){--i:2}
 .fw.is-pinned .fw-node:last-child::after{margin-right:0}
+
+/* ==========================================================
+   V13: conversion pass from the 100-visitor walkthrough
+   ========================================================== */
+.facts-line{display:none}
+@media (max-width:899px){
+  /* phone order: headline, lead, one-line facts, FORM, then the long date block and hosts */
+  .hero-grid{display:flex; flex-direction:column; gap:0}
+  .hero-copy{display:contents}
+  .hero-kicker{order:1; align-self:flex-start; margin-bottom:16px}
+  .hero h1{order:2; font-size:clamp(34px,9.6vw,46px); margin-bottom:14px}
+  .hero .lead{order:3; margin-bottom:12px; font-size:16px}
+  .facts-line{order:4; display:block; margin-bottom:22px; font-size:15px; line-height:1.45; color:var(--w-90)}
+  .facts-line b{color:var(--white); font-weight:600}
+  .facts-line #facts-local{display:block; margin-top:2px; color:var(--green); font-weight:600}
+  .facts-line #facts-local[hidden]{display:none}
+  .reg{order:5; margin-bottom:32px}
+  .when{order:6; margin-bottom:8px}
+  .when-date,.when .local{display:none}
+  .hosts{order:7; margin-top:8px}
+  .hero{padding-block:24px 48px}
+}
+@media (max-width:767px){
+  /* shorter scroll on phones */
+  .section{padding-block:48px 56px}
+  .quotes .q:nth-child(n+4){display:none}
+  .reg{padding:20px}
+  .reg h2{font-size:24px}
+  .reg .sub{margin-bottom:12px}
+  .field{margin-bottom:10px}
+}
+
+@media (max-width:899px){
+  .hero-kicker{display:none}
+}
+
+@media (max-width:599px){
+  .site-header .btn-mini{white-space:nowrap; padding:12px 14px; font-size:13px}
+}
 </style>
 
 <a class="skip" href="#main">Skip to content</a>
@@ -870,6 +909,8 @@ a:focus-visible,button:focus-visible{outline-offset:3px}
       <p class="kicker hero-kicker rise rise-1">Free live masterclass for data leaders</p>
       <h1 id="hero-title" class="rise rise-2">Cut your Databricks bill by <span class="hl">up&nbsp;to&nbsp;<span data-count-to="75" data-suffix="%" data-delay="350">75%</span>.</span></h1>
       <p class="lead rise rise-3">Srinath Reddy has cut Databricks and Snowflake spend 70% a year. In 45 minutes he shows where yours leaks and what to fix first.</p>
+
+      <p class="facts-line rise rise-3" id="facts-line"><b>Thursday, October 15, 12:00 PM ET.</b> Free live session for data leaders, 45 minutes.<span id="facts-local" hidden></span></p>
 
       <div class="when rise rise-4">
         <p class="when-date">Thursday, October 15, 2026<small>12:00 PM ET &nbsp;/&nbsp; 45 min + live Q&amp;A</small></p>
@@ -902,7 +943,7 @@ a:focus-visible,button:focus-visible{outline-offset:3px}
             <p class="err" id="email-err" hidden></p>
           </div>
 
-          <button type="submit" class="btn btn-primary btn-block"><span class="bt">Save my seat <span class="arrow" aria-hidden="true">&rarr;</span></span><span class="ld" aria-hidden="true"><i style="--k:0"></i><i style="--k:1"></i><i style="--k:2"></i></span></button>
+          <button type="submit" id="reg-submit" class="btn btn-primary btn-block"><span class="bt">Save my seat <span class="arrow" aria-hidden="true">&rarr;</span></span><span class="ld" aria-hidden="true"><i style="--k:0"></i><i style="--k:1"></i><i style="--k:2"></i></span></button>
           <p class="fine">By registering you agree to receive the invite, reminders and join link by email. Unsubscribe anytime.</p>
           <p class="after-btn">Can't attend live? You still get the recording.</p>
           <p class="bonus"><b>+1</b><span><strong>Free bonus:</strong> Databricks Cost Assessment. 7 read-only queries.</span></p>
@@ -1530,6 +1571,7 @@ a:focus-visible,button:focus-visible{outline-offset:3px}
       localStr = new Intl.DateTimeFormat([], { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }).format(new Date(TARGET));
       var lt = $('local-time');
       if (lt) { lt.textContent = 'Your time: ' + localStr; lt.hidden = false; }
+      var fl = $('facts-local'); if (fl) { fl.textContent = ' Your time: ' + localStr + '.'; fl.hidden = false; }
     }
   } catch (e) { /* no Intl: ET time only */ }
 
@@ -1596,7 +1638,7 @@ a:focus-visible,button:focus-visible{outline-offset:3px}
 
   /* ---------- Sticky mobile bar: hide while the form, final CTA or footer is on screen ---------- */
   var bar = $('sticky-cta');
-  var watched = ['register', 'final-cta', 'site-footer'];
+  var watched = ['reg-submit', 'final-cta', 'site-footer'];
   var inView = {};
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
