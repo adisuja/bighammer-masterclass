@@ -773,6 +773,35 @@ a:focus-visible,button:focus-visible{outline-offset:3px}
   .hosts-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(32px,5vw,72px); align-items:start}
   .host-lead .host-name,.host-guest .host-name{font-size:clamp(30px,3.4vw,44px); margin-top:26px}
 }
+
+/* ==========================================================
+   V10: conversion pass
+   ========================================================== */
+.hero-copy{grid-area:copy}
+.reg{grid-area:reg}
+.hosts{grid-area:hosts}
+@media (min-width:900px){
+  .hero-grid{grid-template-areas:"copy reg" "hosts reg"; grid-template-rows:auto 1fr}
+}
+@media (max-width:899px){
+  .hero-grid{grid-template-areas:"copy" "reg" "hosts"}
+  .hosts{margin-top:clamp(20px,5vw,36px)}
+}
+.local{margin:-6px 0 12px; font-size:15px; font-weight:600; color:var(--green)}
+.local[hidden]{display:none}
+.fine{margin-top:10px; font-size:12.5px; line-height:1.5; color:var(--grey-600); text-align:center}
+.mini-proof{margin:16px 0 0; padding-top:14px; border-top:1px solid var(--border-light)}
+.mini-proof blockquote{font-size:14px; line-height:1.45; color:var(--ink-700); font-weight:500}
+.mini-proof figcaption{margin-top:6px; font-size:12.5px; color:var(--grey-600)}
+.success .when-you{font-weight:600; color:var(--ink-700); margin-top:4px}
+.cal{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 22px}
+.btn-cal{display:inline-flex; align-items:center; min-height:44px; padding:10px 14px; background:var(--field-bg); color:var(--ink-700); font-weight:600; font-size:14px; text-decoration:none; transition:background-color .2s ease}
+.btn-cal:hover{background:var(--field-bg-2)}
+#extra-form{padding-top:18px; border-top:1px solid var(--border-light)}
+#extra-form[hidden]{display:none}
+#extra-form h3{font-family:var(--font-display); font-weight:700; font-size:18px; letter-spacing:-.01em; color:var(--ink-700); margin-bottom:14px}
+.saved{padding:14px; background:var(--lime); color:var(--ink-900); font-weight:600}
+.saved[hidden]{display:none}
 </style>
 
 <a class="skip" href="#main">Skip to content</a>
@@ -800,13 +829,11 @@ a:focus-visible,button:focus-visible{outline-offset:3px}
 
       <div class="when rise rise-4">
         <p class="when-date">Thursday, October 15, 2026<small>12:00 PM ET &nbsp;/&nbsp; 45 min + live Q&amp;A</small></p>
+        <p class="local" id="local-time" hidden></p>
         <p class="tz" aria-label="Other time zones"><span>9:00 AM Pacific</span><span>5:00 PM UK</span><span>6:00 PM Central Europe</span><span>9:30 PM India</span></p>
       </div>
 
-      <div class="hosts rise rise-4" aria-label="Hosts">
-        <figure class="host-mini host-main"><span class="ph ph-s" role="img" aria-label="Srinath Reddy"></span><figcaption><small>Your host</small><b>Srinath Reddy</b><span>Founder &amp; CEO, BigHammer.ai</span></figcaption></figure>
-        <figure class="host-mini host-co"><span class="ph ph-r" role="img" aria-label="Richard Lawrence"></span><figcaption><small>With</small><b>Richard Lawrence</b><span>Enterprise Growth Lead, BigHammer.ai</span></figcaption></figure>
-      </div>
+      
     </div>
 
     <!-- Registration card -->
@@ -831,50 +858,11 @@ a:focus-visible,button:focus-visible{outline-offset:3px}
             <p class="err" id="email-err" hidden></p>
           </div>
 
-          <div class="row-2">
-            <div class="field">
-              <label for="company">Company</label>
-              <input class="input" type="text" id="company" name="company" autocomplete="organization" required aria-required="true">
-              <p class="err" id="company-err" hidden></p>
-            </div>
-            <div class="field">
-              <label for="role">Role (optional)</label>
-              <div class="select-wrap">
-                <select class="input" id="role" name="role">
-                  <option value="" selected>Choose one</option>
-                  <option>VP / Head of Data</option>
-                  <option>Data Engineering Manager</option>
-                  <option>CTO / Engineering Leader</option>
-                  <option>FinOps / Platform Cost Owner</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <p class="err" id="role-err" hidden></p>
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="phone">Phone number (optional)</label>
-            <div class="phone-row">
-              <label class="sr-only" for="phone-code">Country code</label>
-              <input class="input code" type="text" id="phone-code" name="phone-code" inputmode="tel" autocomplete="tel-country-code" placeholder="+1" maxlength="5">
-              <input class="input" type="tel" id="phone" name="phone" autocomplete="tel-national" inputmode="tel" aria-describedby="phone-help">
-            </div>
-            <p class="help" id="phone-help">WhatsApp reminder only.</p>
-            <p class="err" id="phone-err" hidden></p>
-          </div>
-
-          <div class="field">
-            <div class="consent">
-              <input type="checkbox" id="consent" name="consent" required aria-required="true">
-              <label for="consent">Email me the invite, reminders and join link (WhatsApp too if I added a number).</label>
-            </div>
-            <p class="err" id="consent-err" hidden></p>
-          </div>
-
           <button type="submit" class="btn btn-primary btn-block"><span class="bt">Save my seat <span class="arrow" aria-hidden="true">&rarr;</span></span><span class="ld" aria-hidden="true"><i style="--k:0"></i><i style="--k:1"></i><i style="--k:2"></i></span></button>
+          <p class="fine">By registering you agree to receive the invite, reminders and join link by email. Unsubscribe anytime.</p>
           <p class="after-btn">Can't attend live? You still get the recording.</p>
           <p class="bonus"><b>+1</b><span><strong>Free bonus:</strong> Databricks Cost Assessment. 7 read-only queries.</span></p>
+          <figure class="mini-proof"><blockquote>BigHammer transformed a multi-year data engineering challenge into a production-ready platform in months.</blockquote><figcaption>Anushka, Founder &amp; CEO, SBC Labs</figcaption></figure>
         </form>
       </div>
 
@@ -884,10 +872,28 @@ a:focus-visible,button:focus-visible{outline-offset:3px}
         <h2 id="success-title">You're in.</h2>
         <p>Your invite and join link are on the way to:</p>
         <span class="email" id="success-email"></span>
-        <p>The assessment queries are in the same email.</p>
+        <p class="when-you">Thursday, October 15, 12:00 PM ET<br><span id="local-time-s"></span></p>
+        <div class="cal"><a class="btn-cal" id="cal-google" href="#" target="_blank" rel="noopener">Google Calendar</a><a class="btn-cal" id="cal-ics" href="#" download="bighammer-masterclass.ics">Apple or Outlook (.ics)</a></div>
+        <form id="extra-form" novalidate>
+          <h3>Optional: help us tailor the session</h3>
+          <div class="row-2">
+            <div class="field"><label for="company">Company</label><input class="input" type="text" id="company" name="company" autocomplete="organization"></div>
+            <div class="field"><label for="role">Role</label><div class="select-wrap"><select class="input" id="role" name="role"><option value="" selected>Choose one</option><option>VP / Head of Data</option><option>Data Engineering Manager</option><option>CTO / Engineering Leader</option><option>FinOps / Platform Cost Owner</option><option>Other</option></select></div></div>
+          </div>
+          <div class="field"><label for="phone">Phone number</label>
+            <div class="phone-row"><label class="sr-only" for="phone-code">Country code</label><input class="input code" type="text" id="phone-code" name="phone-code" inputmode="tel" autocomplete="tel-country-code" placeholder="+1" maxlength="5"><input class="input" type="tel" id="phone" name="phone" autocomplete="tel-national" inputmode="tel" aria-describedby="phone-help"></div>
+            <p class="help" id="phone-help">WhatsApp reminder only.</p><p class="err" id="phone-err" hidden></p></div>
+          <button type="submit" class="btn btn-primary btn-block">Save details</button>
+        </form>
+        <p class="saved" id="extra-saved" hidden>Thanks. See you on October 15.</p>
       </div>
     </div>
 
+
+    <div class="hosts rise rise-4" aria-label="Hosts">
+        <figure class="host-mini host-main"><span class="ph ph-s" role="img" aria-label="Srinath Reddy"></span><figcaption><small>Your host</small><b>Srinath Reddy</b><span>Founder &amp; CEO, BigHammer.ai</span></figcaption></figure>
+        <figure class="host-mini host-co"><span class="ph ph-r" role="img" aria-label="Richard Lawrence"></span><figcaption><small>With</small><b>Richard Lawrence</b><span>Enterprise Growth Lead, BigHammer.ai</span></figcaption></figure>
+      </div>
   </div>
 </section>
 
@@ -922,6 +928,40 @@ a:focus-visible,button:focus-visible{outline-offset:3px}
   </div>
 </section>
 
+<!-- ==================== WHAT YOU GET ==================== -->
+<section class="section walk" id="agenda" aria-labelledby="walk-title">
+  <div class="container">
+    <div class="section-head"><h2 class="h2" id="walk-title">What you get</h2></div>
+    <div class="agenda stagger">
+      <article class="ag-block" style="--i:0">
+        <div class="tl" aria-hidden="true"><div class="tl-bar"><i class="a"></i><i class="b"></i></div><div class="tl-ticks"><span>0</span><span>30</span><span>45 min</span></div></div>
+        <div class="ag-row">
+          <p class="ag-time">0-30<small>min</small></p>
+          <div><h3>Masterclass</h3>
+            <ul class="ticks"><li>Why costs outgrow value</li><li>The six waste patterns</li><li>The healthcare teardown</li><li>Assess, migrate, monitor</li></ul></div>
+        </div>
+        <div class="ag-row">
+          <p class="ag-time">30-45<small>min</small></p>
+          <div><h3>Live Q&amp;A</h3>
+            <ul class="ticks"><li>Bring your hardest cost question</li></ul></div>
+        </div>
+      </article>
+      <article class="opt opt-a on-dark" style="--i:1">
+        <p class="opt-big" aria-hidden="true">7</p>
+        <div class="qs" aria-hidden="true"><i style="--k:0">Q1</i><i style="--k:1">Q2</i><i style="--k:2">Q3</i><i style="--k:3">Q4</i><i style="--k:4">Q5</i><i style="--k:5">Q6</i><i style="--k:6">Q7</i></div>
+        <h3>Free Cost Assessment</h3>
+        <p>Seven read-only queries to run in your SQL warehouse over 90 days. Or have our team walk through the results with you.</p>
+        <div class="chips"><span class="chip">Read-only</span><span class="chip">Nothing to install</span><span class="chip">No credentials shared</span></div>
+      </article>
+    </div>
+    <div class="walk-cta on-dark reveal">
+      <p>Leave knowing <span>what inflates your bill</span> and what to fix first.</p>
+      <a class="btn btn-primary" href="#register">Save my seat</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FINAL CTA ==================== -->
 <!-- ==================== PAIN ==================== -->
 <section class="section" id="problem" aria-labelledby="problem-title">
   <div class="container">
@@ -1130,40 +1170,6 @@ a:focus-visible,button:focus-visible{outline-offset:3px}
   </div>
 </section>
 
-<!-- ==================== WHAT YOU GET ==================== -->
-<section class="section walk" id="agenda" aria-labelledby="walk-title">
-  <div class="container">
-    <div class="section-head"><h2 class="h2" id="walk-title">What you get</h2></div>
-    <div class="agenda stagger">
-      <article class="ag-block" style="--i:0">
-        <div class="tl" aria-hidden="true"><div class="tl-bar"><i class="a"></i><i class="b"></i></div><div class="tl-ticks"><span>0</span><span>30</span><span>45 min</span></div></div>
-        <div class="ag-row">
-          <p class="ag-time">0-30<small>min</small></p>
-          <div><h3>Masterclass</h3>
-            <ul class="ticks"><li>Why costs outgrow value</li><li>The six waste patterns</li><li>The healthcare teardown</li><li>Assess, migrate, monitor</li></ul></div>
-        </div>
-        <div class="ag-row">
-          <p class="ag-time">30-45<small>min</small></p>
-          <div><h3>Live Q&amp;A</h3>
-            <ul class="ticks"><li>Bring your hardest cost question</li></ul></div>
-        </div>
-      </article>
-      <article class="opt opt-a on-dark" style="--i:1">
-        <p class="opt-big" aria-hidden="true">7</p>
-        <div class="qs" aria-hidden="true"><i style="--k:0">Q1</i><i style="--k:1">Q2</i><i style="--k:2">Q3</i><i style="--k:3">Q4</i><i style="--k:4">Q5</i><i style="--k:5">Q6</i><i style="--k:6">Q7</i></div>
-        <h3>Free Cost Assessment</h3>
-        <p>Seven read-only queries to run in your SQL warehouse over 90 days. Or have our team walk through the results with you.</p>
-        <div class="chips"><span class="chip">Read-only</span><span class="chip">Nothing to install</span><span class="chip">No credentials shared</span></div>
-      </article>
-    </div>
-    <div class="walk-cta on-dark reveal">
-      <p>Leave knowing <span>what inflates your bill</span> and what to fix first.</p>
-      <a class="btn btn-primary" href="#register">Save my seat</a>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== FINAL CTA ==================== -->
 <div class="marquee" aria-hidden="true"><div class="mq-track"><div class="mq-set"><span>Thu Oct 15</span><span>12:00 PM ET</span><span>Free</span><span>Live</span><span>45 min</span><span>Seats are limited</span></div><div class="mq-set"><span>Thu Oct 15</span><span>12:00 PM ET</span><span>Free</span><span>Live</span><span>45 min</span><span>Seats are limited</span></div></div></div>
 <section class="final" id="final-cta" aria-labelledby="final-title">
   <div class="container final-inner">
@@ -1449,6 +1455,83 @@ a:focus-visible,button:focus-visible{outline-offset:3px}
     steps.forEach(function (s) { io.observe(s); });
   })();
 
+  /* ---------- Lead capture, tracking, local time, calendar ---------- */
+  /* Set FORM_ENDPOINT to the lead tool's URL (HubSpot form, webhook, Zapier, Sheet script). Null means nothing is sent. */
+  var FORM_ENDPOINT = null;
+  var utm = {};
+  try {
+    var qs = new URLSearchParams(window.location.search);
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'ref'].forEach(function (k) { if (qs.get(k)) { utm[k] = qs.get(k); } });
+  } catch (e) { /* older browsers: no UTM capture */ }
+  function track(name, extra) {
+    var o = { event: name }; extra = extra || {};
+    Object.keys(extra).forEach(function (k) { o[k] = extra[k]; });
+    (window.dataLayer = window.dataLayer || []).push(o);
+  }
+  function send(stage, data) {
+    data = data || {};
+    data.stage = stage; data.page = window.location.href;
+    Object.keys(utm).forEach(function (k) { data[k] = utm[k]; });
+    track('masterclass_' + stage, { stage: stage });
+    if (FORM_ENDPOINT && window.fetch) {
+      fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data), keepalive: true }).catch(function () {});
+    }
+  }
+
+  /* visitor's own time, shown only when it differs from Eastern */
+  var localStr = '';
+  try {
+    var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+    if (tz && tz !== 'America/New_York' && tz !== 'America/Toronto' && tz !== 'America/Detroit') {
+      localStr = new Intl.DateTimeFormat([], { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }).format(new Date(TARGET));
+      var lt = $('local-time');
+      if (lt) { lt.textContent = 'Your time: ' + localStr; lt.hidden = false; }
+    }
+  } catch (e) { /* no Intl: ET time only */ }
+
+  /* calendar links on the success screen */
+  function buildCal() {
+    var title = 'BigHammer.ai Live Masterclass: Cut your Databricks bill by up to 75%';
+    var details = 'Free 45-minute live session with Srinath Reddy and Richard Lawrence. Your join link arrives by email.';
+    var g = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(title) + '&dates=20261015T160000Z/20261015T164500Z&details=' + encodeURIComponent(details);
+    var gl = $('cal-google'); if (gl) { gl.href = g; }
+    var ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//BigHammer.ai//Masterclass//EN', 'BEGIN:VEVENT', 'UID:masterclass-20261015@bighammer.ai', 'DTSTAMP:20260101T000000Z',
+      'DTSTART:20261015T160000Z', 'DTEND:20261015T164500Z', 'SUMMARY:' + title, 'DESCRIPTION:' + details, 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+    var il = $('cal-ics'); if (il) { il.href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics); }
+    var ls = $('local-time-s'); if (ls && localStr) { ls.textContent = localStr; }
+  }
+
+  /* optional second step: company, role, phone */
+  var extra = $('extra-form');
+  if (extra) {
+    extra.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var num = $('phone').value.trim(), code = $('phone-code').value.trim(), perr = $('phone-err');
+      var bad = '';
+      if (num && !/^[\d+\s]+$/.test(num)) { bad = 'Use digits, spaces or + only, or leave this blank.'; }
+      else if (num && num.replace(/\D/g, '').length < 7) { bad = 'Enter at least 7 digits, or leave this blank.'; }
+      else if (code && !/^\+?\d{1,4}$/.test(code)) { bad = 'Country code should look like +1 or +44.'; }
+      if (bad) { perr.textContent = bad; perr.hidden = false; $('phone').setAttribute('aria-invalid', 'true'); $('phone').focus(); return; }
+      perr.hidden = true; $('phone').removeAttribute('aria-invalid');
+      send('details', { email: $('success-email').textContent, company: $('company').value.trim(), role: $('role').value, phone: (code + ' ' + num).trim() });
+      extra.hidden = true;
+      $('extra-saved').hidden = false;
+    });
+  }
+
+  /* tracking: form seen, form started, CTA clicks */
+  (function () {
+    var reg = $('register'), seen = false, started = false;
+    if (reg && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting && !seen) { seen = true; track('masterclass_form_view'); } }); }, { threshold: 0.4 }).observe(reg);
+    }
+    var f = $('reg-form');
+    if (f) { f.addEventListener('focusin', function () { if (!started) { started = true; track('masterclass_form_start'); } }); }
+    Array.prototype.forEach.call(document.querySelectorAll('a[href="#register"]'), function (a) {
+      a.addEventListener('click', function () { track('masterclass_cta_click', { label: a.textContent.trim().slice(0, 40) }); });
+    });
+  })();
+
   /* ---------- CTAs: every "#register" link scrolls to the form and focuses its first field ---------- */
   function focusFormStart() {
     var target = (!$('form-card').hidden) ? $('fname') : $('success');
@@ -1490,19 +1573,7 @@ a:focus-visible,button:focus-visible{outline-offset:3px}
         var v = $('email').value.trim();
         if (!v) { return 'Enter your work email.'; }
         return EMAIL_RE.test(v) ? '' : 'Enter a valid email address, like name@company.com.';
-    } },
-    { id: 'company', check: function () { return $('company').value.trim() ? '' : 'Enter your company.'; } },
-    { id: 'role', check: function () { return ''; } },
-    // Phone is OPTIONAL: validated only when a number has been entered.
-    { id: 'phone', also: ['phone-code'], help: 'phone-help', check: function () {
-        var num = $('phone').value.trim(), code = $('phone-code').value.trim();
-        if (!num) { return ''; }
-        if (!/^[\d+\s]+$/.test(num)) { return 'Use digits, spaces or + only, or leave this blank.'; }
-        if (num.replace(/\D/g, '').length < 7) { return 'Enter at least 7 digits, or leave this blank.'; }
-        if (code && !/^\+?\d{1,4}$/.test(code)) { return 'Country code should look like +1 or +44.'; }
-        return '';
-    } },
-    { id: 'consent', check: function () { return $('consent').checked ? '' : 'Tick this box so we can send your invite and join link.'; } }
+    } }
   ];
 
   function setError(rule, msg) {
@@ -1547,8 +1618,10 @@ a:focus-visible,button:focus-visible{outline-offset:3px}
     summary.hidden = true;
     var btn = form.querySelector('button[type=submit]');
     var email = $('email').value.trim();
+    send('register', { name: $('fname').value.trim(), email: email });
     function finish() {
       $('success-email').textContent = email;
+      buildCal();
       $('form-card').hidden = true;
       var flag = $('register').querySelector('.seat-flag');
       function setFlag() { flag.textContent = 'Seat saved'; flag.classList.add('saved'); }
