@@ -836,6 +836,16 @@ a:focus-visible,button:focus-visible{outline-offset:3px}
   .problem:nth-child(2){border-top:0}
   .problem{padding:clamp(24px,2.6vw,34px) clamp(26px,3vw,40px)}
 }
+
+/* V12: progress rail drawn in segments between the labels, so the line never runs through text */
+.fw.is-pinned .fw-rail::before,.fw.is-pinned .fw-rail::after{display:none}
+.fw.is-pinned .fw-node{min-width:0}
+.fw.is-pinned .fw-node::after{content:""; flex:1 1 auto; min-width:24px; height:3px; margin-right:16px;
+  background:linear-gradient(var(--green),var(--green)) no-repeat left center / calc(clamp(0, (var(--p, 0) * 3 - var(--i, 0)), 1) * 100%) 100%, var(--w-20)}
+.fw-node:nth-child(1){--i:0}
+.fw-node:nth-child(2){--i:1}
+.fw-node:nth-child(3){--i:2}
+.fw.is-pinned .fw-node:last-child::after{margin-right:0}
 </style>
 
 <a class="skip" href="#main">Skip to content</a>
