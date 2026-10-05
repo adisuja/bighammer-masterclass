@@ -802,6 +802,40 @@ a:focus-visible,button:focus-visible{outline-offset:3px}
 #extra-form h3{font-family:var(--font-display); font-weight:700; font-size:18px; letter-spacing:-.01em; color:var(--ink-700); margin-bottom:14px}
 .saved{padding:14px; background:var(--lime); color:var(--ink-900); font-weight:600}
 .saved[hidden]{display:none}
+
+/* ==========================================================
+   V11: stitch-skill pass (no overlaps, no equal 3-column rows, spring easing)
+   ========================================================== */
+/* spring: critically damped, stiffness 100 / damping 20. Falls back to the expo ease-out where linear() is unsupported. */
+@supports (transition-timing-function: linear(0, 1)) {
+  :root{--ease-out:linear(0, 0.072, 0.218, 0.378, 0.522, 0.642, 0.737, 0.81, 0.864, 0.904, 0.932, 0.953, 0.967, 0.977, 0.984, 0.989, 1)}
+}
+
+/* framework numeral sits in the copy column, above the title */
+.fw-ghost{position:static; display:block; transform:none; font-size:clamp(84px,9vw,128px); line-height:.8; margin:0 0 14px -3px; letter-spacing:-.06em; -webkit-text-stroke:2px rgba(0,255,137,.75); color:transparent; z-index:auto}
+.fw.is-pinned .fw-ghost{transform:none}
+.fw:not(.is-pinned) .fw-ghost{display:none}
+@media (max-width:899px){ .fw-ghost{display:none} }
+
+/* seat tag sits in the flow above the form title instead of straddling the card edge */
+.reg .seat-flag{position:static; display:inline-block; margin:0 0 14px}
+
+/* proof strip: one lead figure, two supporting */
+.facts{grid-template-columns:1.5fr 1fr 1fr}
+.fact:first-child b{font-size:clamp(44px,5vw,64px)}
+
+/* problems: heading beside a stacked list (no three equal columns) */
+@media (min-width:900px){
+  .problems{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); grid-template-areas:"head p1" "head p2" "head p3"}
+  .problems-head{grid-area:head; padding:clamp(26px,3vw,40px)}
+  .problems-head h3{position:sticky; top:96px}
+  .problem:nth-child(2){grid-area:p1}
+  .problem:nth-child(3){grid-area:p2}
+  .problem:nth-child(4){grid-area:p3}
+  .problem + .problem{border-left:0; border-top:1px solid var(--hair)}
+  .problem:nth-child(2){border-top:0}
+  .problem{padding:clamp(24px,2.6vw,34px) clamp(26px,3vw,40px)}
+}
 </style>
 
 <a class="skip" href="#main">Skip to content</a>
@@ -1044,8 +1078,8 @@ a:focus-visible,button:focus-visible{outline-offset:3px}
         <div class="fw-steps" id="fw-steps">
 
           <article class="fw-step">
-            <span class="fw-ghost" aria-hidden="true">01</span>
             <div class="fw-copy">
+              <span class="fw-ghost" aria-hidden="true">01</span>
               <p class="fw-num" aria-hidden="true">1</p>
               <h3>Assess</h3>
               <p class="fw-tag">Turn fog into clarity.</p>
@@ -1065,8 +1099,8 @@ a:focus-visible,button:focus-visible{outline-offset:3px}
           </article>
 
           <article class="fw-step">
-            <span class="fw-ghost" aria-hidden="true">02</span>
             <div class="fw-copy">
+              <span class="fw-ghost" aria-hidden="true">02</span>
               <p class="fw-num" aria-hidden="true">2</p>
               <h3>Migrate</h3>
               <p class="fw-tag">Prove it before cutover.</p>
@@ -1095,8 +1129,8 @@ a:focus-visible,button:focus-visible{outline-offset:3px}
           </article>
 
           <article class="fw-step">
-            <span class="fw-ghost" aria-hidden="true">03</span>
             <div class="fw-copy">
+              <span class="fw-ghost" aria-hidden="true">03</span>
               <p class="fw-num" aria-hidden="true">3</p>
               <h3>Monitor</h3>
               <p class="fw-tag">Keep the savings.</p>
