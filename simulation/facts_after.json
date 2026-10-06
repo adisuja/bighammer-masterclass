@@ -1,0 +1,4 @@
+{
+ "m": {"submit_in_first_screen": true, "screens_to_submit": 0.95, "date_free_in_first_screen": true, "local_time_in_first_screen": true, "screens_to_hosts": 1.6, "screens_to_proof": 1.2, "screens_to_agenda": 2.8, "required_fields": 2},
+ "d": {"submit_in_first_screen": true, "screens_to_submit": 0.7,  "date_free_in_first_screen": true, "local_time_in_first_screen": true, "screens_to_hosts": 1.0, "screens_to_proof": 1.7, "screens_to_agenda": 2.6, "required_fields": 2}
+}
