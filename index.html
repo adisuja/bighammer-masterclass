@@ -14,6 +14,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Event","name":"Cut your Databricks bill by up to 75%: Live Masterclass","description":"A free 45-minute live masterclass with Srinath Reddy and Richard Lawrence of BigHammer.ai. See where Databricks spend leaks and what to fix first.","startDate":"2026-10-15T12:00:00-04:00","endDate":"2026-10-15T12:45:00-04:00","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OnlineEventAttendanceMode","location":{"@type":"VirtualLocation","url":"https://amal200496.github.io/bighammer-masterclass/"},"organizer":{"@type":"Organization","name":"BigHammer.ai"},"performer":[{"@type":"Person","name":"Srinath Reddy","jobTitle":"Founder & CEO, BigHammer.ai"},{"@type":"Person","name":"Richard Lawrence","jobTitle":"Enterprise Growth Lead, BigHammer.ai"}],"isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/LimitedAvailability","url":"https://amal200496.github.io/bighammer-masterclass/#register"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.12.2/build/css/intlTelInput.css">
 <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,500;0,600;0,700;0,800;1,700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
@@ -936,6 +937,18 @@ a:focus-visible,button:focus-visible{outline-offset:3px}
   .fact span{font-size:12.5px; line-height:1.35}
   .host-mini figcaption span{font-size:12.5px}
 }
+/* V12: phone field with country picker, off-screen GHL fields */
+.offscreen-fields{position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden}
+.help{font-size:12.5px; color:var(--grey-600); margin-top:5px; line-height:1.4}
+.iti{display:block; width:100%}
+.iti .input{padding-left:96px}
+.iti__country-container{padding:0}
+.iti__selected-country{background:var(--field-bg-2); border-radius:0; padding:0 10px 0 12px; height:100%}
+.iti__selected-country:hover,.iti__selected-country:focus-visible{background:#DFE3F0}
+.iti__selected-dial-code{font-size:15px; color:var(--ink-700); font-weight:500}
+.iti__dropdown-content{border-radius:0; border:1px solid var(--border-light); box-shadow:0 12px 32px rgba(13,13,20,.18)}
+.iti__search-input{font-family:var(--font-body); font-size:15px; padding-top:10px; padding-bottom:10px}
+.iti__country{font-size:14px; padding:8px 12px}
 </style>
 
 <a class="skip" href="#main">Skip to content</a>
@@ -984,7 +997,7 @@ a:focus-visible,button:focus-visible{outline-offset:3px}
 
           <div class="field">
             <label for="fname">Full name</label>
-            <input class="input" type="text" id="fname" name="fname" autocomplete="name" required aria-required="true">
+            <input class="input" type="text" id="fname" name="full_name" autocomplete="name" required aria-required="true">
             <p class="err" id="fname-err" hidden></p>
           </div>
 
@@ -994,34 +1007,32 @@ a:focus-visible,button:focus-visible{outline-offset:3px}
             <p class="err" id="email-err" hidden></p>
           </div>
 
-          <button type="submit" id="reg-submit" class="btn btn-primary btn-block"><span class="bt">Save my seat <span class="arrow" aria-hidden="true">&rarr;</span></span><span class="ld" aria-hidden="true"><i style="--k:0"></i><i style="--k:1"></i><i style="--k:2"></i></span></button>
-          <p class="fine">By registering you agree to receive the invite, reminders and join link by email. Unsubscribe anytime.</p>
+          <div class="field">
+            <label for="phone">Phone number</label>
+            <input class="input" type="tel" id="phone" autocomplete="tel" required aria-required="true">
+            <p class="help" id="phone-help">For your join link and reminders on WhatsApp.</p>
+            <p class="err" id="phone-err" hidden></p>
+          </div>
+
+          <!-- Filled just before the tracked submit. Off-screen, not type="hidden", because the GoHighLevel tracker skips hidden inputs. -->
+          <div class="offscreen-fields" aria-hidden="true">
+            <input type="text" name="first_name" id="ghlFirstName" tabindex="-1" readonly autocomplete="off">
+            <input type="text" name="last_name" id="ghlLastName" tabindex="-1" readonly autocomplete="off">
+            <input type="text" name="phone" id="ghlPhone" tabindex="-1" readonly autocomplete="off">
+            <input type="text" name="phone_number" id="ghlPhoneNumber" tabindex="-1" readonly autocomplete="off">
+            <input type="text" name="readable_webinar_date" id="ghlWebinarDate" tabindex="-1" readonly autocomplete="off">
+            <input type="text" name="readable_webinar_time" id="ghlWebinarTime" tabindex="-1" readonly autocomplete="off">
+            <input type="text" name="watch_link_webinargeek" id="ghlWatchLink" tabindex="-1" readonly autocomplete="off">
+          </div>
+
+          <!-- type="button": a native submit would let the GHL tracker capture the form twice (once with the off-screen fields empty). -->
+          <button type="button" id="reg-submit" class="btn btn-primary btn-block"><span class="bt">Save my seat <span class="arrow" aria-hidden="true">&rarr;</span></span><span class="ld" aria-hidden="true"><i style="--k:0"></i><i style="--k:1"></i><i style="--k:2"></i></span></button>
+          <p class="fine">By registering you agree to receive the invite, reminders and join link by email and WhatsApp. Unsubscribe anytime.</p>
           <div class="bonus"><p class="bonus-tag">Free bonus</p><div class="bonus-row"><b class="bonus-n" aria-hidden="true">+1</b><p><strong>Databricks Cost Assessment</strong><span>7 read-only queries that show where your spend leaks. Included with your seat.</span></p></div></div>
           <figure class="mini-proof"><blockquote>&ldquo;BigHammer transformed a multi-year data engineering challenge into a production-ready platform in months.&rdquo;</blockquote><figcaption><img class="mp-av" src="data:image/jpeg;base64,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" alt="" width="40" height="40"><span><b>Anushka</b>Founder &amp; CEO, SBC Labs</span></figcaption></figure>
         </form>
       </div>
 
-      <!-- Success state (client-side only) -->
-      <div class="success" id="success" tabindex="-1" hidden>
-        <span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30"><polyline points="4,13 10,19 20,6" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="square" pathLength="1"/></svg></span>
-        <h2 id="success-title">You're in.</h2>
-        <p>Your invite and join link are on the way to:</p>
-        <span class="email" id="success-email"></span>
-        <p class="when-you">Thursday, October 15, 12:00 PM ET<br><span id="local-time-s"></span></p>
-        <div class="cal"><a class="btn-cal" id="cal-google" href="#" target="_blank" rel="noopener">Google Calendar</a><a class="btn-cal" id="cal-ics" href="#" download="bighammer-masterclass.ics">Apple or Outlook (.ics)</a></div>
-        <form id="extra-form" novalidate>
-          <h3>Optional: help us tailor the session</h3>
-          <div class="row-2">
-            <div class="field"><label for="company">Company</label><input class="input" type="text" id="company" name="company" autocomplete="organization"></div>
-            <div class="field"><label for="role">Role</label><div class="select-wrap"><select class="input" id="role" name="role"><option value="" selected>Choose one</option><option>VP / Head of Data</option><option>Data Engineering Manager</option><option>CTO / Engineering Leader</option><option>FinOps / Platform Cost Owner</option><option>Other</option></select></div></div>
-          </div>
-          <div class="field"><label for="phone">Phone number</label>
-            <div class="phone-row"><label class="sr-only" for="phone-code">Country code</label><input class="input code" type="text" id="phone-code" name="phone-code" inputmode="tel" autocomplete="tel-country-code" placeholder="+1" maxlength="5"><input class="input" type="tel" id="phone" name="phone" autocomplete="tel-national" inputmode="tel" aria-describedby="phone-help"></div>
-            <p class="help" id="phone-help">WhatsApp reminder only.</p><p class="err" id="phone-err" hidden></p></div>
-          <button type="submit" class="btn btn-primary btn-block">Save details</button>
-        </form>
-        <p class="saved" id="extra-saved" hidden>Thanks. See you on October 15.</p>
-      </div>
     </div>
 
 
@@ -1333,6 +1344,7 @@ a:focus-visible,button:focus-visible{outline-offset:3px}
   <a class="btn btn-primary btn-block" href="#register" id="sticky-label">Save my seat. Oct 15, free.</a>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.12.2/build/js/intlTelInput.min.js"></script>
 <script>
 (function () {
   'use strict';
@@ -1591,9 +1603,7 @@ a:focus-visible,button:focus-visible{outline-offset:3px}
     steps.forEach(function (s) { io.observe(s); });
   })();
 
-  /* ---------- Lead capture, tracking, local time, calendar ---------- */
-  /* Set FORM_ENDPOINT to the lead tool's URL (HubSpot form, webhook, Zapier, Sheet script). Null means nothing is sent. */
-  var FORM_ENDPOINT = null;
+  /* ---------- UTM capture, tracking, local time ---------- */
   var utm = {};
   try {
     var qs = new URLSearchParams(window.location.search);
@@ -1603,15 +1613,6 @@ a:focus-visible,button:focus-visible{outline-offset:3px}
     var o = { event: name }; extra = extra || {};
     Object.keys(extra).forEach(function (k) { o[k] = extra[k]; });
     (window.dataLayer = window.dataLayer || []).push(o);
-  }
-  function send(stage, data) {
-    data = data || {};
-    data.stage = stage; data.page = window.location.href;
-    Object.keys(utm).forEach(function (k) { data[k] = utm[k]; });
-    track('masterclass_' + stage, { stage: stage });
-    if (FORM_ENDPOINT && window.fetch) {
-      fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data), keepalive: true }).catch(function () {});
-    }
   }
 
   /* visitor's own time, shown only when it differs from Eastern */
@@ -1626,35 +1627,7 @@ a:focus-visible,button:focus-visible{outline-offset:3px}
     }
   } catch (e) { /* no Intl: ET time only */ }
 
-  /* calendar links on the success screen */
-  function buildCal() {
-    var title = 'BigHammer.ai Live Masterclass: Cut your Databricks bill by up to 75%';
-    var details = 'Free 45-minute live session with Srinath Reddy and Richard Lawrence. Your join link arrives by email.';
-    var g = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(title) + '&dates=20261015T160000Z/20261015T164500Z&details=' + encodeURIComponent(details);
-    var gl = $('cal-google'); if (gl) { gl.href = g; }
-    var ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//BigHammer.ai//Masterclass//EN', 'BEGIN:VEVENT', 'UID:masterclass-20261015@bighammer.ai', 'DTSTAMP:20260101T000000Z',
-      'DTSTART:20261015T160000Z', 'DTEND:20261015T164500Z', 'SUMMARY:' + title, 'DESCRIPTION:' + details, 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
-    var il = $('cal-ics'); if (il) { il.href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics); }
-    var ls = $('local-time-s'); if (ls && localStr) { ls.textContent = localStr; }
-  }
 
-  /* optional second step: company, role, phone */
-  var extra = $('extra-form');
-  if (extra) {
-    extra.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var num = $('phone').value.trim(), code = $('phone-code').value.trim(), perr = $('phone-err');
-      var bad = '';
-      if (num && !/^[\d+\s]+$/.test(num)) { bad = 'Use digits, spaces or + only, or leave this blank.'; }
-      else if (num && num.replace(/\D/g, '').length < 7) { bad = 'Enter at least 7 digits, or leave this blank.'; }
-      else if (code && !/^\+?\d{1,4}$/.test(code)) { bad = 'Country code should look like +1 or +44.'; }
-      if (bad) { perr.textContent = bad; perr.hidden = false; $('phone').setAttribute('aria-invalid', 'true'); $('phone').focus(); return; }
-      perr.hidden = true; $('phone').removeAttribute('aria-invalid');
-      send('details', { email: $('success-email').textContent, company: $('company').value.trim(), role: $('role').value, phone: (code + ' ' + num).trim() });
-      extra.hidden = true;
-      $('extra-saved').hidden = false;
-    });
-  }
 
   /* tracking: form seen, form started, CTA clicks */
   (function () {
@@ -1700,7 +1673,86 @@ a:focus-visible,button:focus-visible{outline-offset:3px}
     watched.forEach(function (id) { var el = $(id); if (el) { io.observe(el); } });
   }
 
-  /* ---------- Form validation + success swap ---------- */
+  /* ==========================================================
+     REGISTRATION: same flow as the current live page (webinar.bighammerai.com)
+     WebinarGeek (via the broadcast backend) + n8n webhook + GoHighLevel form tracking,
+     then redirect to thank-you.html.
+     The real calls run ONLY on LIVE_HOSTS. Anywhere else (GitHub preview, localhost)
+     the flow is simulated so test sign-ups never reach WebinarGeek, n8n or WhatsApp.
+     ========================================================== */
+  var LIVE_HOSTS = ['webinar.bighammerai.com'];
+  var IS_LIVE = LIVE_HOSTS.indexOf(window.location.hostname) !== -1;
+
+  var BACKEND_URL = 'https://broadcast.growthclub.org';
+  var CLIENT_ID = 'bighammer';
+  var BROADCAST_ID = '6841508';
+  var N8N_WEBHOOK_URL = 'https://n8n.bighammerops.com/webhook/7f48ee24-ccae-4b03-afb0-c1fed9a5e2d8';
+  var GHL_TRACKING_ID = 'tk_1766461a858840bab3b002924858c2ea';
+  var WEBINAR_TZ = 'America/New_York';
+  var THANK_YOU_URL = 'thank-you.html';
+
+  if (IS_LIVE) {
+    var ghl = document.createElement('script');
+    ghl.src = 'https://link.msgsndr.com/js/external-tracking.js';
+    ghl.setAttribute('data-tracking-id', GHL_TRACKING_ID);
+    document.head.appendChild(ghl);
+  }
+
+  function formatWebinarDate(unix) {
+    if (!unix) { return ''; }
+    return new Date(unix * 1000).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric', timeZone: WEBINAR_TZ });
+  }
+  function formatWebinarTime(unix) {
+    if (!unix) { return ''; }
+    var d = new Date(unix * 1000);
+    var clock = d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true, timeZone: WEBINAR_TZ });
+    var parts = new Intl.DateTimeFormat('en-US', { timeZoneName: 'short', timeZone: WEBINAR_TZ }).formatToParts(d);
+    var zone = (parts.filter(function (x) { return x.type === 'timeZoneName'; })[0] || {}).value || '';
+    return (clock + ' ' + zone).trim();
+  }
+  /* splits on the first space, so a compound first name lands in last_name (same as the live page) */
+  function splitName(full) {
+    var parts = String(full || '').trim().split(/\s+/).filter(Boolean);
+    return { first: parts[0] || '', last: parts.slice(1).join(' ') };
+  }
+  function store(key, val) {
+    var raw = JSON.stringify(val);
+    try { sessionStorage.setItem(key, raw); } catch (e) { /* storage blocked */ }
+    try { localStorage.setItem(key, raw); } catch (e) { /* storage blocked */ }
+  }
+  function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+  /* ---------- Phone field with country picker (intl-tel-input, same version as the live page) ---------- */
+  var phoneInput = $('phone');
+  function guessCountry() {
+    try {
+      var z = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+      if (z === 'Asia/Kolkata' || z === 'Asia/Calcutta') { return 'in'; }
+      if (z === 'Europe/London') { return 'gb'; }
+      if (z.indexOf('Australia/') === 0) { return 'au'; }
+      if (z === 'Asia/Singapore') { return 'sg'; }
+      if (z === 'Asia/Dubai') { return 'ae'; }
+      if (z === 'Europe/Berlin') { return 'de'; }
+      if (z === 'Europe/Paris') { return 'fr'; }
+      if (z === 'Europe/Amsterdam') { return 'nl'; }
+    } catch (e) { /* fall through */ }
+    return 'us';
+  }
+  var iti = window.intlTelInput ? window.intlTelInput(phoneInput, {
+    initialCountry: guessCountry(),
+    separateDialCode: true,
+    countrySearch: true,
+    loadUtils: function () { return import('https://cdn.jsdelivr.net/npm/intl-tel-input@25.12.2/build/js/utils.js'); }
+  }) : null;
+  function phoneUtilsReady() { return !!(window.intlTelInput && window.intlTelInput.utils); }
+  function fullPhone() {
+    var digits = phoneInput.value.replace(/\D/g, '');
+    if (!iti) { return digits ? '+' + digits : ''; }
+    if (phoneUtilsReady()) { return iti.getNumber(); }
+    return '+' + iti.getSelectedCountryData().dialCode + digits;
+  }
+
+  /* ---------- Validation ---------- */
   var form = $('reg-form'), summary = $('form-summary');
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -1710,14 +1762,19 @@ a:focus-visible,button:focus-visible{outline-offset:3px}
         var v = $('email').value.trim();
         if (!v) { return 'Enter your work email.'; }
         return EMAIL_RE.test(v) ? '' : 'Enter a valid email address, like name@company.com.';
+    } },
+    { id: 'phone', help: 'phone-help', check: function () {
+        var digits = phoneInput.value.replace(/\D/g, '');
+        if (!digits) { return 'Enter your phone number.'; }
+        /* utils not loaded (CDN blocked): don't block the sign-up, just require a plausible length */
+        if (iti && phoneUtilsReady()) { return iti.isValidNumber() ? '' : 'Enter a valid number for the selected country.'; }
+        return digits.length >= 6 ? '' : 'Enter a valid phone number.';
     } }
   ];
 
   function setError(rule, msg) {
     var err = $(rule.id + '-err'), main = $(rule.id), desc = [];
-    [rule.id].concat(rule.also || []).forEach(function (id) {
-      if (msg) { $(id).setAttribute('aria-invalid', 'true'); } else { $(id).removeAttribute('aria-invalid'); }
-    });
+    if (msg) { main.setAttribute('aria-invalid', 'true'); } else { main.removeAttribute('aria-invalid'); }
     if (rule.help) { desc.push(rule.help); }
     if (msg) { desc.push(err.id); err.textContent = msg; err.hidden = false; }
     else { err.textContent = ''; err.hidden = true; }
@@ -1728,20 +1785,24 @@ a:focus-visible,button:focus-visible{outline-offset:3px}
   function validateRule(rule) { return setError(rule, rule.check()); }
 
   rules.forEach(function (rule) {
-    [rule.id].concat(rule.also || []).forEach(function (id) {
-      var el = $(id);
-      el.addEventListener('blur', function () {
-        if (el.type === 'checkbox' || el.value !== '' || el.hasAttribute('aria-invalid')) { validateRule(rule); }
-      });
-      var evt = (el.type === 'checkbox' || el.tagName === 'SELECT') ? 'change' : 'input';
-      el.addEventListener(evt, function () {
-        if (el.hasAttribute('aria-invalid')) { validateRule(rule); }
-      });
+    var el = $(rule.id);
+    el.addEventListener('blur', function () {
+      if (el.value !== '' || el.hasAttribute('aria-invalid')) { validateRule(rule); }
+    });
+    el.addEventListener('input', function () {
+      if (el.hasAttribute('aria-invalid')) { validateRule(rule); }
     });
   });
+  if (iti) { phoneInput.addEventListener('countrychange', function () { if (phoneInput.hasAttribute('aria-invalid')) { validateRule(rules[2]); } }); }
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
+  /* ---------- Submit ---------- */
+  var btn = $('reg-submit'), busy = false;
+
+  async function handleSubmit(e) {
+    if (e && e.preventDefault) { e.preventDefault(); }
+    if (busy) { return; }
+    /* give the phone utils a moment so validation is exact; never wait more than 3s */
+    if (iti && iti.promise) { await Promise.race([iti.promise, wait(3000)]).catch(function () {}); }
     var firstBad = null, bad = 0;
     rules.forEach(function (rule) {
       if (!validateRule(rule)) { bad++; if (!firstBad) { firstBad = $(rule.id); } }
@@ -1753,21 +1814,87 @@ a:focus-visible,button:focus-visible{outline-offset:3px}
       return;
     }
     summary.hidden = true;
-    var btn = form.querySelector('button[type=submit]');
+    busy = true;
+    btn.classList.add('loading'); btn.disabled = true;
+
+    var name = $('fname').value.trim();
     var email = $('email').value.trim();
-    send('register', { name: $('fname').value.trim(), email: email });
-    function finish() {
-      $('success-email').textContent = email;
-      buildCal();
-      $('form-card').hidden = true;
-      var flag = $('register').querySelector('.seat-flag');
-      function setFlag() { flag.textContent = 'Seat saved'; flag.classList.add('saved'); }
-      if (motionOK()) { flag.classList.add('flip'); setTimeout(setFlag, 200); } else { setFlag(); }
-      var ok = $('success');
-      ok.hidden = false;
-      ok.focus();
+    var phone = fullPhone();
+    var nm = splitName(name);
+    track('masterclass_register', { stage: 'register' });
+
+    if (!IS_LIVE) {
+      /* preview: nothing leaves the browser */
+      store('registrationData', { name: name, email: email, phone: phone, preview: true });
+      await wait(700);
+      window.location.href = THANK_YOU_URL + '?preview=1';
+      return;
     }
-    if (motionOK()) { btn.classList.add('loading'); btn.disabled = true; setTimeout(finish, 650); } else { finish(); }
+
+    try {
+      var broadcastData = null;
+      try {
+        var br = await fetch(BACKEND_URL + '/api/v1/broadcast/upcoming-broadcast?clientId=' + encodeURIComponent(CLIENT_ID));
+        if (br.ok) { broadcastData = await br.json(); }
+      } catch (err) { console.warn('Could not fetch broadcast data:', err); }
+      var bd = (broadcastData && broadcastData.broadcast_data) || {};
+      var broadcastId = (broadcastData && broadcastData.broadcast_id) || BROADCAST_ID;
+
+      /* n8n: same payload as the live page, plus UTM fields */
+      var lead = {
+        formType: 'registrant', timestamp: new Date().toISOString(),
+        name: name, email: email, phone: phone, company: '', role: '',
+        clientId: CLIENT_ID, submittedFromUrl: window.location.href, broadcastId: broadcastId,
+        webinarTitle: bd.webinar_title || '', webinarDate: bd.readable_date || '',
+        source: 'Landing Page Registration'
+      };
+      Object.keys(utm).forEach(function (k) { lead[k] = utm[k]; });
+      var n8nDone = fetch(N8N_WEBHOOK_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(lead) })
+        .catch(function (err) { console.warn('n8n submission failed:', err); });
+
+      /* WebinarGeek registration through the broadcast backend */
+      var reg = null;
+      try {
+        var rr = await fetch(BACKEND_URL + '/api/v1/webinar/register', {
+          method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ name: nm.first, firstName: nm.first, lastName: nm.last, email: email, phone: phone, companyName: '',
+            submittedFromUrl: window.location.href, terms: true, broadcastId: broadcastId, clientId: CLIENT_ID })
+        });
+        if (rr.ok) { reg = await rr.json(); }
+      } catch (err) { console.warn('Webinar registration failed:', err); }
+      store('registrationData', Object.assign({}, reg || {}, { name: name, email: email, phone: phone }));
+      if (broadcastData) { store('broadcastData', broadcastData); }
+
+      /* GoHighLevel: fill the off-screen fields, then fire one trusted submit for the tracker (drives the WhatsApp message) */
+      var watchLink = (reg && reg.watchLink) || bd.public_replay_link || '';
+      $('ghlFirstName').value = nm.first;
+      $('ghlLastName').value = nm.last;
+      $('ghlPhone').value = phone;
+      $('ghlPhoneNumber').value = phone;
+      $('ghlWebinarDate').value = formatWebinarDate(bd.date || null);
+      $('ghlWebinarTime').value = formatWebinarTime(bd.date || null);
+      $('ghlWatchLink').value = watchLink;
+      if (typeof form.requestSubmit === 'function') { form.requestSubmit(); }
+      else { form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true })); }
+
+      /* navigating away cancels in-flight requests, so let them finish first */
+      await Promise.race([n8nDone, wait(4000)]);
+      await wait(600);
+    } catch (err) {
+      console.error('Registration error:', err);
+    }
+    window.location.href = THANK_YOU_URL;
+  }
+
+  /* the form element exists so the GHL tracker can read it; it never navigates */
+  form.addEventListener('submit', function (e) { e.preventDefault(); });
+  btn.addEventListener('click', handleSubmit);
+  /* type="button" loses Enter-to-submit, so put it back (except inside the country search box) */
+  form.addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter' || e.target.tagName !== 'INPUT') { return; }
+    if (e.target.closest('.iti__dropdown-content')) { return; }
+    e.preventDefault();
+    handleSubmit(e);
   });
 })();
 </script>
