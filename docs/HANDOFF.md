@@ -31,3 +31,11 @@ This commit is the go-live version of the masterclass page. One file, `index.htm
 4. Test with a real sign-up on the live domain and check: the contact lands in GHL with phone, first and last name; the n8n row appears; the WebinarGeek registration exists; the WhatsApp message arrives; the thank-you page shows the "Access webinar seat" button with the personal join link.
 5. Company and role are no longer collected. The n8n payload sends them as empty strings, so check nothing downstream requires them.
 6. Optional: add `og:url`, `og:image` and a `canonical` link once the final URL is known.
+
+## Databricks Cost Field Guide (lead magnet)
+The old link (adisuja.github.io/bighammer-cost-field-guide) stopped working when its repo was made private. A copy now lives in `cost-field-guide/` so it can sit on the branded domain.
+
+1. Upload the whole `cost-field-guide/` folder, as is, to the root of webinar.bighammerai.com. It then loads at https://webinar.bighammerai.com/cost-field-guide/
+2. Keep the folder structure (`assets/`, `brand/`, `brand/fonts/`). All paths inside are relative.
+3. Canonical, `og:url` and the share image already point at the new address.
+4. The guide still links to the Cost X-Ray at adisuja.github.io/bighammer-cost-xray, which is also private and offline right now.
