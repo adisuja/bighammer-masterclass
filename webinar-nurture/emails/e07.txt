@@ -1,0 +1,40 @@
+Hi {{contact.first_name}},
+
+Last week we looked at why so much Databricks spend has no job attached. The good news: most of the fix is configuration, not migration.
+
+
+FIX 1: SCHEDULED PRODUCTION WORK RUNS ON JOBS COMPUTE
+
+A notebook scheduled on an All-Purpose cluster does the same work as a job on a job cluster. Two things change when you move it:
+
+- Every run becomes traceable. Job clusters write the job and run IDs into billing usage, so the spend has a name on it.
+- It's billed at a lower rate. Jobs compute is priced below All-Purpose compute on Databricks' published list prices. The exact gap depends on your cloud and tier, so check your own rate card.
+
+FIX 2: A SMALL REQUIRED TAG SET, ENFORCED BY CLUSTER POLICY
+
+Three tags are enough to start: owner, cost_centre and env. Make them required in a cluster policy so a cluster can't be created without them. Tags flow into custom_tags on billing usage, which means showback by team stops being a spreadsheet exercise.
+
+WHAT GOOD LOOKS LIKE
+
+- Scheduled production work on Jobs compute, so every run is traceable.
+- Three required tags, enforced by policy, not by memo.
+- A coverage target, such as "most spend traceable to a job", reviewed monthly.
+
+> Nobody did anything wrong. The guardrails just weren't there yet.
+
+CHECK IT YOURSELF THIS WEEK
+
+List the scheduled notebooks currently running on All-Purpose clusters, and what they cost over 90 days. The Field Guide (https://adisuja.github.io/bighammer-masterclass/cost-field-guide/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e07-guide-text) has the query. It's often one of the quickest savings on the table.
+
+Or drop your results into the free Cost X-Ray: https://adisuja.github.io/bighammer-masterclass/cost-xray/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e07-xray-text
+
+Do you already enforce tags by cluster policy, or is it still a convention? Reply and let me know. I'm curious how many teams have made the jump.
+
+Until next time,
+Richard
+
+Richard Lawrence
+BigHammer.ai
+
+BigHammer.ai Inc., 5900 Balcones Drive # 29129, Austin, TX 78731
+Unsubscribe: {{unsubscribe_link}}

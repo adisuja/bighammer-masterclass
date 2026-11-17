@@ -32,10 +32,18 @@ This commit is the go-live version of the masterclass page. One file, `index.htm
 5. Company and role are no longer collected. The n8n payload sends them as empty strings, so check nothing downstream requires them.
 6. Optional: add `og:url`, `og:image` and a `canonical` link once the final URL is known.
 
-## Databricks Cost Field Guide (lead magnet)
-The old link (adisuja.github.io/bighammer-cost-field-guide) stopped working when its repo was made private. A copy now lives in `cost-field-guide/` so it can sit on the branded domain.
+## Lead magnet and review sites hosted here
+GitHub Pages stopped serving four sites when their repos went private or had Pages switched off. Copies now live in this repo, which still publishes on Pages:
 
-1. Upload the whole `cost-field-guide/` folder, as is, to the root of webinar.bighammerai.com. It then loads at https://webinar.bighammerai.com/cost-field-guide/
-2. Keep the folder structure (`assets/`, `brand/`, `brand/fonts/`). All paths inside are relative.
-3. Canonical, `og:url` and the share image already point at the new address.
-4. The guide still links to the Cost X-Ray at adisuja.github.io/bighammer-cost-xray, which is also private and offline right now.
+| Site | Live now | Old link |
+|---|---|---|
+| Databricks Cost Field Guide | https://adisuja.github.io/bighammer-masterclass/cost-field-guide/ | adisuja.github.io/bighammer-cost-field-guide |
+| Cost X-Ray | https://adisuja.github.io/bighammer-masterclass/cost-xray/ | adisuja.github.io/bighammer-cost-xray |
+| Webinar nurture review | https://adisuja.github.io/bighammer-masterclass/webinar-nurture/ | adisuja.github.io/bighammer-webinar-nurture |
+| Weekly review | https://adisuja.github.io/bighammer-masterclass/weekly-review/ | adisuja.github.io/bighammer-weekly-review |
+
+Links between the four sites point at the new addresses.
+
+Branded domain: upload the `cost-field-guide/` and `cost-xray/` folders as they are to the root of webinar.bighammerai.com. All paths inside are relative, so they work there unchanged. Once they are up, swap `adisuja.github.io/bighammer-masterclass` for `webinar.bighammerai.com` in their canonical and share tags.
+
+Old links come back only if each old repo is public with Settings, Pages set to `main`, root folder. The source repos are unchanged, so edits made here should be copied back to them.

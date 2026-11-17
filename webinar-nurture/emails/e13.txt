@@ -1,0 +1,43 @@
+Hi {{contact.first_name}},
+
+Every vendor in this space promises savings, and our own masterclass title said "up to 75%". So it's fair to ask what has to be true before any number like that deserves a hearing.
+
+Most savings claims fall apart under three questions: what was actually measured, what was assumed, and what was left out.
+
+
+WHY SAVINGS NUMBERS ARE SO OFTEN WRONG
+
+- Measured and assumed get mixed together. A real failed-run cost sits next to a rough guess about right-sizing, and both are presented as "savings".
+- The same dollar is counted twice. Moving a job to cheaper compute and right-sizing it are not two separate savings on the same spend.
+- The gaps are hidden. Contract discounts, cloud VM costs and untraced spend quietly drop out of the picture.
+
+HOW WE REPORT
+
+Measured: total cost, cost by product, traced spend, failed-run cost. These come straight from your billing and run data.
+
+Estimated: savings opportunities. Each one comes with the rule used to calculate it, so you can check it or change the assumption.
+
+Visibility gap: untraced spend. Reported on its own line, never as savings.
+
+WHAT GOOD REPORTING LOOKS LIKE
+
+- Reliability waste (failed runs) kept separate from optimisation opportunity. They need different fixes and different owners.
+- Every estimate shows its method.
+- Nothing in the savings column that you couldn't explain to your CFO in one sentence.
+
+> If you can't see the method, it isn't a number. It's a hope.
+
+The offline report contains measured figures only. When you connect your workspace, the assessment adds estimated opportunities (All-Purpose to Jobs compute, Photon fit, serverless for start-up-heavy jobs, right-sizing, idle time), each labelled with how it was calculated.
+
+See your measured baseline with the offline assessment: https://assessment.bighammerops.com/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e13-assess-text
+
+Next: four questions to ask of any savings claim, including ours.
+
+Best wishes,
+Richard
+
+Richard Lawrence
+BigHammer.ai
+
+BigHammer.ai Inc., 5900 Balcones Drive # 29129, Austin, TX 78731
+Unsubscribe: {{unsubscribe_link}}

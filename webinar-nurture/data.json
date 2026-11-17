@@ -1,0 +1,754 @@
+[
+ {
+  "n": 1,
+  "week": 1,
+  "day": 0,
+  "kind": "Welcome",
+  "step": null,
+  "label": "Start here",
+  "subject": "Your Databricks cost series starts here",
+  "preheader": "Eight steps from an invoice total to evidence you can defend. Here is the map.",
+  "alt": "The 8-step evidence path: see it, trace it, measure it, assess it, report it, right-size it, classify it, prove it",
+  "links": [
+   {
+    "label": "bighammer.ai (signature)",
+    "slug": "site-signature",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e01-site-signature"
+   },
+   {
+    "label": "Book a 30-minute walkthrough",
+    "slug": "book-button",
+    "url": "https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e01-book-button"
+   },
+   {
+    "label": "Or run the offline assessment yourself",
+    "slug": "assess-link",
+    "url": "https://assessment.bighammerops.com/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e01-assess-link"
+   },
+   {
+    "label": "bighammer.ai (footer)",
+    "slug": "site-footer",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e01-site-footer"
+   }
+  ]
+ },
+ {
+  "n": 2,
+  "week": 1,
+  "day": 3,
+  "kind": "Teach",
+  "step": 1,
+  "label": "Step 1 of 8",
+  "subject": "Step 1/8: Your renewal is coming. Do you have evidence?",
+  "preheader": "A total tells you what you spent. It doesn't tell you what it bought.",
+  "alt": "Left, a single invoice total. Right, the same spend broken down by SKU, job, owner and run outcome",
+  "links": [
+   {
+    "label": "bighammer.ai (signature)",
+    "slug": "site-signature",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e02-site-signature"
+   },
+   {
+    "label": "Run the offline assessment",
+    "slug": "assess-button",
+    "url": "https://assessment.bighammerops.com/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e02-assess-button"
+   },
+   {
+    "label": "Or book a 30-minute walkthrough",
+    "slug": "book-link",
+    "url": "https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e02-book-link"
+   },
+   {
+    "label": "bighammer.ai (footer)",
+    "slug": "site-footer",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e02-site-footer"
+   }
+  ]
+ },
+ {
+  "n": 3,
+  "week": 2,
+  "day": 7,
+  "kind": "Lead magnet",
+  "step": 1,
+  "label": "Step 1 of 8",
+  "subject": "The join most Databricks teams never write",
+  "preheader": "Three system tables, one join, and your invoice finally has names on it.",
+  "alt": "Diagram of system.billing.usage joined to system.billing.list_prices and system.lakeflow.job_run_timeline",
+  "links": [
+   {
+    "label": "bighammer.ai (signature)",
+    "slug": "site-signature",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e03-site-signature"
+   },
+   {
+    "label": "Open the Field Guide",
+    "slug": "guide-button",
+    "url": "https://adisuja.github.io/bighammer-masterclass/cost-field-guide/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e03-guide-button"
+   },
+   {
+    "label": "bighammer.ai (footer)",
+    "slug": "site-footer",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e03-site-footer"
+   }
+  ]
+ },
+ {
+  "n": 4,
+  "week": 2,
+  "day": 10,
+  "kind": "Book a call",
+  "step": null,
+  "label": "30-minute call",
+  "subject": "What happens on a 30-minute BigHammer call",
+  "preheader": "No slide deck. You leave with three things, whether or not we ever speak again.",
+  "alt": "Richard Lawrence at his desk, with the three-part agenda of a 30-minute BigHammer walkthrough",
+  "links": [
+   {
+    "label": "bighammer.ai (signature)",
+    "slug": "site-signature",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e04-site-signature"
+   },
+   {
+    "label": "Request your 30-minute call",
+    "slug": "book-button",
+    "url": "https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e04-book-button"
+   },
+   {
+    "label": "bighammer.ai (footer)",
+    "slug": "site-footer",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e04-site-footer"
+   }
+  ]
+ },
+ {
+  "n": 5,
+  "week": 3,
+  "day": 14,
+  "kind": "Teach",
+  "step": 2,
+  "label": "Step 2 of 8",
+  "subject": "Step 2/8: Most of your Databricks spend can't be traced to a job",
+  "preheader": "The bill went up. Someone asks which pipeline caused it. The room goes quiet.",
+  "alt": "Stacked bar of 90-day spend showing 58% traced to jobs and 42% untraced, labelled a visibility gap, not waste",
+  "links": [
+   {
+    "label": "bighammer.ai (signature)",
+    "slug": "site-signature",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e05-site-signature"
+   },
+   {
+    "label": "Field Guide",
+    "slug": "guide-inline",
+    "url": "https://adisuja.github.io/bighammer-masterclass/cost-field-guide/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e05-guide-inline"
+   },
+   {
+    "label": "Want us to look at your traced percentage with you? Book 30 minutes",
+    "slug": "book-link",
+    "url": "https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e05-book-link"
+   },
+   {
+    "label": "bighammer.ai (footer)",
+    "slug": "site-footer",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e05-site-footer"
+   }
+  ]
+ },
+ {
+  "n": 6,
+  "week": 3,
+  "day": 17,
+  "kind": "Lead magnet",
+  "step": 2,
+  "label": "Step 2 of 8",
+  "subject": "An X-Ray of your Databricks spend, in your browser",
+  "preheader": "Run three read-only queries, drop in the CSVs, get a report. Nothing leaves your browser.",
+  "alt": "Screenshot of the free BigHammer Databricks Cost X-Ray report showing baseline, traced spend and failed-run cost",
+  "links": [
+   {
+    "label": "bighammer.ai (signature)",
+    "slug": "site-signature",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e06-site-signature"
+   },
+   {
+    "label": "Open the Cost X-Ray",
+    "slug": "xray-button",
+    "url": "https://adisuja.github.io/bighammer-masterclass/cost-xray/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e06-xray-button"
+   },
+   {
+    "label": "Book a walkthrough of your X-Ray results",
+    "slug": "book-link",
+    "url": "https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e06-book-link"
+   },
+   {
+    "label": "bighammer.ai (footer)",
+    "slug": "site-footer",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e06-site-footer"
+   }
+  ]
+ },
+ {
+  "n": 7,
+  "week": 4,
+  "day": 21,
+  "kind": "Teach",
+  "step": 2,
+  "label": "Step 2 of 8",
+  "subject": "Same work, traceable and cheaper",
+  "preheader": "Two configuration changes that close most of the visibility gap.",
+  "alt": "Before and after: a scheduled notebook on a shared All-Purpose cluster becomes a tagged job on a job cluster",
+  "links": [
+   {
+    "label": "bighammer.ai (signature)",
+    "slug": "site-signature",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e07-site-signature"
+   },
+   {
+    "label": "Field Guide",
+    "slug": "guide-inline",
+    "url": "https://adisuja.github.io/bighammer-masterclass/cost-field-guide/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e07-guide-inline"
+   },
+   {
+    "label": "Or drop your results into the free Cost X-Ray",
+    "slug": "xray-link",
+    "url": "https://adisuja.github.io/bighammer-masterclass/cost-xray/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e07-xray-link"
+   },
+   {
+    "label": "bighammer.ai (footer)",
+    "slug": "site-footer",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e07-site-footer"
+   }
+  ]
+ },
+ {
+  "n": 8,
+  "week": 4,
+  "day": 24,
+  "kind": "Teach",
+  "step": 3,
+  "label": "Step 3 of 8",
+  "subject": "Step 3/8: The 3 AM failure is still on your bill",
+  "preheader": "The incident closed. The compute from the failed runs didn't go anywhere.",
+  "alt": "Timeline of a nightly job: two failed attempts shaded red as billed but producing nothing, then a successful retry",
+  "links": [
+   {
+    "label": "bighammer.ai (signature)",
+    "slug": "site-signature",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e08-site-signature"
+   },
+   {
+    "label": "The offline assessment measures failed-job cost for you, run by run",
+    "slug": "assess-link",
+    "url": "https://assessment.bighammerops.com/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e08-assess-link"
+   },
+   {
+    "label": "bighammer.ai (footer)",
+    "slug": "site-footer",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e08-site-footer"
+   }
+  ]
+ },
+ {
+  "n": 9,
+  "week": 5,
+  "day": 28,
+  "kind": "Teach",
+  "step": 3,
+  "label": "Step 3 of 8",
+  "subject": "Make failure cheap and loud",
+  "preheader": "Four guardrails. All configuration. None of them need a migration.",
+  "alt": "A job settings card with timeout, retry and pre-check annotations, next to an alert that states what the failure cost",
+  "links": [
+   {
+    "label": "bighammer.ai (signature)",
+    "slug": "site-signature",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e09-site-signature"
+   },
+   {
+    "label": "Want a second pair of eyes on your failure list? Book 30 minutes",
+    "slug": "book-link",
+    "url": "https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e09-book-link"
+   },
+   {
+    "label": "bighammer.ai (footer)",
+    "slug": "site-footer",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e09-site-footer"
+   }
+  ]
+ },
+ {
+  "n": 10,
+  "week": 5,
+  "day": 31,
+  "kind": "Book a call",
+  "step": null,
+  "label": "30-minute call",
+  "subject": "Renewals are won six months early",
+  "preheader": "What to have ready at 180, 90 and 30 days before your Databricks commit.",
+  "alt": "Countdown timeline from 180 days before renewal to the commit date, with the evidence to have ready at each milestone",
+  "links": [
+   {
+    "label": "bighammer.ai (signature)",
+    "slug": "site-signature",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e10-site-signature"
+   },
+   {
+    "label": "Book 30 minutes before your renewal",
+    "slug": "book-button",
+    "url": "https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e10-book-button"
+   },
+   {
+    "label": "offline assessment",
+    "slug": "assess-inline",
+    "url": "https://assessment.bighammerops.com/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e10-assess-inline"
+   },
+   {
+    "label": "bighammer.ai (footer)",
+    "slug": "site-footer",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e10-site-footer"
+   }
+  ]
+ },
+ {
+  "n": 11,
+  "week": 6,
+  "day": 35,
+  "kind": "Teach",
+  "step": 4,
+  "label": "Step 4 of 8",
+  "subject": "Step 4/8: What a Databricks assessment actually involves",
+  "preheader": "7 read-only queries. 7 system tables. 90 days. 0 credentials shared.",
+  "alt": "Five steps of the offline assessment: open a SQL warehouse session, set two values, run seven read-only queries in order, export to CSV, zip and send",
+  "links": [
+   {
+    "label": "bighammer.ai (signature)",
+    "slug": "site-signature",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e11-site-signature"
+   },
+   {
+    "label": "Get the assessment queries",
+    "slug": "assess-button",
+    "url": "https://assessment.bighammerops.com/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e11-assess-button"
+   },
+   {
+    "label": "Request a 30-minute walkthrough",
+    "slug": "book-link",
+    "url": "https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e11-book-link"
+   },
+   {
+    "label": "bighammer.ai (footer)",
+    "slug": "site-footer",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e11-site-footer"
+   }
+  ]
+ },
+ {
+  "n": 12,
+  "week": 6,
+  "day": 38,
+  "kind": "Teach",
+  "step": 4,
+  "label": "Step 4 of 8",
+  "subject": "Forward this to your security team",
+  "preheader": "What the assessment reads, what it writes, and exactly what leaves your environment.",
+  "alt": "Data boundary diagram: seven read-only queries run in your SQL warehouse, results are saved in your own schema, you inspect the CSV zip, and nothing comes back in",
+  "links": [
+   {
+    "label": "bighammer.ai (signature)",
+    "slug": "site-signature",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e12-site-signature"
+   },
+   {
+    "label": "Request a walkthrough for your security team",
+    "slug": "book-button",
+    "url": "https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e12-book-button"
+   },
+   {
+    "label": "Or read the queries on the assessment page",
+    "slug": "assess-link",
+    "url": "https://assessment.bighammerops.com/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e12-assess-link"
+   },
+   {
+    "label": "bighammer.ai (footer)",
+    "slug": "site-footer",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e12-site-footer"
+   }
+  ]
+ },
+ {
+  "n": 13,
+  "week": 7,
+  "day": 42,
+  "kind": "Teach",
+  "step": 5,
+  "label": "Step 5 of 8",
+  "subject": "Step 5/8: We start with what's measured",
+  "preheader": "Most savings claims fall apart under three questions. Here they are.",
+  "alt": "Two-column ledger: measured figures on the left, estimated opportunities with their method on the right, untraced spend shown separately",
+  "links": [
+   {
+    "label": "bighammer.ai (signature)",
+    "slug": "site-signature",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e13-site-signature"
+   },
+   {
+    "label": "See your measured baseline with the offline assessment",
+    "slug": "assess-link",
+    "url": "https://assessment.bighammerops.com/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e13-assess-link"
+   },
+   {
+    "label": "bighammer.ai (footer)",
+    "slug": "site-footer",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e13-site-footer"
+   }
+  ]
+ },
+ {
+  "n": 14,
+  "week": 7,
+  "day": 45,
+  "kind": "Teach",
+  "step": 5,
+  "label": "Step 5 of 8",
+  "subject": "Four questions to ask of any savings claim (including ours)",
+  "preheader": "If the savings add up to more than the bill, someone counted the same dollar twice.",
+  "alt": "Waterfall chart where stacked savings claims exceed 100 percent of spend, with the overflow flagged as double counting",
+  "links": [
+   {
+    "label": "bighammer.ai (signature)",
+    "slug": "site-signature",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e14-site-signature"
+   },
+   {
+    "label": "Want us to pressure-test a number with you? Book 30 minutes",
+    "slug": "book-link",
+    "url": "https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e14-book-link"
+   },
+   {
+    "label": "bighammer.ai (footer)",
+    "slug": "site-footer",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e14-site-footer"
+   }
+  ]
+ },
+ {
+  "n": 15,
+  "week": 8,
+  "day": 49,
+  "kind": "Teach",
+  "step": 6,
+  "label": "Step 6 of 8",
+  "subject": "Step 6/8: Your clusters' CPU tells a story",
+  "preheader": "A cluster at 15% CPU costs the same as one at 90%. Here's how to tell them apart.",
+  "alt": "Two CPU charts with similar averages: one spiky cluster that needs better autoscaling, one flat cluster that is oversized",
+  "links": [
+   {
+    "label": "bighammer.ai (signature)",
+    "slug": "site-signature",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e15-site-signature"
+   },
+   {
+    "label": "The free Cost X-Ray flags under-used clusters from one query",
+    "slug": "xray-link",
+    "url": "https://adisuja.github.io/bighammer-masterclass/cost-xray/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e15-xray-link"
+   },
+   {
+    "label": "bighammer.ai (footer)",
+    "slug": "site-footer",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e15-site-footer"
+   }
+  ]
+ },
+ {
+  "n": 16,
+  "week": 8,
+  "day": 52,
+  "kind": "Book a call",
+  "step": null,
+  "label": "30-minute call",
+  "subject": "Stuck at security? We'll run it with you",
+  "preheader": "If the assessment stalled on approvals, a 30-minute call is the shortcut.",
+  "alt": "Richard Lawrence on a video call explaining a read-only Databricks notebook",
+  "links": [
+   {
+    "label": "bighammer.ai (signature)",
+    "slug": "site-signature",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e16-site-signature"
+   },
+   {
+    "label": "Book a 30-minute run-through",
+    "slug": "book-button",
+    "url": "https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e16-book-button"
+   },
+   {
+    "label": "assessment queries",
+    "slug": "assess-inline",
+    "url": "https://assessment.bighammerops.com/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e16-assess-inline"
+   },
+   {
+    "label": "bighammer.ai (footer)",
+    "slug": "site-footer",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e16-site-footer"
+   }
+  ]
+ },
+ {
+  "n": 17,
+  "week": 10,
+  "day": 63,
+  "kind": "Teach",
+  "step": 7,
+  "label": "Step 7 of 8",
+  "subject": "Step 7/8: \"Should we leave Databricks?\" is the wrong question",
+  "preheader": "It forces an all-or-nothing answer. Neither answer is right.",
+  "alt": "A chef in a fine-dining kitchen carefully plating a single slice of plain toast",
+  "links": [
+   {
+    "label": "bighammer.ai (signature)",
+    "slug": "site-signature",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e17-site-signature"
+   },
+   {
+    "label": "Talk through your top 20 jobs with us",
+    "slug": "book-link",
+    "url": "https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e17-book-link"
+   },
+   {
+    "label": "bighammer.ai (footer)",
+    "slug": "site-footer",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e17-site-footer"
+   }
+  ]
+ },
+ {
+  "n": 18,
+  "week": 12,
+  "day": 77,
+  "kind": "Teach",
+  "step": 7,
+  "label": "Step 7 of 8",
+  "subject": "Keep, migrate, optimise, evaluate, defer",
+  "preheader": "Every job scored on two things. Five outcomes. Every decision comes with its reasons.",
+  "alt": "Scatter chart of jobs by complexity and Databricks dependency, divided into keep, migrate, optimise then evaluate, evaluate and defer",
+  "links": [
+   {
+    "label": "bighammer.ai (signature)",
+    "slug": "site-signature",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e18-site-signature"
+   },
+   {
+    "label": "Field Guide",
+    "slug": "guide-inline",
+    "url": "https://adisuja.github.io/bighammer-masterclass/cost-field-guide/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e18-guide-inline"
+   },
+   {
+    "label": "See your jobs classified on a 30-minute call",
+    "slug": "book-button",
+    "url": "https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e18-book-button"
+   },
+   {
+    "label": "bighammer.ai (footer)",
+    "slug": "site-footer",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e18-site-footer"
+   }
+  ]
+ },
+ {
+  "n": 19,
+  "week": 14,
+  "day": 91,
+  "kind": "Book a call",
+  "step": null,
+  "label": "30-minute call",
+  "subject": "Bring your three most expensive jobs",
+  "preheader": "We'll classify them live on a call. You keep the answer either way.",
+  "alt": "Richard Lawrence at a whiteboard pointing at a complexity versus dependency grid covered in sticky notes",
+  "links": [
+   {
+    "label": "bighammer.ai (signature)",
+    "slug": "site-signature",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e19-site-signature"
+   },
+   {
+    "label": "Book your 30 minutes",
+    "slug": "book-button",
+    "url": "https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e19-book-button"
+   },
+   {
+    "label": "offline assessment",
+    "slug": "assess-inline",
+    "url": "https://assessment.bighammerops.com/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e19-assess-inline"
+   },
+   {
+    "label": "bighammer.ai (footer)",
+    "slug": "site-footer",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e19-site-footer"
+   }
+  ]
+ },
+ {
+  "n": 20,
+  "week": 16,
+  "day": 105,
+  "kind": "Teach",
+  "step": 8,
+  "label": "Step 8 of 8",
+  "subject": "Step 8/8: Both runs succeeded. The data didn't match.",
+  "preheader": "Code conversion is the visible part of a migration. Parity is where trust breaks.",
+  "alt": "Two output tables that look identical, with a magnifier revealing a null that became zero, a shifted timestamp and a missing row",
+  "links": [
+   {
+    "label": "bighammer.ai (signature)",
+    "slug": "site-signature",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e20-site-signature"
+   },
+   {
+    "label": "The Field Guide's parity chapter has SQL templates for every check",
+    "slug": "guide-link",
+    "url": "https://adisuja.github.io/bighammer-masterclass/cost-field-guide/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e20-guide-link"
+   },
+   {
+    "label": "bighammer.ai (footer)",
+    "slug": "site-footer",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e20-site-footer"
+   }
+  ]
+ },
+ {
+  "n": 21,
+  "week": 18,
+  "day": 119,
+  "kind": "Teach",
+  "step": 8,
+  "label": "Step 8 of 8",
+  "subject": "The parity checklist (before you switch anything off)",
+  "preheader": "Five checks, cloned data, small waves. Cutover on evidence, not confidence.",
+  "alt": "Original and migrated jobs run on cloned data through a five-check parity gate, then sign-off evidence and cutover in waves",
+  "links": [
+   {
+    "label": "bighammer.ai (signature)",
+    "slug": "site-signature",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e21-site-signature"
+   },
+   {
+    "label": "See a parity run on a 30-minute call",
+    "slug": "book-button",
+    "url": "https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e21-book-button"
+   },
+   {
+    "label": "bighammer.ai (footer)",
+    "slug": "site-footer",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e21-site-footer"
+   }
+  ]
+ },
+ {
+  "n": 22,
+  "week": 20,
+  "day": 133,
+  "kind": "Recap",
+  "step": null,
+  "label": "Recap",
+  "subject": "Eight steps. Where are you standing?",
+  "preheader": "A two-minute self-check. Tick the steps you could evidence today.",
+  "alt": "An eight-rung ladder from See it to Prove it, each rung with a one-line test and a checkbox",
+  "links": [
+   {
+    "label": "bighammer.ai (signature)",
+    "slug": "site-signature",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e22-site-signature"
+   },
+   {
+    "label": "Field Guide",
+    "slug": "guide-inline",
+    "url": "https://adisuja.github.io/bighammer-masterclass/cost-field-guide/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e22-guide-inline"
+   },
+   {
+    "label": "Cost X-Ray",
+    "slug": "xray-inline",
+    "url": "https://adisuja.github.io/bighammer-masterclass/cost-xray/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e22-xray-inline"
+   },
+   {
+    "label": "Run the offline assessment",
+    "slug": "assess-button",
+    "url": "https://assessment.bighammerops.com/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e22-assess-button"
+   },
+   {
+    "label": "Or book 30 minutes and we'll run it with you",
+    "slug": "book-link",
+    "url": "https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e22-book-link"
+   },
+   {
+    "label": "bighammer.ai (footer)",
+    "slug": "site-footer",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e22-site-footer"
+   }
+  ]
+ },
+ {
+  "n": 23,
+  "week": 22,
+  "day": 147,
+  "kind": "Book a call",
+  "step": null,
+  "label": "30-minute call",
+  "subject": "What SBC Labs' founder said about working with BigHammer",
+  "preheader": "What Anushka, Founder and CEO of SBC Labs, said about working with BigHammer.",
+  "alt": "Testimonial card: Anushka, Founder and CEO of SBC Labs, on BigHammer turning a multi-year data engineering challenge into a production-ready platform in months",
+  "links": [
+   {
+    "label": "bighammer.ai (signature)",
+    "slug": "site-signature",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e23-site-signature"
+   },
+   {
+    "label": "Book a 30-minute call",
+    "slug": "book-button",
+    "url": "https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e23-book-button"
+   },
+   {
+    "label": "bighammer.ai (footer)",
+    "slug": "site-footer",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e23-site-footer"
+   }
+  ]
+ },
+ {
+  "n": 24,
+  "week": 24,
+  "day": 161,
+  "kind": "Book a call",
+  "step": null,
+  "label": "30-minute call",
+  "subject": "Should I close your file?",
+  "preheader": "Three ways in, or one word to stop. Either is fine.",
+  "alt": "Three options: the free Field Guide, the free Cost X-Ray, or a 30-minute call",
+  "links": [
+   {
+    "label": "bighammer.ai (signature)",
+    "slug": "site-signature",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e24-site-signature"
+   },
+   {
+    "label": "Open it here",
+    "slug": "guide-inline",
+    "url": "https://adisuja.github.io/bighammer-masterclass/cost-field-guide/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e24-guide-inline"
+   },
+   {
+    "label": "Try it here",
+    "slug": "xray-inline",
+    "url": "https://adisuja.github.io/bighammer-masterclass/cost-xray/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e24-xray-inline"
+   },
+   {
+    "label": "Book the 30-minute call",
+    "slug": "book-button",
+    "url": "https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e24-book-button"
+   },
+   {
+    "label": "bighammer.ai (footer)",
+    "slug": "site-footer",
+    "url": "https://bighammer.ai/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e24-site-footer"
+   }
+  ]
+ }
+]

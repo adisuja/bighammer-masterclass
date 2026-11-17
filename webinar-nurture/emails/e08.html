@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" xmlns:v="urn:schemas-microsoft-com:vml"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="x-apple-disable-message-reformatting"><meta name="color-scheme" content="light"><meta name="supported-color-schemes" content="light">
+<title>Step 3/8: The 3 AM failure is still on your bill</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>@media (max-width:620px){.wrap{width:100%!important}.pad{padding:28px 22px!important}} a{color:#5600EF}</style>
+</head><body style="margin:0;padding:0;background:#F4F2FA">
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent">The incident closed. The compute from the failed runs didn&#x27;t go anywhere.&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F4F2FA"><tr><td align="center" style="padding:28px 12px">
+<table role="presentation" class="wrap" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px">
+<tr><td style="padding:0 6px 16px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+<td align="left"><img src="https://adisuja.github.io/bighammer-masterclass/webinar-nurture/img/logo.png" width="150" alt="BigHammer.ai" style="display:block;border:0;width:150px;height:auto"></td>
+<td align="right" style="font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#FE0079">Step 3 of 8</td></tr></table></td></tr>
+<tr><td class="pad" style="background:#FFFFFF;border-radius:16px;padding:40px 40px 22px;border-top:4px solid #5600EF">
+<p style="margin:0 0 18px;font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px;line-height:1.65;color:#33333D">Hi {{contact.first_name}},</p>
+<p style="margin:0 0 18px;font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px;line-height:1.65;color:#33333D">A nightly job fails at 3 AM. Someone re-runs it. It times out. The third run succeeds, the incident closes, and everyone moves on.</p>
+<p style="margin:0 0 18px;font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px;line-height:1.65;color:#33333D">The compute from the first two runs is still on the bill.</p>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:6px 0 26px"><tr><td><img src="https://adisuja.github.io/bighammer-masterclass/webinar-nurture/img/e08.jpg" width="520" alt="Timeline of a nightly job: two failed attempts shaded red as billed but producing nothing, then a successful retry" style="display:block;width:100%;max-width:520px;height:auto;border:0;border-radius:12px"></td></tr></table>
+<h2 style="margin:30px 0 10px;font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:19px;line-height:1.35;font-weight:700;color:#141414">Why failure cost stays invisible</h2>
+<p style="margin:0 0 18px;font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px;line-height:1.65;color:#33333D">Failed, timed-out and retried runs consume compute until they stop. A job with no timeout can run for hours before it gives up. A job with generous retries can repeat that several times in one night.</p>
+<p style="margin:0 0 18px;font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px;line-height:1.65;color:#33333D">Reliability tooling tracks the failure. It almost never tracks the cost of the failure. So the number that matters to finance never reaches the people who could fix it.</p>
+<h2 style="margin:30px 0 10px;font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:19px;line-height:1.35;font-weight:700;color:#141414">The most defensible number you have</h2>
+<p style="margin:0 0 18px;font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px;line-height:1.65;color:#33333D">Failed-run cost is unusual: it needs no assumptions about what <em>might</em> be saved. The runs happened, they failed, and they were billed. Measured runs, priced at list: that's the most defensible number you can put in front of a CFO.</p>
+<pre style="margin:4px 0 22px;padding:16px 18px;background:#0F0D1A;border-radius:10px;border-left:4px solid #5600EF;font-family:'SF Mono', Menlo, Consolas, 'Courier New', monospace;font-size:12.5px;line-height:1.6;color:#E9E3FF;white-space:pre-wrap;word-break:break-word">WITH runs AS (
+  SELECT workspace_id, job_id, run_id,
+         MAX_BY(result_state, period_end_time)
+           FILTER (WHERE result_state IS NOT NULL) AS final_state
+  FROM system.lakeflow.job_run_timeline
+  WHERE period_start_time &gt;= current_date() - INTERVAL 90 DAYS
+  GROUP BY ALL
+), failed AS (
+  SELECT * FROM runs WHERE final_state IN (&#x27;FAILED&#x27;, &#x27;TIMED_OUT&#x27;, &#x27;ERROR&#x27;)
+)
+SELECT f.workspace_id, f.job_id, COUNT(DISTINCT f.run_id) AS failed_runs,
+       SUM(u.usage_quantity * p.pricing.effective_list.default) AS failed_cost
+FROM failed f
+JOIN system.billing.usage u
+  ON  u.workspace_id = f.workspace_id
+  AND u.usage_metadata.job_run_id = f.run_id
+  AND u.usage_date &gt;= current_date() - INTERVAL 91 DAYS
+JOIN system.billing.list_prices p
+  ON  u.sku_name = p.sku_name AND u.cloud = p.cloud
+  AND u.usage_unit = p.usage_unit
+  AND u.usage_start_time &gt;= p.price_start_time
+  AND (p.price_end_time IS NULL OR u.usage_start_time &lt; p.price_end_time)
+GROUP BY ALL
+ORDER BY failed_cost DESC</pre>
+<p style="margin:0 0 18px;font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px;line-height:1.65;color:#33333D"><code style="font-family:'SF Mono', Menlo, Consolas, 'Courier New', monospace;font-size:14px;background:#F2EDFF;color:#3D00A8;padding:1px 5px;border-radius:4px">runs</code> keeps one final state per run, because the timeline table stores many rows for each run.</p>
+<h2 style="margin:30px 0 10px;font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:19px;line-height:1.35;font-weight:700;color:#141414">Check it yourself this week</h2>
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 14px"><tr><td valign="top" style="padding:0 0 10px;width:24px;font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px;line-height:1.6"><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#FE0079;margin:0 12px 2px 4px"></span></td><td valign="top" style="padding:0 0 10px;font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px;line-height:1.6;color:#33333D">Runs that ended <code style="font-family:'SF Mono', Menlo, Consolas, 'Courier New', monospace;font-size:14px;background:#F2EDFF;color:#3D00A8;padding:1px 5px;border-radius:4px">FAILED</code>, <code style="font-family:'SF Mono', Menlo, Consolas, 'Courier New', monospace;font-size:14px;background:#F2EDFF;color:#3D00A8;padding:1px 5px;border-radius:4px">TIMED_OUT</code> or <code style="font-family:'SF Mono', Menlo, Consolas, 'Courier New', monospace;font-size:14px;background:#F2EDFF;color:#3D00A8;padding:1px 5px;border-radius:4px">ERROR</code> in the last 90 days.</td></tr><tr><td valign="top" style="padding:0 0 10px;width:24px;font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px;line-height:1.6"><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#FE0079;margin:0 12px 2px 4px"></span></td><td valign="top" style="padding:0 0 10px;font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px;line-height:1.6;color:#33333D">What those runs cost, using the join above.</td></tr><tr><td valign="top" style="padding:0 0 10px;width:24px;font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px;line-height:1.6"><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#FE0079;margin:0 12px 2px 4px"></span></td><td valign="top" style="padding:0 0 10px;font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px;line-height:1.6;color:#33333D">The jobs with the most repairs or retries.</td></tr><tr><td valign="top" style="padding:0 0 10px;width:24px;font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px;line-height:1.6"><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#FE0079;margin:0 12px 2px 4px"></span></td><td valign="top" style="padding:0 0 10px;font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px;line-height:1.6;color:#33333D">Which of your jobs have no timeout set at all.</td></tr></table>
+<p style="margin:0 0 18px;font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px;line-height:1.65;color:#33333D">One caveat: retries <em>inside</em> a run that eventually succeeded don't show up here, because the run's final state is a success. Those need task-level analysis in <code style="font-family:'SF Mono', Menlo, Consolas, 'Courier New', monospace;font-size:14px;background:#F2EDFF;color:#3D00A8;padding:1px 5px;border-radius:4px">system.lakeflow.job_task_run_timeline</code>, and that figure is an estimate.</p>
+<p style="margin:0 0 18px;font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px;line-height:1.65;color:#33333D;margin-top:-6px"><a href="https://assessment.bighammerops.com/?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=dbx-webinar-nurture-2026&amp;utm_content=e08-assess-link" style="color:#5600EF;font-weight:600;text-decoration:none">The offline assessment measures failed-job cost for you, run by run &rarr;</a></p>
+<p style="margin:0 0 18px;font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px;line-height:1.65;color:#33333D">Next: the four guardrails that make failure cheap and loud. It's usually the easiest finding to act on.</p>
+<p style="margin:0 0 18px;font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px;line-height:1.65;color:#33333D;margin:26px 0 6px">Speak soon,</p><table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:6px 0 24px"><tr><td valign="middle" style="padding-right:14px"><img src="https://adisuja.github.io/bighammer-masterclass/webinar-nurture/img/richard.jpg" width="56" height="56" alt="Richard Lawrence" style="display:block;border-radius:50%;border:0"></td><td valign="middle" style="font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif"><p style="margin:0;font-size:16px;font-weight:700;color:#141414">Richard Lawrence</p><p style="margin:2px 0 0;font-size:14px;color:#6B6B80"><a href="https://bighammer.ai/?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=dbx-webinar-nurture-2026&amp;utm_content=e08-site-signature" style="color:#FE0079;font-weight:600;text-decoration:none">BigHammer.ai</a> &middot; Data Engineering Chaos: Solved</p></td></tr></table>
+</td></tr>
+<tr><td style="padding:22px 18px 8px;font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:12px;line-height:1.6;color:#6B6B80;text-align:center">
+You're receiving this because you registered for the BigHammer.ai Databricks cost masterclass.<br>
+BigHammer.ai Inc., 5900 Balcones Drive # 29129, Austin, TX 78731<br>
+<a href="https://bighammer.ai/?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=dbx-webinar-nurture-2026&amp;utm_content=e08-site-footer" style="color:#6B6B80">bighammer.ai</a> &middot; <a href="{{unsubscribe_link}}" style="color:#6B6B80">Unsubscribe</a>
+</td></tr></table></td></tr></table></body></html>

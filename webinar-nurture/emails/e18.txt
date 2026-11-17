@@ -1,0 +1,41 @@
+Hi {{contact.first_name}},
+
+If you made the list of your 20 most expensive jobs, here's how we turn it into decisions.
+
+TWO SCORES PER JOB
+
+We score every job on two things: how complex it is, and how dependent it is on Databricks-specific features. That gives five outcomes:
+
+
+- Keep on Databricks: heavily dependent (ML, DLT, streaming and similar). It's where they belong.
+- Migrate: simple and low-dependency. A candidate to run elsewhere.
+- Optimise, then evaluate: complex but low-dependency. Tune it first, decide later.
+- Evaluate: in between, or not enough information yet.
+- Defer: too small in cost to be worth moving now.
+
+Every classification comes with its scores and the reasons behind them. No black box.
+
+WHAT GOOD LOOKS LIKE
+
+- Decisions made job by job, never platform-wide.
+- ML and deeply integrated work stays where it earns its price.
+- Simple, low-dependency batch jobs reviewed as candidates to move.
+
+AND WHEN A JOB SHOULD MOVE
+
+For jobs in the Migrate group, BigHammer Migrate converts Scala JAR and PySpark wheel jobs to run on GCP Dataproc, replacing Databricks-specific code such as dbutils widgets and table-name-based Delta access. The original job keeps running until the new one has proven itself, which is the subject of the final step.
+
+The Field Guide (https://adisuja.github.io/bighammer-masterclass/cost-field-guide/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e18-guide-text) includes a scoring worksheet if you want to try this on your own top 20 first.
+
+See your jobs classified on a 30-minute call: https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e18-book-text
+
+How many of your top 20 do you think would land in Migrate? Reply with a guess.
+
+All the best,
+Richard
+
+Richard Lawrence
+BigHammer.ai
+
+BigHammer.ai Inc., 5900 Balcones Drive # 29129, Austin, TX 78731
+Unsubscribe: {{unsubscribe_link}}

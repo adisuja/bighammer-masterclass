@@ -1,0 +1,38 @@
+Hi {{contact.first_name}},
+
+Over the last few months we've covered the path we see work best for Databricks cost. Here it is on one page, as a self-check.
+
+
+Tick a step only if you could show the evidence today, not if you could produce it with a week's notice:
+
+1. See it: you have a 90-day baseline by product and SKU.
+2. Trace it: you know what share of spend belongs to a job.
+3. Measure it: you know what failed runs cost last quarter.
+4. Assess it: you've run a read-only assessment of your workspace.
+5. Report it: your figures are split into measured and estimated.
+6. Right-size it: your largest clusters are sized from real CPU data.
+7. Classify it: every expensive job has a keep, optimise or move decision.
+8. Prove it: you have a parity process for anything that moves.
+
+HOW TO READ YOUR SCORE
+
+- 0 to 2: start with the Field Guide (https://adisuja.github.io/bighammer-masterclass/cost-field-guide/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e22-guide-text) or the free Cost X-Ray (https://adisuja.github.io/bighammer-masterclass/cost-xray/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e22-xray-text). An afternoon gets you to step 3.
+- 3 to 5: you have the data. The offline assessment turns it into one defensible report.
+- 6 to 8: you're ahead of nearly everyone we speak to. The remaining question is usually which jobs to move, and proving them when you do.
+
+Wherever you landed, the quickest way up the ladder is to start at step 4.
+
+Run the offline assessment: https://assessment.bighammerops.com/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e22-assess-text
+
+Or book 30 minutes and we'll run it with you: https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e22-book-text
+
+What did you score? Reply with the number. I'll send back the one thing I'd do next at that score.
+
+All the best,
+Richard
+
+Richard Lawrence
+BigHammer.ai
+
+BigHammer.ai Inc., 5900 Balcones Drive # 29129, Austin, TX 78731
+Unsubscribe: {{unsubscribe_link}}

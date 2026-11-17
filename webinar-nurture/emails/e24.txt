@@ -1,0 +1,24 @@
+Hi {{contact.first_name}},
+
+This is the last email in the series, so I'll keep it short.
+
+If Databricks cost isn't a priority for you right now, that's completely fine. Reply with "stop" and I'll close your file. No hard feelings and no more follow-ups.
+
+If it is, here are three ways in, from least to most effort on your side:
+
+
+1. The Field Guide: read-only SQL queries for every step in this series. Open it here (https://adisuja.github.io/bighammer-masterclass/cost-field-guide/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e24-guide-text).
+2. The Cost X-Ray: paste three CSVs, get an instant report, nothing leaves your browser. Try it here (https://adisuja.github.io/bighammer-masterclass/cost-xray/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e24-xray-text).
+3. A 30-minute call: we run the numbers with you, on your data.
+
+Book the 30-minute call: https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e24-book-text
+
+Whichever you choose, thank you for reading. Twenty-four emails is a lot of inbox, and I hope a few of them were worth it.
+
+Richard
+
+Richard Lawrence
+BigHammer.ai
+
+BigHammer.ai Inc., 5900 Balcones Drive # 29129, Austin, TX 78731
+Unsubscribe: {{unsubscribe_link}}

@@ -1,0 +1,45 @@
+Hi {{contact.first_name}},
+
+At some point in the next few months, someone will ask your team a simple question: what are we getting for our Databricks spend?
+
+It usually arrives just before a renewal or a commit discussion. And usually the only answer on the table is the invoice total.
+
+A total is not evidence. It tells you what you spent. It doesn't tell you which jobs drove it, what's growing, what's failing, or what could run somewhere cheaper. Without that, the conversation is about price. With it, the conversation is about your workloads, and that is a much stronger position.
+
+
+WHY THE INVOICE CAN'T ANSWER IT
+
+Databricks rolls usage up by SKU on the invoice. The link between spend and the jobs and runs behind it lives in your workspace's system tables: billing usage, list prices and the job run timeline. Most teams never join them, so the detail is there but unused.
+
+WHAT A STRONG RENEWAL POSITION LOOKS LIKE
+
+- A 90-day baseline you can defend line by line.
+- A short list of your most expensive jobs, each with an owner.
+- The cost of failed runs, stated separately.
+- A view of which jobs genuinely need Databricks and which don't. That last point is where your negotiating strength comes from.
+
+CHECK IT YOURSELF THIS WEEK
+
+- Your 90-day list cost by billing product and SKU.
+- Your top 10 jobs by cost over the same window.
+- How much of that spend went to runs that failed or timed out.
+- What share of total spend you can trace to a job at all.
+
+If you can answer all four in under an hour, you're ahead of most teams we speak to. If you can't, the next email gives you the exact join that makes it possible.
+
+HOW THE ASSESSMENT SHOWS THIS: The offline assessment answers all four in one report: total 90-day cost, cost by product, spend traced to jobs versus untraced, failed-job cost, and per-job and per-run cost tables. You run read-only SQL queries in your own workspace. No credentials leave your environment.
+
+Run the offline assessment: https://assessment.bighammerops.com/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e02-assess-text
+
+Or book a 30-minute walkthrough: https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e02-book-text
+
+Next: the join most teams never write, and a free guide with every query in this series.
+
+All the best,
+Richard
+
+Richard Lawrence
+BigHammer.ai
+
+BigHammer.ai Inc., 5900 Balcones Drive # 29129, Austin, TX 78731
+Unsubscribe: {{unsubscribe_link}}

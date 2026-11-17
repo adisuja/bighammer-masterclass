@@ -1,0 +1,36 @@
+Hi {{contact.first_name}},
+
+Thank you for registering for Srinath's masterclass on reducing Databricks costs. Whether you joined live or not, I'm Richard, and I'll be writing to you over the next few months.
+
+One idea from the session is worth repeating. Databricks is genuinely good at what it does. The problem is rarely the platform. It's that most teams can't say, with evidence, what their spend is buying. When the renewal or the next commit conversation arrives, the only number on the table is the invoice total.
+
+This series fixes that, one step at a time:
+
+
+1. See it: a 90-day baseline you can defend line by line.
+2. Trace it: how much of your spend belongs to a job.
+3. Measure it: what failed runs really cost.
+4. Assess it: read-only queries, no credentials shared.
+5. Report it: measured numbers first, estimates with their method.
+6. Right-size it: from real CPU data, not last year's guess.
+7. Classify it: keep, optimise or move, job by job.
+8. Prove it: parity before you switch anything off.
+
+Every email ends with something you can check in your own workspace this week. No slides, no hype, just the queries and the reasoning.
+
+If you'd rather not wait eight steps, you can see all of it on your own data now. The offline assessment is a set of read-only queries you run yourself, or we can walk through it together on a call.
+
+Book a 30-minute walkthrough: https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e01-book-text
+
+Or run the offline assessment yourself: https://assessment.bighammerops.com/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e01-assess-text
+
+One question before we start: when is your next Databricks renewal or commit discussion? Hit reply and tell me the month. It tells me how much time you have to build the evidence, and I'll tell you honestly whether that's enough.
+
+Best wishes,
+Richard
+
+Richard Lawrence
+BigHammer.ai
+
+BigHammer.ai Inc., 5900 Balcones Drive # 29129, Austin, TX 78731
+Unsubscribe: {{unsubscribe_link}}

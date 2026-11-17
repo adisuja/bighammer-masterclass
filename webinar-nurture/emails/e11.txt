@@ -1,0 +1,42 @@
+Hi {{contact.first_name}},
+
+Most teams we speak to want a Databricks cost assessment. Many of them stall before they start. Security wants to know what gets accessed. Procurement wants to know what's being installed. And nobody has time for weeks of workshops.
+
+So here is exactly what our offline assessment involves.
+
+
+HOW IT WORKS
+
+1. Open one Databricks SQL warehouse session with read access to seven system tables.
+2. Set two values: your numeric workspace ID, and a catalog and schema where the results can be saved.
+3. Run seven read-only queries in order. Copy them from the assessment page. The first sets a 90-day window, and each of the others saves one result set (collected_jobs, collected_parent_runs and so on) in the schema you chose.
+4. Export each result to CSV.
+5. Zip the files and send them to us. CSV extracts only. No secrets, no tokens, no credentials.
+
+Nothing is installed and nothing is changed. The queries only read system tables, and the only things they create are the result tables in your own schema.
+
+WHAT YOU GET BACK
+
+- Total Databricks cost over 90 days, at published list prices.
+- Cost by billing product.
+- Spend traced to jobs versus untraced.
+- Failed-job cost, measured.
+- Per-job and per-run cost tables.
+- Average worker CPU and Photon usage share.
+
+Get the assessment queries: https://assessment.bighammerops.com/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e11-assess-text
+
+If you'd rather not run them yourself, book a call and we'll run the assessment with you.
+
+Request a 30-minute walkthrough: https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e11-book-text
+
+Next: the questions your security team will ask, answered in a format you can forward.
+
+Until next time,
+Richard
+
+Richard Lawrence
+BigHammer.ai
+
+BigHammer.ai Inc., 5900 Balcones Drive # 29129, Austin, TX 78731
+Unsubscribe: {{unsubscribe_link}}

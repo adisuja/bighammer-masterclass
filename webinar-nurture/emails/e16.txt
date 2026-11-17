@@ -1,0 +1,30 @@
+Hi {{contact.first_name}},
+
+The most common reason teams don't run the assessment isn't interest. It's that the request is stuck in an approval queue.
+
+That's normal, and there's a shortcut.
+
+
+WE RUN IT TOGETHER, ON A CALL
+
+Book 30 minutes and bring whoever can open a SQL warehouse session in your workspace. We'll walk through the seven queries line by line, and you run them under your own identity while we talk. Your security team can join and ask questions as it happens. Most find that easier to approve than a document.
+
+By the end of the call you'll have:
+
+- The queries run, with your 90-day results saved in your own schema.
+- A first look at your baseline, traced spend and failed-run cost.
+- Answers to every question your security team raised, from the people who wrote the queries.
+
+Nothing leaves your environment until you decide to send it.
+
+Book a 30-minute run-through: https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e16-book-text
+
+If approvals aren't the blocker and it's simply time, the assessment queries (https://assessment.bighammerops.com/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e16-assess-text) are published in full, so you can start whenever suits you.
+
+Richard
+
+Richard Lawrence
+BigHammer.ai
+
+BigHammer.ai Inc., 5900 Balcones Drive # 29129, Austin, TX 78731
+Unsubscribe: {{unsubscribe_link}}

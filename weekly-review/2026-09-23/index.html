@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BigHammer.ai — Weekly Growth Review · 23 Sep 2026</title>
+<style>
+  :root{
+    --ink:#14161a;
+    --paper:#f6f5f1;
+    --panel:#ffffff;
+    --muted:#5b6067;
+    --faint:#8a8f97;
+    --hair:#e4e2db;
+    --hair-strong:#d3d0c7;
+    --accent:#2b59c3;
+    --accent-soft:#eaf0fb;
+    --warn:#c0492b;
+    --warn-soft:#f8ece7;
+    --good:#2f7d59;
+    --good-soft:#e8f2ec;
+    --shadow:0 1px 2px rgba(20,22,26,.05),0 8px 30px rgba(20,22,26,.06);
+    --font:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:"SF Mono",ui-monospace,"Roboto Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    background:var(--paper);color:var(--ink);font-family:var(--font);
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;line-height:1.5;
+  }
+
+  /* ---------- stage / slides ---------- */
+  .stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:32px}
+  .slide{
+    position:relative;width:min(1120px,100%);aspect-ratio:16/9;max-height:calc(100vh - 64px);
+    background:var(--panel);border:1px solid var(--hair);border-radius:14px;box-shadow:var(--shadow);
+    padding:56px 64px 60px;display:none;flex-direction:column;overflow:hidden;
+  }
+  .slide.active{display:flex;animation:in .32s ease}
+  @keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  .chrome-top{position:absolute;top:22px;left:64px;right:64px;display:flex;justify-content:space-between;
+    font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);font-weight:600}
+  .chrome-top .brand{color:var(--ink)}
+  .chrome-top .brand b{color:var(--accent)}
+  .chrome-bot{position:absolute;bottom:20px;left:64px;right:64px;display:flex;justify-content:space-between;
+    align-items:center;font-size:11.5px;color:var(--faint);letter-spacing:.02em}
+  .chrome-bot .sec{font-weight:600;text-transform:uppercase;letter-spacing:.07em}
+
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+  .eyebrow.warn{color:var(--warn)}
+  h2{font-size:34px;line-height:1.1;letter-spacing:-.018em;font-weight:800;margin-bottom:6px}
+  .lede{font-size:17px;color:var(--muted);max-width:60ch;margin-top:10px}
+  .body{margin-top:auto;margin-bottom:auto}
+  p.note{font-size:12.5px;color:var(--faint);line-height:1.45}
+
+  .tiles{display:grid;gap:14px;margin-top:26px}
+  .tiles.c4{grid-template-columns:repeat(4,1fr)}
+  .tiles.c3{grid-template-columns:repeat(3,1fr)}
+  .tiles.c2{grid-template-columns:repeat(2,1fr)}
+  .tile{border:1px solid var(--hair);border-radius:10px;padding:16px 16px 14px;background:var(--panel)}
+  .tile .k{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--faint);font-weight:600}
+  .tile .v{font-size:32px;font-weight:800;letter-spacing:-.02em;margin-top:6px;font-variant-numeric:tabular-nums}
+  .tile .s{font-size:12.5px;color:var(--muted);margin-top:4px}
+  .tile.warn{background:var(--warn-soft);border-color:#ecccc0}
+  .tile.warn .v{color:var(--warn)}
+  .tile.good{background:var(--good-soft);border-color:#cfe4d7}
+  .tile.good .v{color:var(--good)}
+  .tile.dark{background:var(--ink);border-color:var(--ink)}
+  .tile.dark .k{color:#9aa0a8}.tile.dark .v{color:#fff}.tile.dark .s{color:#b9bec5}
+
+  .split{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;height:100%}
+  .split.even{grid-template-columns:1fr 1fr}
+  .split.phone-split{grid-template-columns:.9fr 1.1fr;gap:44px}
+
+  table{width:100%;border-collapse:collapse;margin-top:20px;font-size:13.5px}
+  thead th{text-align:right;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--faint);
+    font-weight:700;padding:0 12px 9px;border-bottom:1.5px solid var(--hair-strong)}
+  thead th:first-child{text-align:left}
+  tbody td{text-align:right;padding:11px 12px;border-bottom:1px solid var(--hair);font-variant-numeric:tabular-nums}
+  tbody td:first-child{text-align:left;font-weight:600}
+  tbody tr:last-child td{border-bottom:none}
+  tr.hi td{background:var(--accent-soft)}tr.hi td:first-child{color:var(--accent)}
+  .pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;letter-spacing:.02em}
+  .pill.warn{background:var(--warn-soft);color:var(--warn)}
+  .pill.good{background:var(--good-soft);color:var(--good)}
+  .pill.mut{background:var(--paper);color:var(--muted);border:1px solid var(--hair)}
+
+  /* action callout */
+  .callout{margin-top:20px;border:1px solid #cdd9f2;background:var(--accent-soft);border-radius:11px;
+    padding:16px 20px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start}
+  .callout .tag{font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#fff;
+    background:var(--accent);border-radius:6px;padding:5px 9px;white-space:nowrap}
+  .callout p{font-size:14px;color:var(--ink);line-height:1.5}
+  .callout p b{font-weight:700}
+  .callout p .sub{color:var(--muted)}
+
+  /* headlines / takeaways */
+  .takes{display:flex;flex-direction:column;gap:2px;margin-top:22px}
+  .take{display:grid;grid-template-columns:44px 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--hair);align-items:baseline}
+  .take:last-child{border-bottom:none}
+  .take .n{font-size:15px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
+  .take .t{font-size:19px;font-weight:700;letter-spacing:-.01em}
+  .take .t span{display:block;font-size:14px;font-weight:500;color:var(--muted);margin-top:4px;letter-spacing:0}
+  .take.warn .n{color:var(--warn)}
+
+  .col-head{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:14px}
+  ul.clean{list-style:none;display:flex;flex-direction:column;gap:12px}
+  ul.clean li{font-size:14.5px;color:var(--muted);padding-left:18px;position:relative;line-height:1.45}
+  ul.clean li:before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;background:var(--accent);border-radius:2px}
+  ul.clean li b{color:var(--ink);font-weight:700}
+  ul.clean li.warn:before{background:var(--warn)}
+  ul.clean li.good:before{background:var(--good)}
+
+  /* blockers */
+  .blocks{display:flex;flex-direction:column;gap:14px;margin-top:22px}
+  .block{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:start;
+    padding:18px 20px;border:1px solid var(--hair);border-radius:10px;background:var(--panel)}
+  .block .num{width:30px;height:30px;border-radius:7px;background:var(--ink);color:#fff;font-weight:800;
+    display:flex;align-items:center;justify-content:center;font-size:14px}
+  .block.b-warn{background:var(--warn-soft);border-color:#ecccc0}.block.b-warn .num{background:var(--warn)}
+  .block h3{font-size:16px;font-weight:800;margin-bottom:3px}
+  .block p{font-size:13.5px;color:var(--muted)}
+  .block a{color:var(--accent);text-decoration:none;font-weight:600;word-break:break-all}
+  .block a:hover{text-decoration:underline}
+  .block .owner{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--faint);white-space:nowrap}
+
+  .logo-dot{display:inline-block;width:11px;height:11px;background:var(--accent);border-radius:3px;transform:rotate(45deg);margin-right:2px}
+
+  /* ---------- LinkedIn-mobile carousel ---------- */
+  .phone{width:198px;background:#111318;border-radius:30px;padding:8px;box-shadow:0 14px 44px rgba(15,17,24,.22);margin:0 auto}
+  .screen{background:#fff;border-radius:28px;overflow:hidden;position:relative}
+  .li-head{display:flex;align-items:center;gap:9px;padding:9px 12px 6px}
+  .li-av{width:34px;height:34px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;
+    justify-content:center;font-weight:800;font-size:13px;flex-shrink:0}
+  .li-meta .n{font-size:12.5px;font-weight:700;line-height:1.2}
+  .li-meta .s{font-size:10.5px;color:var(--faint)}
+  .li-more{margin-left:auto;color:var(--faint);font-weight:800;letter-spacing:1px}
+  .car-wrap{position:relative;background:#eef0f3;overflow:hidden;touch-action:pan-y;cursor:grab}
+  .car-wrap:active{cursor:grabbing}
+  .car-track{display:flex;transition:transform .32s ease;will-change:transform}
+  .page{flex:0 0 100%;aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;background:#fff}
+  .page img{width:100%;height:100%;object-fit:contain;display:block;user-select:none;-webkit-user-drag:none;pointer-events:none}
+  .page.ph{flex-direction:column;gap:10px;background:repeating-linear-gradient(135deg,#f4f6f9,#f4f6f9 12px,#eef0f4 12px,#eef0f4 24px);
+    border:1px dashed #c7ccd4;color:#8a8f97;text-align:center;padding:22px}
+  .page.ph .pn{font-size:34px;font-weight:800;color:#b3b8c1}
+  .page.ph .pt{font-size:12px;font-weight:600;max-width:20ch;line-height:1.4}
+  .car-count{position:absolute;top:10px;right:12px;background:rgba(17,19,24,.72);color:#fff;font-size:11px;
+    font-weight:700;padding:3px 9px;border-radius:20px;font-variant-numeric:tabular-nums;z-index:2}
+  .car-arrow{position:absolute;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;
+    border:none;background:rgba(255,255,255,.92);box-shadow:0 2px 8px rgba(0,0,0,.15);cursor:pointer;
+    font-size:17px;color:var(--ink);display:flex;align-items:center;justify-content:center;z-index:2}
+  .car-arrow.l{left:8px}.car-arrow.r{right:8px}
+  .car-arrow:disabled{opacity:0;pointer-events:none}
+  .li-foot{padding:7px 12px 9px}
+  .li-dots{display:flex;gap:5px;justify-content:center;margin-bottom:7px}
+  .li-dots i{width:6px;height:6px;border-radius:50%;background:#d3d7dd;transition:all .2s}
+  .li-dots i.on{background:var(--accent);width:18px;border-radius:4px}
+  .li-title{font-size:12px;font-weight:700;line-height:1.35}
+  .li-sub{font-size:10.5px;color:var(--faint);margin-top:2px}
+  .doc-pills{display:flex;gap:6px;justify-content:center;margin-top:11px;flex-wrap:wrap}
+  .doc-pills button{font-size:11px;font-weight:600;padding:5px 10px;border-radius:20px;border:1px solid var(--hair-strong);
+    background:var(--panel);color:var(--muted);cursor:pointer}
+  .doc-pills button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+  .decision{border:1px solid var(--hair);border-radius:11px;padding:0;overflow:hidden;margin-top:20px}
+  .decision .row{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;padding:16px 18px;border-bottom:1px solid var(--hair)}
+  .decision .row:last-child{border-bottom:none}
+  .decision .row .mk{width:26px;height:26px;border-radius:7px;background:var(--accent);color:#fff;font-weight:800;
+    display:flex;align-items:center;justify-content:center;font-size:13px}
+  .decision .row.warn .mk{background:var(--warn)}
+  .decision h3{font-size:15px;font-weight:800;margin-bottom:2px}
+  .decision p{font-size:13px;color:var(--muted);line-height:1.45}
+
+  .nav{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:6px;
+    background:var(--panel);border:1px solid var(--hair);border-radius:30px;padding:6px 8px;box-shadow:var(--shadow);z-index:20}
+  .nav button{border:none;background:transparent;width:30px;height:30px;border-radius:50%;cursor:pointer;
+    font-size:15px;color:var(--muted);display:flex;align-items:center;justify-content:center}
+  .nav button:hover{background:var(--paper);color:var(--ink)}
+  .nav .count{font-size:12.5px;color:var(--muted);display:flex;align-items:center;padding:0 8px;font-variant-numeric:tabular-nums;font-weight:600}
+  .progress{position:fixed;top:0;left:0;height:3px;background:var(--accent);z-index:20;transition:width .3s ease}
+
+  @media (max-width:820px){
+    .slide{padding:40px 28px 52px}.chrome-top,.chrome-bot{left:28px;right:28px}
+    h2{font-size:26px}
+    .split,.split.even,.split.phone-split{grid-template-columns:1fr;gap:22px}
+    .tiles.c4{grid-template-columns:repeat(2,1fr)}.tiles.c3{grid-template-columns:repeat(2,1fr)}
+  }
+  @media print{
+    body{background:#fff}.nav,.progress{display:none}.stage{position:static;padding:0}
+    .slide{display:flex!important;page-break-after:always;box-shadow:none;border:none;max-height:none;width:100%;border-radius:0}
+  }
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="stage" id="stage">
+
+  <!-- 1 · WEBINAR 4 STATUS -->
+  <section class="slide active">
+    <div class="chrome-top"><span class="brand"><span class="logo-dot"></span><b>BigHammer</b>.ai · Weekly Growth Review</span><span>23 Sep 2026</span></div>
+    <div class="body">
+      <div class="eyebrow">Current webinar</div>
+      <h2>Webinar&nbsp;#4 — “Reduce Your Databricks Costs up to 75%”</h2>
+      <div class="lede">Wednesday 15 October 2026 · 22 days out. Every figure below is this webinar only.</div>
+      <div class="tiles c4">
+        <div class="tile warn"><div class="k">Form registrations</div><div class="v">4</div><div class="s">self-registered on a form</div></div>
+        <div class="tile"><div class="k">WebinarGeek subs</div><div class="v">18</div><div class="s">4 form · 14 from RSVPs</div></div>
+        <div class="tile"><div class="k">Landing-page sign-ups</div><div class="v">4</div><div class="s">webinar.bighammerai.com</div></div>
+        <div class="tile dark"><div class="k">Days to webinar</div><div class="v">22</div><div class="s">finishes after 15 Oct miss it</div></div>
+        <div class="tile"><div class="k">Calendar invites</div><div class="v">7,837</div><div class="s">98% of 8,000 planned</div></div>
+        <div class="tile good"><div class="k">RSVP · Yes</div><div class="v">18</div><div class="s">+15 Maybe</div></div>
+        <div class="tile"><div class="k">RSVP · No</div><div class="v">281</div><div class="s">3.6% of invites</div></div>
+        <div class="tile"><div class="k">No reply yet</div><div class="v">7,523</div><div class="s">96% of invites</div></div>
+      </div>
+    </div>
+    <div class="chrome-bot"><span class="sec">Webinar #4</span><span>2</span></div>
+  </section>
+
+  <!-- 3 · CONTENT -->
+  <section class="slide">
+    <div class="chrome-top"><span class="brand"><span class="logo-dot"></span><b>BigHammer</b>.ai · Weekly Growth Review</span><span>23 Sep 2026</span></div>
+    <div class="body">
+      <div class="eyebrow">Content — organic social, last 21 days</div>
+      <h2>Reach is strong — now we point it at the funnel</h2>
+      <div class="tiles c4">
+        <div class="tile"><div class="k">Posts published</div><div class="v">32</div><div class="s">5 accounts · 3 brands</div></div>
+        <div class="tile good"><div class="k">Impressions</div><div class="v">53,838</div><div class="s">+76 net new followers</div></div>
+        <div class="tile"><div class="k">Interactions</div><div class="v">480</div><div class="s">0.9% engagement</div></div>
+        <div class="tile warn"><div class="k">Sign-ups from social</div><div class="v">3</div><div class="s">utm-tagged registrations</div></div>
+      </div>
+      <table>
+        <thead><tr><th>Brand</th><th>Networks</th><th>Posts</th><th>Impressions</th><th>Per post</th><th>Eng.</th><th>Followers</th></tr></thead>
+        <tbody>
+          <tr><td>Srinath Reddy B</td><td style="text-align:right">LinkedIn · Facebook</td><td>4</td><td>45,707</td><td>11,427</td><td>0.8%</td><td>8,136</td></tr>
+          <tr><td>Richard Lawrence</td><td style="text-align:right">LinkedIn</td><td>25</td><td>6,750</td><td>270</td><td>0.6%</td><td>17,942</td></tr>
+          <tr><td>BigHammer.ai</td><td style="text-align:right">LinkedIn · Instagram</td><td>3</td><td>1,381</td><td>460</td><td>4.6%</td><td>4,669</td></tr>
+        </tbody>
+      </table>
+      <div class="callout">
+        <span class="tag">Action</span>
+        <p><b>We know we haven't been driving traffic from LinkedIn / social into the funnel so far — that starts now.</b>
+        <span class="sub">The reach is clearly there (53.8k in 21 days), so the job is to convert it: optimise the LinkedIn profiles, add clear “register for the webinar” calls-to-action, and make sure each profile is well presented and set up to send visitors to the landing page.</span></p>
+      </div>
+    </div>
+    <div class="chrome-bot"><span class="sec">Content</span><span>3</span></div>
+  </section>
+
+  <!-- 4 · PROPOSAL CAROUSELS (NEW) -->
+  <section class="slide">
+    <div class="chrome-top"><span class="brand"><span class="logo-dot"></span><b>BigHammer</b>.ai · Weekly Growth Review</span><span>23 Sep 2026</span></div>
+    <div class="split phone-split">
+      <div>
+        <div class="phone">
+          <div class="screen">
+            <div class="li-head">
+              <div class="li-av" id="avatar">S</div>
+              <div class="li-meta"><div class="n" id="docAuthor">Srinath Reddy B</div><div class="s" id="docSub">Document · swipe to review</div></div>
+              <div class="li-more">•••</div>
+            </div>
+            <div class="car-wrap">
+              <div class="car-count" id="carCount">1 / 3</div>
+              <button class="car-arrow l" id="carPrev" aria-label="Previous page">‹</button>
+              <button class="car-arrow r" id="carNext" aria-label="Next page">›</button>
+              <div class="car-track" id="carTrack"></div>
+            </div>
+            <div class="li-foot">
+              <div class="li-dots" id="carDots"></div>
+              <div class="li-title" id="docTitle">Proposal — content pieces</div>
+              <div class="li-sub">Swipe or use ‹ › to move through the pages · pills below switch pieces</div>
+            </div>
+          </div>
+        </div>
+        <div class="doc-pills" id="docPills"></div>
+      </div>
+      <div>
+        <div class="eyebrow">Review on the call</div>
+        <h2>Proposal carousels — content pieces</h2>
+        <div class="lede">The PDF proposals, embedded to swipe through page-by-page like a LinkedIn document post. We walk these on the call.</div>
+        <div class="decision">
+          <div class="row"><div class="mk">1</div><div>
+            <h3>Share design feedback on the content pieces</h3>
+            <p>Go through each proposal together and capture edits on layout, messaging and design before anything is scheduled.</p></div></div>
+          <div class="row warn"><div class="mk">2</div><div>
+            <h3>Decide on AI images inside the content</h3>
+            <p>Finalise whether we use AI-generated imagery in the pieces, and get explicit approval to use them in <b>Srinath's posts</b>.</p></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="chrome-bot"><span class="sec">Proposal carousels</span><span>4</span></div>
+  </section>
+
+  <!-- 5 · BLOCKERS & ACTIONS -->
+  <section class="slide">
+    <div class="chrome-top"><span class="brand"><span class="logo-dot"></span><b>BigHammer</b>.ai · Weekly Growth Review</span><span>23 Sep 2026</span></div>
+    <div class="body">
+      <div class="eyebrow warn">Blockers &amp; action points</div>
+      <h2>What we need to unblock this week</h2>
+      <div class="blocks">
+        <div class="block b-warn">
+          <div class="num">1</div>
+          <div>
+            <h3>Content pieces to review — ideation sheet is empty</h3>
+            <p>The content ideation sheet is currently a blank template. We need the team to populate the pieces due for review, then we take them through on the call.<br>
+            <a href="https://docs.google.com/spreadsheets/d/1cM5I7Ek3cwF0AYclcKeQtdamnqjoaM0eHcE-z_aTXM0/edit?gid=1635712204#gid=1635712204">docs.google.com/…/Content Ideation Sheet</a></p>
+          </div>
+          <div class="owner">Owner: Content</div>
+        </div>
+        <div class="block b-warn">
+          <div class="num">2</div>
+          <div>
+            <h3>New team-member profiles for LinkedIn outreach / content</h3>
+            <p>Identify which additional team members can be connected as senders / creators. For each we need: LinkedIn URL, headshot, short bio, and sending consent. Also fix Srinath's failed HeyReach sender.</p>
+          </div>
+          <div class="owner">Owner: Team</div>
+        </div>
+      </div>
+    </div>
+    <div class="chrome-bot"><span class="sec">Blockers</span><span>5</span></div>
+  </section>
+
+
+</div>
+
+<div class="nav">
+  <button id="prev" aria-label="Previous">&#8592;</button>
+  <span class="count"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">6</span></span>
+  <button id="next" aria-label="Next">&#8594;</button>
+</div>
+
+<script>
+  /* ----- deck navigation ----- */
+  const slides=[...document.querySelectorAll('.slide')];
+  let i=0;
+  const cur=document.getElementById('cur'),tot=document.getElementById('tot'),prog=document.getElementById('progress');
+  tot.textContent=slides.length;
+  // keep per-slide footer numbers in sync with real order
+  slides.forEach((s,k)=>{const f=s.querySelector('.chrome-bot');if(f){const sp=f.querySelectorAll('span');if(sp[1])sp[1].textContent=k+1;}});
+  function show(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+    cur.textContent=i+1;prog.style.width=((i+1)/slides.length*100)+'%';
+  }
+  document.getElementById('next').onclick=()=>show(i+1);
+  document.getElementById('prev').onclick=()=>show(i-1);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();show(i+1)}
+    if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();show(i-1)}
+    if(e.key==='Home')show(0);if(e.key==='End')show(slides.length-1);
+  });
+
+  /* ----- LinkedIn-style PDF carousels -----
+     When the real PDFs arrive, each is rendered to per-page images and listed here.
+     Shape: { name, author, initial, title, sub, pages:[imgURL,...] }
+     pages:[] renders a placeholder run so the swipe UX is visible until files are embedded. */
+  const DOCS=[
+    { name:"4 Cost Killers", author:"Srinath Reddy B", initial:"S", title:"Databricks Cost Audit \u2014 4 Hidden Cost Killers", sub:"8 pages \u00b7 BH_Databricks_4_Cost_Killers_Carousel.pdf", pages:[
+      "carousels/bh-databricks-4-cost-killers-carousel/p-1.png",
+      "carousels/bh-databricks-4-cost-killers-carousel/p-2.png",
+      "carousels/bh-databricks-4-cost-killers-carousel/p-3.png",
+      "carousels/bh-databricks-4-cost-killers-carousel/p-4.png",
+      "carousels/bh-databricks-4-cost-killers-carousel/p-5.png",
+      "carousels/bh-databricks-4-cost-killers-carousel/p-6.png",
+      "carousels/bh-databricks-4-cost-killers-carousel/p-7.png",
+      "carousels/bh-databricks-4-cost-killers-carousel/p-8.png"
+    ] },
+    { name:"4 Cost Killers \u00b7 alt", author:"Srinath Reddy B", initial:"S", title:"Four Cost Killers (alt design)", sub:"8 pages \u00b7 BigHammer-FourCostKillers (1).pdf", pages:[
+      "carousels/bighammer-fourcostkillers-1/p-1.png",
+      "carousels/bighammer-fourcostkillers-1/p-2.png",
+      "carousels/bighammer-fourcostkillers-1/p-3.png",
+      "carousels/bighammer-fourcostkillers-1/p-4.png",
+      "carousels/bighammer-fourcostkillers-1/p-5.png",
+      "carousels/bighammer-fourcostkillers-1/p-6.png",
+      "carousels/bighammer-fourcostkillers-1/p-7.png",
+      "carousels/bighammer-fourcostkillers-1/p-8.png"
+    ] },
+    { name:"Idle Cluster", author:"Srinath Reddy B", initial:"S", title:"The Cluster Nobody Turned Off", sub:"8 pages \u00b7 BH_Databricks_Idle_Cluster_Carousel.pdf", pages:[
+      "carousels/bh-databricks-idle-cluster-carousel/p-1.png",
+      "carousels/bh-databricks-idle-cluster-carousel/p-2.png",
+      "carousels/bh-databricks-idle-cluster-carousel/p-3.png",
+      "carousels/bh-databricks-idle-cluster-carousel/p-4.png",
+      "carousels/bh-databricks-idle-cluster-carousel/p-5.png",
+      "carousels/bh-databricks-idle-cluster-carousel/p-6.png",
+      "carousels/bh-databricks-idle-cluster-carousel/p-7.png",
+      "carousels/bh-databricks-idle-cluster-carousel/p-8.png"
+    ] },
+    { name:"Photon \u00b7 10p", author:"Srinath Reddy B", initial:"S", title:"Photon \u2014 Running It on the Wrong Workloads", sub:"10 pages \u00b7 BigHammer-Photon-Carousel (3).pdf", pages:[
+      "carousels/bighammer-photon-carousel-3/p-1.png",
+      "carousels/bighammer-photon-carousel-3/p-2.png",
+      "carousels/bighammer-photon-carousel-3/p-3.png",
+      "carousels/bighammer-photon-carousel-3/p-4.png",
+      "carousels/bighammer-photon-carousel-3/p-5.png",
+      "carousels/bighammer-photon-carousel-3/p-6.png",
+      "carousels/bighammer-photon-carousel-3/p-7.png",
+      "carousels/bighammer-photon-carousel-3/p-8.png",
+      "carousels/bighammer-photon-carousel-3/p-9.png",
+      "carousels/bighammer-photon-carousel-3/p-10.png"
+    ] },
+    { name:"Photon \u00b7 9p", author:"Srinath Reddy B", initial:"S", title:"Databricks Photon (9 pages)", sub:"9 pages \u00b7 BigHammer_Photon_Carousel.pdf", pages:[
+      "carousels/bighammer-photon-carousel/p-1.png",
+      "carousels/bighammer-photon-carousel/p-2.png",
+      "carousels/bighammer-photon-carousel/p-3.png",
+      "carousels/bighammer-photon-carousel/p-4.png",
+      "carousels/bighammer-photon-carousel/p-5.png",
+      "carousels/bighammer-photon-carousel/p-6.png",
+      "carousels/bighammer-photon-carousel/p-7.png",
+      "carousels/bighammer-photon-carousel/p-8.png",
+      "carousels/bighammer-photon-carousel/p-9.png"
+    ] },
+    { name:"Bill Up Again", author:"Srinath Reddy B", initial:"S", title:"Why Did Our Databricks Bill Go Up Again?", sub:"1 page \u00b7 BigHammer-BillUpAgain (1).pdf", pages:[
+      "carousels/bighammer-billupagain-1/p-1.png"
+    ] },
+    { name:"Guardrails", author:"Srinath Reddy B", initial:"S", title:"Databricks Cost Guardrails \u2014 Spec Sheet", sub:"1 page \u00b7 BigHammer-Guardrails (1).pdf", pages:[
+      "carousels/bighammer-guardrails-1/p-1.png"
+    ] }
+  ];
+  const track=document.getElementById('carTrack'),dots=document.getElementById('carDots'),
+        count=document.getElementById('carCount'),pills=document.getElementById('docPills'),
+        av=document.getElementById('avatar'),author=document.getElementById('docAuthor'),
+        sub=document.getElementById('docSub'),title=document.getElementById('docTitle'),
+        cPrev=document.getElementById('carPrev'),cNext=document.getElementById('carNext');
+  let docIdx=0,pageCount=0,curPage=0;
+
+  function renderPills(){
+    pills.innerHTML='';
+    DOCS.forEach((d,k)=>{
+      const b=document.createElement('button');b.textContent=d.name;b.className=k===docIdx?'on':'';
+      b.onclick=()=>{docIdx=k;renderDoc();};pills.appendChild(b);
+    });
+    pills.style.display=DOCS.length>1?'flex':'none';
+  }
+  function renderDoc(){
+    const d=DOCS[docIdx];
+    av.textContent=d.initial||'•';author.textContent=d.author||d.name;
+    sub.textContent=d.sub||'Document';title.textContent=d.title||d.name;
+    const pages=(d.pages&&d.pages.length)?d.pages:[null,null,null]; // placeholder run
+    pageCount=pages.length;
+    track.innerHTML='';dots.innerHTML='';
+    pages.forEach((src,k)=>{
+      const p=document.createElement('div');
+      if(src){p.className='page';const im=new Image();im.src=src;im.alt=d.name+' page '+(k+1);p.appendChild(im);}
+      else{p.className='page ph';p.innerHTML='<div class="pn">'+(k+1)+'</div><div class="pt">PDF page will render here — send the file to embed it</div>';}
+      track.appendChild(p);
+      const dot=document.createElement('i');if(k===0)dot.className='on';dot.style.cursor='pointer';dot.onclick=()=>goTo(k);dots.appendChild(dot);
+    });
+    curPage=0;renderPills();apply();
+  }
+  function updateCount(idx){
+    count.textContent=(idx+1)+' / '+pageCount;
+    [...dots.children].forEach((d,k)=>d.classList.toggle('on',k===idx));
+    cPrev.disabled=idx<=0;cNext.disabled=idx>=pageCount-1;
+  }
+  function apply(){track.style.transition='';track.style.transform='translateX(-'+(curPage*100)+'%)';updateCount(curPage);}
+  function goTo(k){curPage=Math.max(0,Math.min(pageCount-1,k));apply();}
+  cPrev.onclick=()=>goTo(curPage-1);
+  cNext.onclick=()=>goTo(curPage+1);
+  // pointer / touch drag — swipe like a LinkedIn document
+  const wrap=document.querySelector('.car-wrap');
+  let dragX=null,dragDX=0;
+  wrap.addEventListener('pointerdown',e=>{if(e.target.closest('.car-arrow'))return;dragX=e.clientX;dragDX=0;track.style.transition='none';try{wrap.setPointerCapture(e.pointerId)}catch(_){}});
+  wrap.addEventListener('pointermove',e=>{if(dragX==null)return;dragDX=e.clientX-dragX;track.style.transform='translateX(calc(-'+(curPage*100)+'% + '+dragDX+'px))';});
+  function endDrag(){if(dragX==null)return;const w=wrap.clientWidth||1;if(dragDX<-w*0.18)goTo(curPage+1);else if(dragDX>w*0.18)goTo(curPage-1);else apply();dragX=null;dragDX=0;}
+  wrap.addEventListener('pointerup',endDrag);wrap.addEventListener('pointercancel',endDrag);
+
+  renderDoc();
+  show(0);
+</script>
+</body>
+</html>

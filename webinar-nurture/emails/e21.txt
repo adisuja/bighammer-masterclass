@@ -1,0 +1,45 @@
+Hi {{contact.first_name}},
+
+Both runs succeeded and the data didn't match. Here's the checklist that catches it, in the order we run it.
+
+
+THE FIVE CHECKS
+
+1. Row and column counts. The fastest signal that something is off.
+2. Schema. Same columns, same types.
+3. Null rates per column. Catches silent handling changes.
+4. Numeric aggregates. Sums, minimums and maximums on key measures.
+5. Row-level comparison. By business key, or by hash when there's no clean key.
+
+-- rows in the original output that the migrated output doesn't have
+SELECT order_id, customer_id, ROUND(amount, 2) AS amount, order_date
+FROM original.orders_daily
+EXCEPT ALL
+SELECT order_id, customer_id, ROUND(amount, 2) AS amount, order_date
+FROM migrated.orders_daily
+
+List the columns explicitly (set operations match by position), round floating-point measures to the tolerance you agreed, and run it both ways round. Zero rows in both directions is parity at row level.
+
+WHAT GOOD LOOKS LIKE
+
+- Run the old and new jobs side by side on cloned data, so production is never touched.
+- Agree the checks and tolerances with the business owner before the migration starts.
+- Cut over in small groups of jobs, not all at once.
+- Keep the comparison results as evidence for sign-off.
+
+HOW BIGHAMMER DOES THIS
+
+BigHammer Migrate runs the migrated job alongside the original and compares the outputs using these checks, so the cutover decision is based on evidence rather than confidence.
+
+See a parity run on a 30-minute call: https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e21-book-text
+
+That's all eight steps. Next time, a quick way to see where you stand on each.
+
+Best wishes,
+Richard
+
+Richard Lawrence
+BigHammer.ai
+
+BigHammer.ai Inc., 5900 Balcones Drive # 29129, Austin, TX 78731
+Unsubscribe: {{unsubscribe_link}}

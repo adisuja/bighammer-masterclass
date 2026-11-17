@@ -1,0 +1,44 @@
+Hi {{contact.first_name}},
+
+The bill went up this quarter. Someone asks which team or pipeline caused it. The room goes quiet.
+
+That's not a people problem. It's a visibility problem, and it's more common than most teams expect.
+
+
+WHY SO MUCH SPEND HAS NO JOB ATTACHED
+
+Every row in system.billing.usage carries metadata. When work runs as a Databricks job, that metadata includes a job ID and a job run ID. When it doesn't, the link is missing. The usual reasons:
+
+- Scheduled work running on interactive (All-Purpose) clusters instead of job clusters.
+- Shared clusters used by several teams at once.
+- Notebooks and ad-hoc analysis that never became jobs.
+- Clusters with no owner or cost-centre tags.
+- Usage rows that don't match a published list price, so they can't be priced cleanly.
+
+The result is a large slice of spend you can see but can't explain.
+
+> Untraced does not mean wasted. It means nobody can say what it bought.
+
+That distinction matters. If someone hands you a savings figure that includes your untraced spend, they're guessing. We never count it as savings, because it isn't proven waste.
+
+CHECK IT YOURSELF THIS WEEK
+
+- What share of your billing usage rows have usage_metadata.job_run_id set.
+- Which scheduled jobs run on All-Purpose clusters rather than job clusters.
+- How many clusters have no owner or cost-centre tag.
+- How many usage rows have no matching list price.
+
+All four are chapters in the Field Guide (https://adisuja.github.io/bighammer-masterclass/cost-field-guide/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e05-guide-text), with the SQL ready to copy.
+
+Want us to look at your traced percentage with you? Book 30 minutes: https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e05-book-text
+
+What do you think your traced percentage is? Reply with a guess before you run the query. Most people guess high.
+
+Best wishes,
+Richard
+
+Richard Lawrence
+BigHammer.ai
+
+BigHammer.ai Inc., 5900 Balcones Drive # 29129, Austin, TX 78731
+Unsubscribe: {{unsubscribe_link}}

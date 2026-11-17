@@ -1,0 +1,38 @@
+Hi {{contact.first_name}},
+
+"Should we move off Databricks?" comes up in a lot of our conversations. It's the wrong question. It forces an all-or-nothing answer, and neither answer is right.
+
+The better question is: which jobs?
+
+
+WHY EVERYTHING ENDS UP IN ONE PLACE
+
+Databricks is usually adopted for the work it's best at: machine learning, streaming, complex large-scale processing. Then the simple nightly ETL lands there too, because that's where the data is. Then the next batch job, because the pipelines are already there.
+
+Over time, everything runs on the same platform at the same rates, whether it needs to or not. It's a little like running a three-star kitchen and using it to make toast. The toast is fine. It's just very expensive toast.
+
+CHECK IT YOURSELF THIS WEEK
+
+For your 20 most expensive jobs, note:
+
+- Task types: notebook, Python, JAR, SQL, DLT pipeline, ML.
+- Shape: how many tasks, and how many dependencies between them.
+- Platform features in use: Photon, serverless, GPUs, streaming.
+- Databricks-only code: dbutils, Databricks SDK calls, or other APIs that only exist on Databricks.
+
+You'll quickly see two groups. Jobs that use what makes Databricks special, and jobs that would run happily anywhere.
+
+> The goal isn't to leave. It's to stop paying premium rates for work that doesn't need a premium platform.
+
+Next email: how we turn that list into five clear outcomes, job by job.
+
+Talk through your top 20 jobs with us: https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e17-book-text
+
+Best wishes,
+Richard
+
+Richard Lawrence
+BigHammer.ai
+
+BigHammer.ai Inc., 5900 Balcones Drive # 29129, Austin, TX 78731
+Unsubscribe: {{unsubscribe_link}}

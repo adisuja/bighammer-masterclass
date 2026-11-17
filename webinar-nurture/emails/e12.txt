@@ -1,0 +1,44 @@
+Hi {{contact.first_name}},
+
+This one is written to be forwarded. If your security or platform team needs to approve the offline assessment, send them this email as it is.
+
+
+WHAT THE ASSESSMENT READS
+
+Read-only access to seven Databricks system tables: lakeflow.jobs, lakeflow.job_run_timeline, lakeflow.job_task_run_timeline, billing.usage, billing.list_prices, compute.clusters and compute.node_timeline. The queries are published in full on the assessment page, so your team can read every line before anything runs.
+
+THE QUESTIONS WE ALWAYS GET
+
+Does BigHammer get access to our workspace?
+No. Your own team runs the queries, in your own SQL warehouse session, under your own identity.
+
+Is anything installed?
+No. It's plain SQL. No libraries, agents or service principals.
+
+What does it write?
+One temporary view, and one result table per query in a catalog and schema you choose. Nothing else is created or changed.
+
+What data leaves our environment?
+Only the CSV files you export: job names and IDs, run and task records, priced usage rows, cluster configuration (including tags), and CPU and memory samples. No table data, no source code, no secrets or tokens. Open every file before you send it.
+
+What compute does it use?
+One SQL warehouse session for the duration of the queries.
+
+IN ONE LINE FOR THE APPROVAL TICKET: Seven published, read-only SQL queries, run by our own team in our own SQL warehouse, saving results to a schema we choose. We review the CSV extracts before anything is shared.
+
+The optional connected assessment, which adds job-by-job classification, is a separate step with its own approval. Nothing above changes unless you choose it.
+
+Request a walkthrough for your security team: https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e12-book-text
+
+Or read the queries on the assessment page: https://assessment.bighammerops.com/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e12-assess-text
+
+Has security been the blocker for cost work in your organisation before? Reply and tell me what they asked.
+
+Speak soon,
+Richard
+
+Richard Lawrence
+BigHammer.ai
+
+BigHammer.ai Inc., 5900 Balcones Drive # 29129, Austin, TX 78731
+Unsubscribe: {{unsubscribe_link}}

@@ -1,0 +1,37 @@
+Hi {{contact.first_name}},
+
+Here's a simple test you can apply to any savings proposal that lands on your desk, from us or from anyone else.
+
+
+1. WHICH PARTS WERE MEASURED FROM YOUR OWN DATA?
+
+Not benchmarked, not "typical for companies like you". Measured, from your billing and run history. If the answer is "none of it", you're reading a brochure.
+
+2. WHICH PARTS WERE ASSUMED, AND AT WHAT RATE?
+
+An estimate is fine. A hidden assumption isn't. Ask for the rate and the rule: "we assumed this cluster can drop from 8 to 4 workers because its 30-day p95 CPU is 32%" is checkable. "Typically 30 to 50%" is not.
+
+3. WHAT'S EXCLUDED?
+
+Contract discounts, cloud VM costs and untraced spend change the picture. A savings figure at list price on a heavily discounted contract can be wildly optimistic.
+
+4. COULD THE TOTAL SAVINGS EXCEED WHAT YOU ACTUALLY SPEND?
+
+If the answer isn't an obvious no, something is double-counted. Moving a job to Jobs compute and then right-sizing it are not two savings on the same dollar. The second applies to what's left after the first.
+
+> Run this test on our numbers too. We'd rather you trusted a smaller figure than doubted a bigger one.
+
+CHECK IT YOURSELF THIS WEEK
+
+Take the last savings estimate you were shown, internal or external, and run it through the four questions. Reply and tell me how it held up. I won't ask whose it was.
+
+Want us to pressure-test a number with you? Book 30 minutes: https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e14-book-text
+
+All the best,
+Richard
+
+Richard Lawrence
+BigHammer.ai
+
+BigHammer.ai Inc., 5900 Balcones Drive # 29129, Austin, TX 78731
+Unsubscribe: {{unsubscribe_link}}

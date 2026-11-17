@@ -1,0 +1,32 @@
+Hi {{contact.first_name}},
+
+In my first email I asked when your next Databricks renewal or commit discussion is. Here's why the date matters so much.
+
+
+The evidence that strengthens a renewal takes time to build. Thirty days out, you can only argue about price. Six months out, you can change what you're committing to.
+
+WHAT TO HAVE READY, AND WHEN
+
+- 180 days out: a 90-day baseline and your traced percentage.
+- 120 days out: your top 10 jobs with owners, and failed-run cost.
+- 90 days out: a full assessment, with measured and estimated figures separated.
+- 60 days out: a job-by-job classification and a keep-versus-move list.
+- 30 days out: a negotiation pack built on evidence, not the invoice.
+
+WHAT THAT LOOKS LIKE IN PRACTICE
+
+In the masterclass, Srinath shared a healthcare client who went through optimisation and migration with us: more than $3M a year in cost avoidance, and over 400% ROI.
+
+If your renewal is within the next six months, now is the moment. A 30-minute call is enough to tell you where you are on the timeline and what to do first.
+
+Book 30 minutes before your renewal: https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e10-book-text
+
+Richard
+
+P.S. If your renewal is more than six months away, you have the best possible position. Start with the offline assessment (https://assessment.bighammerops.com/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e10-assess-text) and you'll walk into that conversation with everything above.
+
+Richard Lawrence
+BigHammer.ai
+
+BigHammer.ai Inc., 5900 Balcones Drive # 29129, Austin, TX 78731
+Unsubscribe: {{unsubscribe_link}}

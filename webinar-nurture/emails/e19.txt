@@ -1,0 +1,30 @@
+Hi {{contact.first_name}},
+
+Here's an offer that takes less preparation than anything else in this series.
+
+
+Book 30 minutes and bring the names of your three most expensive Databricks jobs. If you know roughly what they do and what they're built in, even better. That's all the preparation needed.
+
+ON THE CALL WE'LL
+
+- Score each one for complexity and Databricks dependency.
+- Place it in one of the five outcomes: keep, migrate, optimise then evaluate, evaluate or defer.
+- Tell you why, in plain terms, and what the next step would be.
+
+You leave with three decisions you can defend, and they're yours to keep.
+
+WHY THREE?
+
+Because three is enough to see the pattern. If two of your three most expensive jobs belong on Databricks, that's useful to know before a renewal. If two of them are simple batch jobs paying premium rates, that's even more useful.
+
+Book your 30 minutes: https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e19-book-text
+
+Richard
+
+P.S. If you've already run the offline assessment (https://assessment.bighammerops.com/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e19-assess-text), mention it when you book and we'll bring your full job list instead of three.
+
+Richard Lawrence
+BigHammer.ai
+
+BigHammer.ai Inc., 5900 Balcones Drive # 29129, Austin, TX 78731
+Unsubscribe: {{unsubscribe_link}}

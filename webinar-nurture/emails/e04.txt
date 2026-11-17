@@ -1,0 +1,34 @@
+Hi {{contact.first_name}},
+
+A lot of people tell us they'd like to book a call but aren't sure what they're signing up for. Fair enough. Here's exactly what the 30 minutes look like.
+
+
+MINUTES 0 TO 5: YOUR CONTEXT
+
+Your platform, roughly what you spend, when your renewal or commit date is, and the one question you need answered. That's it.
+
+MINUTES 5 TO 20: YOUR NUMBERS, NOT OURS
+
+If you've run the offline assessment, we walk through your report together. If you haven't, we look at what your system tables can tell you and run the first checks live. Either way we're looking at your workloads, not a generic demo.
+
+MINUTES 20 TO 30: WHAT YOU LEAVE WITH
+
+- The three cost drivers worth looking at first.
+- Which of your numbers are measured and which would be estimates.
+- An honest view of whether a full assessment is worth your time. Sometimes it isn't, and we'll tell you.
+
+There's no pitch deck. If BigHammer can help, you'll see how. If it can't, you've still got a clearer picture of your spend than you had at the start.
+
+Request your 30-minute call: https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e04-book-text
+
+Bring whoever owns the bill. The conversation is most useful when the person who has to defend the spend is in the room.
+
+Richard
+
+P.S. If your renewal is less than 90 days away, mention it in the request form and we'll prioritise it.
+
+Richard Lawrence
+BigHammer.ai
+
+BigHammer.ai Inc., 5900 Balcones Drive # 29129, Austin, TX 78731
+Unsubscribe: {{unsubscribe_link}}

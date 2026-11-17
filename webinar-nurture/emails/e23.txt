@@ -1,0 +1,30 @@
+Hi {{contact.first_name}},
+
+This series has mostly been about your numbers. Today I want to share someone else's words.
+
+
+Anushka is the Founder and CEO of SBC Labs. Here's how she described working with us:
+
+> "BigHammer transformed a multi-year data engineering challenge into a production-ready platform in months, without requiring a technical team."
+
+Three parts of that sentence are worth pausing on, because they come up in almost every conversation we have:
+
+- Multi-year. Most data platform problems aren't new. They've been on the roadmap for a long time because nobody has the capacity to finish them.
+- Months. The timeline changes when the repetitive engineering work is automated rather than hand-built.
+- Without requiring a technical team. BigHammer's agents generate, build and deploy the repetitive pipeline work, so the project doesn't wait for a hiring plan and your engineers keep their time for the problems only they can solve.
+
+If you've got a data problem that has sat on the roadmap for longer than anyone would like, it's worth 30 minutes to find out whether it needs to.
+
+Book a 30-minute call: https://bighammer.ai/book-demo/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e23-book-text
+
+We'll look at what's stuck, what it's costing you, and whether we can move it. If it isn't a fit, we'll say so on the call.
+
+Richard
+
+P.S. What's the data project that has been "next quarter" for longest in your team? Reply and tell me. No pitch, I'm genuinely curious.
+
+Richard Lawrence
+BigHammer.ai
+
+BigHammer.ai Inc., 5900 Balcones Drive # 29129, Austin, TX 78731
+Unsubscribe: {{unsubscribe_link}}

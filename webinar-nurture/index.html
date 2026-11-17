@@ -1,0 +1,116 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BigHammer.ai · Webinar nurture sequence (24 emails)</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="brand/bighammer-icon-dark.svg">
+<link rel="stylesheet" href="brand/brand.css?v=6">
+<style>
+:root{--side:380px}
+body{background:#F4F2FA;min-height:100vh}
+header.app{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:22px;padding:14px 24px;background:#0D0D14;color:#fff}
+header.app img{height:28px}
+header.app .t{font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:#FF4FA3}
+header.app nav{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
+header.app nav a{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#fff;text-decoration:none;padding:9px 14px;border:1px solid rgba(255,255,255,.18);border-radius:6px}
+header.app nav a.y{background:var(--yellow);color:var(--ink);border-color:var(--yellow)}
+.layout{display:grid;grid-template-columns:var(--side) 1fr;min-height:calc(100vh - 56px)}
+aside{background:#fff;border-right:1px solid var(--grey-200);height:calc(100vh - 56px);position:sticky;top:56px;overflow:auto}
+.intro{padding:22px 22px 14px;background:linear-gradient(180deg,#F4EEFF,#fff)}
+.intro h1{font-family:var(--font-display);font-weight:800;text-transform:uppercase;font-size:22px;line-height:1.1}
+.intro h1 em{font-style:normal;color:var(--violet)}
+.intro p{font-size:13px;color:var(--grey-600);margin-top:8px;line-height:1.5}
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.filters button{font:600 12px var(--font-body);padding:6px 10px;border-radius:999px;border:1px solid var(--grey-200);background:#fff;cursor:pointer;color:var(--grey-600)}
+.filters button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.phase{font-family:var(--font-display);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-400);padding:16px 22px 6px}
+.item{display:grid;grid-template-columns:44px 1fr;gap:10px;padding:12px 22px;cursor:pointer;border-left:3px solid transparent}
+.item:hover{background:var(--lav-50)}
+.item.on{background:var(--lav-100);border-left-color:var(--violet)}
+.item .n{font-family:var(--font-display);font-weight:800;font-size:18px;color:var(--violet);line-height:1}
+.item .n small{display:block;font-family:var(--font-body);font-weight:600;font-size:10px;letter-spacing:.06em;color:var(--grey-400);margin-top:5px;text-transform:uppercase}
+.item .s{font-size:13.5px;font-weight:600;line-height:1.35;color:var(--ink)}
+.k{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 7px;border-radius:5px;margin-top:6px}
+.k.Teach{background:var(--lav-100);color:var(--violet)}
+.k.Book{background:#FFF6A8;color:#5c5a00}
+.k.Lead{background:#E3F8EE;color:#00804A}
+.k.Welcome,.k.Recap{background:#FFE3F1;color:#B0005A}
+main{padding:26px 30px 60px;min-width:0}
+.bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.tabs{display:flex;gap:4px;background:#fff;border:1px solid var(--grey-200);border-radius:10px;padding:4px}
+.tabs button{font:600 13px var(--font-body);padding:8px 14px;border:0;border-radius:7px;background:transparent;cursor:pointer;color:var(--grey-600)}
+.tabs button.on{background:var(--ink);color:#fff}
+.nav{margin-left:auto;display:flex;gap:6px}
+.nav button{font:600 13px var(--font-body);padding:9px 14px;border:1px solid var(--grey-200);border-radius:8px;background:#fff;cursor:pointer}
+.mail{background:#fff;border:1px solid var(--grey-200);border-radius:14px;overflow:hidden;box-shadow:0 20px 40px -24px rgba(54,0,160,.25)}
+.inboxrow{display:flex;align-items:center;gap:12px;padding:12px 18px;border-bottom:1px solid var(--grey-200);background:#FAFAFD;font-size:14px;overflow:hidden;white-space:nowrap}
+.inboxrow b{font-weight:600}
+.inboxrow .pre{color:var(--grey-600);overflow:hidden;text-overflow:ellipsis}
+.inboxrow .tag{margin-left:auto;font-size:12px;color:var(--grey-400)}
+.mhead{padding:20px 24px 14px}
+.mhead h2{font-family:var(--font-body);font-weight:500;font-size:22px;line-height:1.3;color:#1f1f1f}
+.from{display:flex;align-items:center;gap:12px;margin-top:14px}
+.from img{width:40px;height:40px;border-radius:50%}
+.from b{font-size:14px}.from span{font-size:13px;color:var(--grey-600)}
+.frame{background:#F4F2FA;display:flex;justify-content:center;padding:0;border-top:1px solid var(--grey-200)}
+iframe{border:0;width:100%;max-width:100%;height:1200px;background:#F4F2FA;transition:width .2s}
+.frame.mobile iframe{width:390px;border-left:1px solid var(--grey-200);border-right:1px solid var(--grey-200)}
+pre.txt{white-space:pre-wrap;font:14px/1.6 var(--font-mono);padding:24px;color:var(--ink)}
+table.links{width:100%;border-collapse:collapse;font-size:13px}
+table.links td,table.links th{padding:10px 14px;border-bottom:1px solid var(--grey-200);text-align:left;vertical-align:top}
+table.links th{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey-400)}
+table.links code{font-family:var(--font-mono);font-size:12px;word-break:break-all;color:var(--violet)}
+.visual{padding:24px;text-align:center}
+.visual img{max-width:100%;border-radius:12px;box-shadow:var(--shadow)}
+.visual p{font-size:13px;color:var(--grey-600);margin-top:12px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.meta span{font-size:12px;font-weight:600;padding:6px 10px;border-radius:7px;background:#fff;border:1px solid var(--grey-200)}
+@media (max-width:900px){.layout{grid-template-columns:1fr}aside{position:static;height:auto;max-height:46vh}main{padding:16px}.frame.mobile iframe{width:100%}header.app nav{display:none}}
+</style></head><body>
+<header class="app"><img src="brand/bighammer-logo-light.svg" alt="BigHammer.ai"><span class="t">Webinar nurture · review</span>
+ <nav><a href="https://adisuja.github.io/bighammer-masterclass/cost-field-guide/" target="_blank">Lead magnet A: Field Guide</a><a href="https://adisuja.github.io/bighammer-masterclass/cost-xray/" target="_blank">Lead magnet B: Cost X-Ray</a><a class="y" href="#plan" id="planlink">Schedule</a></nav></header>
+<div class="layout">
+ <aside>
+  <div class="intro"><h1>24 emails.<br><em>24 weeks.</em></h1>
+   <p>Post-webinar nurture for Databricks cost leads. Weeks 1 to 8: two emails a week. Weeks 10 to 24: one every two weeks. Signed by Richard Lawrence. Every link carries UTMs.</p>
+   <div class="filters" id="filters"></div></div>
+  <div id="list"></div>
+ </aside>
+ <main>
+  <div class="bar"><div class="tabs" id="tabs"><button data-t="email" class="on">Email</button><button data-t="mobile">Mobile</button><button data-t="text">Plain text</button><button data-t="links">Links &amp; UTMs</button><button data-t="visual">Hero visual</button></div>
+   <div class="nav"><button id="prev">&larr; Prev</button><button id="next">Next &rarr;</button></div></div>
+  <div class="meta" id="meta"></div>
+  <div class="mail">
+   <div class="inboxrow" id="inboxrow"></div>
+   <div class="mhead"><h2 id="subj"></h2><div class="from"><img src="img/richard.jpg" alt=""><div><b>Richard Lawrence</b> <span>&lt;richard@bighammer.ai&gt;</span><br><span>to me</span></div></div></div>
+   <div id="pane"></div>
+  </div>
+ </main>
+</div>
+<script src="data.js?v=6"></script>
+<script>
+const S=window.SEQ, $=s=>document.querySelector(s);
+let cur=1, tab='email', filt='All';
+const kinds=['All','Teach','Lead magnet','Book a call','Welcome','Recap'];
+$('#filters').innerHTML=kinds.map(k=>`<button data-k="${k}" class="${k==='All'?'on':''}">${k}${k==='All'?'':' ('+S.filter(e=>e.kind===k).length+')'}</button>`).join('');
+$('#filters').onclick=e=>{const k=e.target.dataset.k;if(!k)return;filt=k;[...$('#filters').children].forEach(b=>b.classList.toggle('on',b.dataset.k===k));list()};
+function list(){let h='',ph='';S.forEach(e=>{if(filt!=='All'&&e.kind!==filt)return;const p=e.week<=8?'Phase 1 · two a week':'Phase 2 · fortnightly';if(p!==ph){h+=`<div class="phase">${p}</div>`;ph=p}
+ h+=`<div class="item ${e.n===cur?'on':''}" data-n="${e.n}"><div class="n">${String(e.n).padStart(2,'0')}<small>Wk ${e.week}</small></div><div><div class="s">${e.subject}</div><span class="k ${e.kind.split(' ')[0]}">${e.kind}</span></div></div>`});$('#list').innerHTML=h}
+$('#list').onclick=e=>{const it=e.target.closest('.item');if(it)go(+it.dataset.n)};
+$('#tabs').onclick=e=>{const t=e.target.dataset.t;if(!t)return;tab=t;[...$('#tabs').children].forEach(b=>b.classList.toggle('on',b.dataset.t===t));show()};
+$('#prev').onclick=()=>go(Math.max(1,cur-1));$('#next').onclick=()=>go(Math.min(S.length,cur+1));
+document.onkeydown=e=>{if(e.key==='ArrowRight')$('#next').click();if(e.key==='ArrowLeft')$('#prev').click()};
+function go(n){cur=n;location.hash='e'+String(n).padStart(2,'0');list();show();window.scrollTo({top:0})}
+function show(){const e=S[cur-1],id='e'+String(cur).padStart(2,'0');
+ $('#meta').innerHTML=`<span>Email ${e.n} of 24</span><span>Week ${e.week} · day ${e.day}</span><span>${e.kind}</span><span>${e.label}</span><span>${e.links.length} tracked links</span>`;
+ $('#inboxrow').innerHTML=`<b>Richard Lawrence</b><span><b>${e.subject}</b> <span class="pre">: ${e.preheader}</span></span><span class="tag">Inbox preview</span>`;
+ $('#subj').textContent=e.subject;
+ const P=$('#pane');
+ if(tab==='email'||tab==='mobile'){P.innerHTML=`<div class="frame ${tab==='mobile'?'mobile':''}"><iframe id="f" src="emails/${id}.html?v=6" title="email"></iframe></div>`;
+  const f=$('#f');f.onload=()=>{try{f.style.height=(f.contentDocument.documentElement.scrollHeight+20)+'px'}catch(x){}}}
+ else if(tab==='text'){fetch(`emails/${id}.txt?v=6`).then(r=>r.text()).then(t=>{P.innerHTML='<pre class="txt"></pre>';P.firstChild.textContent=t})}
+ else if(tab==='links'){P.innerHTML=`<table class="links"><tr><th>Link</th><th>utm_content</th><th>Full URL</th></tr>${e.links.map(l=>`<tr><td>${l.label}</td><td><code>${l.slug}</code></td><td><a href="${l.url}" target="_blank"><code>${l.url}</code></a></td></tr>`).join('')}</table>`}
+ else {P.innerHTML=`<div class="visual"><img src="img/${id}.jpg?v=6" alt="${e.alt}"><p>${e.alt}</p></div>`}
+}
+$('#planlink').onclick=ev=>{ev.preventDefault();const rows=S.map(e=>`<tr><td>${e.n}</td><td>Week ${e.week}</td><td>Day ${e.day}</td><td>${e.kind}</td><td>${e.subject}</td></tr>`).join('');
+ $('#pane').innerHTML=`<table class="links"><tr><th>#</th><th>Week</th><th>Day</th><th>Type</th><th>Subject</th></tr>${rows}</table>`;$('#subj').textContent='Send schedule (day 0 = the day after the webinar)';$('#inboxrow').innerHTML='<b>Schedule</b>';$('#meta').innerHTML=''};
+const h=location.hash.match(/e(\d+)/);go(h?+h[1]:1);
+</script></body></html>

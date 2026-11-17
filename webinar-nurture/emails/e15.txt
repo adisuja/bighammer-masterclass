@@ -1,0 +1,56 @@
+Hi {{contact.first_name}},
+
+Somebody sized a cluster for a peak load months ago. Maybe during an incident, maybe for a one-off backfill. The peak passed. The cluster size didn't.
+
+It still runs at that size every night.
+
+WHY OVERSIZED CLUSTERS STAY OVERSIZED
+
+Cluster size and autoscaling settings get set once and rarely revisited. Classic compute is billed on nodes and hours, not on how busy those nodes are. A cluster at 15% CPU costs the same as one at 90%.
+
+The good news: Databricks already records what your clusters were doing, in system.compute.node_timeline.
+
+
+WHY THE 95TH PERCENTILE MATTERS
+
+An average can hide a spike. A cluster that averages 18% because of short bursts to 95% needs better autoscaling. A cluster that never goes above 30% needs a smaller size. Same average, different fix. The 95th percentile shows sustained load, and the maximum shows the spikes.
+
+SELECT cluster_id,
+       COUNT(DISTINCT date_trunc('minute', start_time)) AS observed_minutes,
+       AVG(cpu_user_percent + cpu_system_percent)  AS avg_cpu,
+       percentile_approx(cpu_user_percent + cpu_system_percent, 0.95) AS p95_cpu,
+       MAX(cpu_user_percent + cpu_system_percent)  AS max_cpu
+FROM system.compute.node_timeline
+WHERE driver = false
+  AND start_time >= current_date() - INTERVAL 30 DAYS
+GROUP BY cluster_id
+HAVING observed_minutes >= 30 AND avg_cpu < 20 AND p95_cpu < 40
+ORDER BY avg_cpu
+
+Read max_cpu alongside the others. A low p95 with a high max means short spikes: fix autoscaling. A low p95 and a low max means the cluster is simply too big: downsize. (Single-node clusters have no workers, so they won't appear. Serverless and SQL warehouses aren't in this table.)
+
+CHECK IT YOURSELF THIS WEEK
+
+- Clusters that ran 30 minutes or more, averaged under 20% CPU and stayed under 40% even at their 95th percentile. Those aren't busy, they're oversized.
+- Clusters where autoscale minimum equals maximum, which means autoscaling is effectively off.
+- Interactive clusters with no auto-termination set.
+
+WHAT GOOD LOOKS LIKE
+
+- Right-size from real utilisation, not from the size someone picked last year.
+- Give autoscaling a real range.
+- Auto-terminate interactive clusters.
+- Review your top 10 clusters by cost every quarter.
+
+Any dollar figure attached to right-sizing is an estimate, and should be labelled as one.
+
+The free Cost X-Ray flags under-used clusters from one query: https://adisuja.github.io/bighammer-masterclass/cost-xray/?utm_source=newsletter&utm_medium=email&utm_campaign=dbx-webinar-nurture-2026&utm_content=e15-xray-text
+
+Until next time,
+Richard
+
+Richard Lawrence
+BigHammer.ai
+
+BigHammer.ai Inc., 5900 Balcones Drive # 29129, Austin, TX 78731
+Unsubscribe: {{unsubscribe_link}}
